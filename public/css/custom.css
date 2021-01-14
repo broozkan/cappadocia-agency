@@ -1,0 +1,18 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+
+/* ADVENTURE GRID */
+.banner-adventure-grid-wrapper{
+    background: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 665px;
+    margin-bottom: 60px;
+    position: relative;
+}
+}
