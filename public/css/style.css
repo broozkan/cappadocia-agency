@@ -2481,7 +2481,7 @@ video {
   }
 }
 .custom-search-input-2 select {
-  display: none;
+  
 }
 .custom-search-input-2 .nice-select .current {
   font-weight: 500;
@@ -4097,7 +4097,6 @@ section#reviews {
 .reviews-container .review-box {
   position: relative;
   margin-bottom: 25px;
-  padding-left: 100px;
   min-height: 100px;
 }
 @media (max-width: 767px) {
@@ -4565,7 +4564,7 @@ ul.hotel_facilities li img {
 }
 
 #register_bg {
-  background: url(../img/hero_in_bg_2.jpg) center center no-repeat fixed;
+  background: url(../img/banner_bg_desktop.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

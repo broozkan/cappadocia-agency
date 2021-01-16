@@ -7,6 +7,8 @@ import SectionAdventureBanner from '../../components/Section/SectionAdventureBan
 import SectionParallax from '../../components/Section/SectionParallax'
 import Footer from '../../components/Footer/Footer'
 import SectionAdventureGrid from '../../components/Section/SectionAdventureGrid'
+import ModalLogin from '../../components/Modal/ModalLogin'
+import ModalForgetPassword from '../../components/Modal/ModalForgetPassword'
 
 const HomeView = () => {
     return (
@@ -18,6 +20,8 @@ const HomeView = () => {
             <SectionPopularHotels />
             <SectionParallax />
             <Footer />
+            <ModalLogin />
+            <ModalForgetPassword />
         </main>
         </>
     )

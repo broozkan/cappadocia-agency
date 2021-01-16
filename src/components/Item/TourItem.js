@@ -1,5 +1,6 @@
 import React from 'react'
 import img from '../../images/tour_2.jpg'
+import ElementPrice from '../Element/ElementPrice'
 
 const TourItem = () => {
 
@@ -18,7 +19,7 @@ const TourItem = () => {
           <div class="wrapper">
             <h3><a href="tour-detail.html">Standart Balon Turu</a></h3>
             <p>Ödemenizi yaptıktan sonra müsaitlik durumuna göre konfirme gerçekleştirilecektir.</p>
-            <span class="price"><strong>100 €</strong> /kişi başı</span>
+            <ElementPrice />
           </div>
           <ul>
             <li><i class="icon_clock_alt"></i> 1s 30dk</li>
