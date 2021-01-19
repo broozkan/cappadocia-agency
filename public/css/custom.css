@@ -15,4 +15,18 @@
     margin-bottom: 60px;
     position: relative;
 }
+
+
+/* BOOKING */
+.form-research-booking select,input[type="date"]{
+    height: calc(2.68rem + 8px)!important;
+    border: none;
+}
+
+.navbar-sort-booking ul li{
+    font-size: 0.8rem;
+}
+
+.box_list_footer li{
+    display: inline-block!important;
 }

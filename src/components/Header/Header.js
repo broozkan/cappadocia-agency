@@ -27,17 +27,17 @@ const Header = () => {
             <nav id="menu" className="main-menu">
                 <ul>
                     <li><span><a href="/">Anasayfa</a></span></li>
-                    <li><span><a href="/">Kapadokya Balon Turları</a></span></li>
-                    <li><span><a href="/">Kapadokya Turlarımız</a></span></li>
-                    <li><span><a href="/">Kapadokya Aktivite Turları</a></span></li>
-                    <li><span><a href="/">Klasik Araç Turları</a></span></li>
+                    <li><span><a href="/aktivite/detay/1">Kapadokya Balon Turları</a></span></li>
+                    <li><span><a href="/aktivite/detay/1">Kapadokya Turlarımız</a></span></li>
+                    <li><span><a href="/aktivite/detay/1">Kapadokya Aktivite Turları</a></span></li>
+                    <li><span><a href="/aktivite/detay/1">Klasik Araç Turları</a></span></li>
                     
                     
                     
-                    <li><span><a href="/">Kurumsal</a></span>
+                    <li><span><a href="/hakkimizda">Kurumsal</a></span>
                         <ul>
-                            <li><a href="/">İletişim</a></li>
-                            <li><a href="/">Hakkımızda</a></li>
+                            <li><a href="/iletisim">İletişim</a></li>
+                            <li><a href="/hakkimizda">Hakkımızda</a></li>
                         </ul>
                     </li>
                 </ul>

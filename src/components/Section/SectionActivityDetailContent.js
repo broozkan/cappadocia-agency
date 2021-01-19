@@ -1,6 +1,6 @@
 import React from 'react'
 import ButtonGroupShareActivity from '../ButtonGroup/ButtonGroupShareActivity'
-import FormAddToBasket from '../Form/FormAddToBasket'
+import FormCheckAvailability from '../Form/FormCheckAvailablity'
 import FormLeaveReview from '../Form/FormLeaveReview'
 import SectionActivityDetailDescription from './SectionActivityDetailDescription'
 import SectionActivityDetailReview from './SectionActivityDetailReview'
@@ -24,7 +24,7 @@ const SectionActivityDetailContent = () => {
 				</div>
 
 				<aside class="col-lg-4" id="sidebar">
-					<FormAddToBasket />
+					<FormCheckAvailability />
 					<ButtonGroupShareActivity />
 					
 				</aside>

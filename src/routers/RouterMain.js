@@ -7,6 +7,7 @@ import {
 
 } from 'react-router-dom'
 import RouterSite from './RouterSite'
+import RouterAdmin from './RouterAdmin'
 
 const RouterMain = (props) => {
 
@@ -15,7 +16,9 @@ const RouterMain = (props) => {
 
     
     if(location[1] === "admin"){
-        
+        return(
+            <RouterAdmin />
+        )
     }else{
         return (
             <RouterSite />

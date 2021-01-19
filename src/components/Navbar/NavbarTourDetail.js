@@ -8,7 +8,7 @@ const NavbarTourDetail = () => {
 					<ul class="clearfix">
 						<li><a href="#description" class="active">Aktivite İçeriği</a></li>
 						<li><a href="#reviews">Değerlendirmeler</a></li>
-						<li><a href="#sidebar">Booking</a></li>
+						<li><a href="#sidebar"></a></li>
 					</ul>
 				</div>
 			</nav>

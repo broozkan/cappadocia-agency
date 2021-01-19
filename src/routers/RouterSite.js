@@ -13,6 +13,7 @@ import AboutUsView from '../views/site/AboutUsView'
 import ActivityDetailView from '../views/site/ActivityDetailView'
 import ActivityListView from '../views/site/ActivityListView'
 import BasketView from '../views/site/BasketView'
+import BookingView from '../views/site/BookingView'
 import ContactView from '../views/site/ContactView'
 import HomeView from '../views/site/HomeView'
 import PaymentView from '../views/site/PaymentView'
@@ -31,6 +32,7 @@ const RouterSite = (props) => {
                 <Route path="/" exact component={HomeView}></Route>
                 <Route path="/aktivite/detay/:activityId" exact component={ActivityDetailView}></Route>
                 <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
+                <Route path="/seferler/" exact component={BookingView}></Route>
                 <Route path="/sepet/" exact component={BasketView}></Route>
                 <Route path="/odeme/" exact component={PaymentView}></Route>
                 <Route path="/kayit/" exact component={RegisterView}></Route>

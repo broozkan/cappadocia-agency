@@ -8,7 +8,7 @@ const AsideTotal = () => {
                                     <div id="total_cart">
                                         Toplam <span class="float-right">500 €</span>
                                     </div>
-                                    <a href="cart-2.html" class="btn_1 full-width purchase">Ödeme Sayfasına Git</a>
+                                    <a href="/odeme" class="btn_1 full-width purchase">Ödeme Sayfasına Git</a>
                                     <div class="text-center"><small>Bu adımda ücret alınmayacaktır</small></div>
                                 </div>
                             </aside>
