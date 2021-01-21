@@ -39,7 +39,7 @@ const FormCategory = () => {
 			category_name: state.category_name
 		}
 		
-		const submitResponse = await api.post('/category/new', formData, {headers: {'auth-token': localStorage.getItem('admin-token')}})
+		const submitResponse = await api.post('/category/new', formData)
 
 		if(submitResponse.data.response){
 			Swal.fire({
