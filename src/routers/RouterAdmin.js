@@ -16,6 +16,7 @@ import ReviewsView from '../views/admin/ReviewsView'
 import NewCategoryView from '../views/admin/NewCategoryView'
 import NewActivityView from '../views/admin/NewActivityView'
 import ActivitiesView from '../views/admin/ActivitiesView'
+import NewReservationView from '../views/admin/NewReservationView'
 
 const RouterAdmin = (props) => {
 
@@ -32,6 +33,7 @@ const RouterAdmin = (props) => {
                             
                             <Route path="/admin/mesajlar" exact component={MessagesView}></Route>
                             <Route path="/admin/rezervasyonlar" exact component={ReservationsView}></Route>
+                            <Route path="/admin/rezervasyon/yeni" exact component={NewReservationView}></Route>
                             <Route path="/admin/degerlendirmeler" exact component={ReviewsView}></Route>
                             <Route path="/admin/aktiviteler" exact component={ActivitiesView}></Route>
                             <Route path="/admin/aktivite/yeni" exact component={NewActivityView}></Route>

@@ -8,7 +8,11 @@ const MessagesView = () => {
         <>
             <BreadcrumbAdmin />
             <div className="box_general">
-            <HeaderBox />
+            <div class="header_box">
+                <h2 class="d-inline-block">Rezervasyonlar</h2>
+                <a href="/admin/rezervasyon/yeni" class="btn_2 gray approve float-right"><i class="fa fa-fw fa-times-circle-o"></i> Yeni Rezervasyon Ekle</a>
+            
+            </div>
             <div className="list_general reviews">
             <ul>
                     <LiReservation />
