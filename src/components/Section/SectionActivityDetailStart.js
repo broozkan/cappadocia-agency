@@ -1,21 +1,42 @@
-import React from 'react'
+import React, { Component, useContext, useEffect } from 'react'
+import { ActivityDetailContext } from '../../contexts/site/ActivityDetailContext'
+
+
 
 
 const SectionActivityDetailStart = () => {
-    return(
-        <section class="hero_in tours_detail start_bg_zoom">
+
+	const activityDetailContext = useContext(ActivityDetailContext)
+
+	// render activity photos
+	let activityPhotosHtml = ''
+	if (activityDetailContext.is_activity_loaded) {
+		activityPhotosHtml = activityDetailContext.activity.activity_photos.map((item) => {
+			return(
+				<a href={process.env.REACT_APP_API_ENDPOINT+'file/'+item.activity_photo_name} class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">Fotoğrafları Görüntüle</a>
+	
+			)
+		})
+	
+	}
+	
+	return (
+		<section class="hero_in tours_detail start_bg_zoom">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp animated"><span></span>STANDART BALON TURU</h1>
+					<h1 class="fadeInUp animated"><span></span>
+						{activityDetailContext.activity.activity_name}
+					</h1>
 				</div>
 				<span class="magnific-gallery">
-					<a href="img/gallery/tour_list_1.jpg" class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">View photos</a>
-					<a href="img/gallery/tour_list_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
-					<a href="img/gallery/tour_list_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+					{activityPhotosHtml}
 				</span>
 			</div>
 		</section>
-    )
+	)
+
+
+
 }
 
 export default SectionActivityDetailStart

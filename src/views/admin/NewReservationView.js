@@ -1,10 +1,12 @@
 import React from 'react'
 import BreadcrumbAdmin from '../../components/Breadcrumb/BreadcrumbAdmin'
 import FormReservation from '../../components/Form/FormReservation'
+import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
 
 const NewReservationView = () => {
     return (
         <>
+        <NavbarAdmin />
             <BreadcrumbAdmin />
             <div className="box_general">
             <div class="header_box">

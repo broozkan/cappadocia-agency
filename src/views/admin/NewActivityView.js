@@ -1,10 +1,13 @@
 import React from 'react'
 import BreadcrumbAdmin from '../../components/Breadcrumb/BreadcrumbAdmin'
 import FormActivity from '../../components/Form/FormActivity'
+import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
 
 const NewActivityView = () => {
     return (
         <>
+                    <NavbarAdmin />
+        
             <BreadcrumbAdmin />
             <div className="box_general">
             <div class="header_box">

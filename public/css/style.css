@@ -893,7 +893,7 @@ header {
   top: 0;
   width: 100%;
   padding: 20px 30px;
-  z-index: 99999999;
+  z-index: 2;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
 @media (max-width: 767px) {
@@ -1029,7 +1029,7 @@ ul#top_menu li a.cart-menu-btn strong {
   width: 15px;
   height: 15px;
   display: block;
-  background-color: #333;
+  background-color: #fc5b62;
   color: #fff;
   position: relative;
   bottom: -15px;
@@ -2612,7 +2612,7 @@ video {
   font-size: 0.875rem;
   border: 0;
   padding: 0 25px;
-  height: 50px;
+  height: 51px;
   cursor: pointer;
   outline: none;
   width: 100%;
@@ -5488,7 +5488,6 @@ span.infobox_rate {
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 500;
-  border-bottom: 1px solid #ededed;
   margin: 0 -25px 20px -25px;
   padding: 0 25px 15px 25px;
   line-height: 1;
@@ -7962,7 +7961,7 @@ ul.share-buttons li i {
 }
 
 .modal {
-  z-index: 9999;
+  z-index: 1060;
   background-color: rgba(0, 0, 0, 0.7);
 }
 

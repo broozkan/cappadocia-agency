@@ -1,5 +1,5 @@
-import React from 'react'
-import AsideTotal from '../../components/Aside/AsideTotal'
+import React, { Component } from 'react'
+import AsideTotal from '../../components/Aside/AsideBasketTotal'
 import AsideTotalPayment from '../../components/Aside/AsideTotalPayment'
 import Footer from '../../components/Footer/Footer'
 import FormPayment from '../../components/Form/FormPayment'
@@ -7,21 +7,29 @@ import MessageExistingCustomer from '../../components/Message/MessageExistingCus
 import BasketPageTitle from '../../components/PageTitle/BasketPageTitle'
 import PaymentPageTitle from '../../components/PageTitle/PaymentPageTitle'
 import TableBasketItems from '../../components/Table/TableBasketItems'
+import { CommonContext } from '../../contexts/site/CommonContext'
 
-const PaymentView = () => {
-    return (
-        <>
-            <main>
-                <PaymentPageTitle />
-                <div class="bg_color_1" style={{ transform: 'none' }}>
-                    <div class="container margin_60_35" style={{ transform: 'none' }}>
-                        <FormPayment />
+class PaymentView extends Component {
+    static contextType = CommonContext
+    
+
+    render(){
+    
+        return (
+            <>
+                <main>
+                    <PaymentPageTitle />
+                    <div class="bg_color_1" style={{ transform: 'none' }}>
+                        <div class="container margin_60_35" style={{ transform: 'none' }}>
+                            <FormPayment />
+                        </div>
                     </div>
-                </div>
-                <Footer />
-            </main>
-        </>
-    )
+                    <Footer />
+                </main>
+            </>
+        )
+    }
+   
 }
 
 export default PaymentView

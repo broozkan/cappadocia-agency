@@ -1,11 +1,13 @@
 import React from 'react'
 import BreadcrumbAdmin from '../../components/Breadcrumb/BreadcrumbAdmin'
-import HeaderBox from '../../components/Header/HeaderBox'
-import ListCategory from '../../components/List/ListCategory'
+import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
+import UnorderedListCategory from '../../components/UnorderedList/UnorderedListCategory'
 
 const CategoriesView = () => {
     return (
         <>
+                    <NavbarAdmin />
+
             <BreadcrumbAdmin />
             <div className="box_general">
             <div class="header_box">
@@ -14,14 +16,7 @@ const CategoriesView = () => {
             
             </div>
             <div className="list_general reviews">
-            <ul>
-                    <ListCategory />
-                    <ListCategory />
-                    <ListCategory />
-                    <ListCategory />
-                    <ListCategory />
-                    <ListCategory />
-            </ul>
+                <UnorderedListCategory />
             </div>
             </div>
         </>

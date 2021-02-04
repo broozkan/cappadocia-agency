@@ -30,3 +30,17 @@
 .box_list_footer li{
     display: inline-block!important;
 }
+
+#total_cart small{
+    float: right;
+    font-size: 0.6rem;
+    margin-top: 0.5rem;
+}
+.booking-title{
+    padding-left: 10px;
+    border-left: 7px solid gray;
+}
+
+
+
+

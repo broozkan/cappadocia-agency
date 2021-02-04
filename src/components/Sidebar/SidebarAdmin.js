@@ -41,7 +41,12 @@ const SidebarAdmin = () => {
                     <span class="nav-link-text"> Aktiviteler</span>
                 </a>
             </li>
-            
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add listing">
+                <a class="nav-link" href="/admin/cikis">
+                    <i class="fa fa-fw fa-sign-out"></i>
+                    <span class="nav-link-text"> Çıkış Yap</span>
+                </a>
+            </li>
         </ul>
     )
 }

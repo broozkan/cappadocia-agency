@@ -1,28 +1,58 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../../services/api'
 import Swal from 'sweetalert2'
 
-const FormCategory = () => {
+const FormCategory = (props) => {
 
 
 	const [state, setState] = useState({
 		category_name: '',
+		category_description: '',
+		category_header_visibility: false,
 		is_form_submitting: false
 	})
+
+	useEffect(()=>{
+		console.log(props);
+		if(props.category_id){
+			getCategory()
+		}
+	},[])
 
 
 	const resetState = () => {
 		setState({
 			category_name: '',
+			category_description: '',
+			category_header_visibility: false,
 			is_form_submitting: false
 		})
 	}
 	
+	const getCategory = async () => {
+		const category = await api.get('/category/get/'+props.category_id)
+
+		setState({
+			...state,
+			category_name: category.data.category_name,
+			category_description: category.data.category_description,
+			category_header_visibility: category.data.category_header_visibility
+		})
+	}
 
 	const handleOnChange = (e) => {
-		setState({
-			[e.target.name]: e.target.value
-		})
+		if (e.target.type === "checkbox") {
+			setState({
+				...state,
+				[e.target.name]: e.target.checked
+			})
+		}else{
+			setState({
+				...state,
+				[e.target.name]: e.target.value
+			})
+		}
+		
 	}
 
 
@@ -36,10 +66,17 @@ const FormCategory = () => {
 		})
 
 		const formData = {
-			category_name: state.category_name
+			category_name: state.category_name,
+			category_description: state.category_description,
+			category_header_visibility: state.category_header_visibility
 		}
 		
-		const submitResponse = await api.post('/category/new', formData)
+		let submitResponse
+		if(props.category_id){
+			submitResponse = await api.put('/category/update/'+props.category_id, formData)
+		}else{
+			submitResponse = await api.post('/category/new', formData)
+		}
 
 		if(submitResponse.data.response){
 			Swal.fire({
@@ -63,7 +100,7 @@ const FormCategory = () => {
 
 	}
 
-
+	console.log(state);
 	
 	return (
 		<form onSubmit={handleOnSubmit}>
@@ -72,7 +109,19 @@ const FormCategory = () => {
 				<input type="text" class="form-control" required name="category_name" onChange={handleOnChange} value={state.category_name} placeholder="Kategori adı giriniz" />
 			</div>
 			<div class="form-group">
-				<p><a href="#0" class="btn_1 medium">Kaydet</a></p>
+				<label>Kategori Açıklaması *</label>
+				<input type="text" class="form-control" required name="category_description" onChange={handleOnChange} value={state.category_description} placeholder="Kategori açıklaması giriniz" />
+			</div>
+			<div class="clearfix add_bottom_15">
+				<div class="checkboxes float-left">
+					<label class="container_check"> Ana sayfada görünsün
+						  <input type="checkbox" name="category_header_visibility" onChange={handleOnChange} checked={state.category_header_visibility} />
+						<span class="checkmark"></span>
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<p><button type="submit" class="btn_1 medium">Kaydet</button></p>
 			</div>
 		</form>
 	)

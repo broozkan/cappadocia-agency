@@ -8,7 +8,10 @@ import {
 } from 'react-router-dom'
 import Header from '../components/Header/Header'
 import MobileMenu from '../components/Menu/MobileMenu'
+import ModalLoginSite from '../components/Modal/ModalLoginSite'
+import ModalRegister from '../components/Modal/ModalRegister'
 import BasketPageTitle from '../components/PageTitle/BasketPageTitle'
+import { CommonContextWrapper } from '../contexts/site/CommonContext'
 import AboutUsView from '../views/site/AboutUsView'
 import ActivityDetailView from '../views/site/ActivityDetailView'
 import ActivityListView from '../views/site/ActivityListView'
@@ -27,20 +30,27 @@ const RouterSite = (props) => {
 
     return (
         <Router>
-            <Header />
-            <Switch>
-                <Route path="/" exact component={HomeView}></Route>
-                <Route path="/aktivite/detay/:activityId" exact component={ActivityDetailView}></Route>
-                <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
-                <Route path="/seferler/" exact component={BookingView}></Route>
-                <Route path="/sepet/" exact component={BasketView}></Route>
-                <Route path="/odeme/" exact component={PaymentView}></Route>
-                <Route path="/kayit/" exact component={RegisterView}></Route>
-                <Route path="/parola-sifirla/" exact component={ResetPasswordView}></Route>
-                <Route path="/hesabim/" exact component={UserProfileView}></Route>
-                <Route path="/hakkimizda/" exact component={AboutUsView}></Route>
-                <Route path="/iletisim/" exact component={ContactView}></Route>
-            </Switch>
+            <CommonContextWrapper>
+                <Header />
+                <Switch>
+                    <Route path="/" exact component={HomeView}></Route>
+                    <Route path="/aktivite/detay/:activityId" exact component={ActivityDetailView}></Route>
+                    <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
+                    <Route path="/seferler/" exact component={BookingView}></Route>
+                    <Route path="/sepet/" exact component={BasketView}></Route>
+                    <Route path="/odeme/" exact component={PaymentView}></Route>
+
+                    <Route path="/kayit/" exact component={RegisterView}></Route>
+                    <Route path="/parola-sifirla/" exact component={ResetPasswordView}></Route>
+                    <Route path="/hesabim/" exact component={UserProfileView}></Route>
+                    <Route path="/hakkimizda/" exact component={AboutUsView}></Route>
+                    <Route path="/iletisim/" exact component={ContactView}></Route>
+                </Switch>
+                <ModalLoginSite />
+                <ModalRegister />
+
+            </CommonContextWrapper>
+
         </Router>
     )
 

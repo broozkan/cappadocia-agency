@@ -1,11 +1,12 @@
 import React from 'react'
 import BreadcrumbAdmin from '../../components/Breadcrumb/BreadcrumbAdmin'
-import HeaderBox from '../../components/Header/HeaderBox'
-import LiReservation from '../../components/List/ListReservation'
+import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
+import UnorderedListReservation from '../../components/UnorderedList/UnorderedListReservation'
 
 const MessagesView = () => {
     return (
         <>
+        <NavbarAdmin />
             <BreadcrumbAdmin />
             <div className="box_general">
             <div class="header_box">
@@ -14,15 +15,8 @@ const MessagesView = () => {
             
             </div>
             <div className="list_general reviews">
-            <ul>
-                    <LiReservation />
-                    <LiReservation />
-                    <LiReservation />
-                    <LiReservation />
-                    <LiReservation />
-                    <LiReservation />
-            </ul>
-            </div>
+                    <UnorderedListReservation />
+                </div>
             </div>
         </>
     )

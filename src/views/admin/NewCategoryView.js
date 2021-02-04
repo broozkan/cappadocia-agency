@@ -3,10 +3,12 @@ import BreadcrumbAdmin from '../../components/Breadcrumb/BreadcrumbAdmin'
 import FormCategory from '../../components/Form/FormCategory'
 import HeaderBox from '../../components/Header/HeaderBox'
 import ListCategory from '../../components/List/ListCategory'
+import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
 
 const CategoriesView = () => {
     return (
         <>
+        <NavbarAdmin />
             <BreadcrumbAdmin />
             <div className="box_general">
             <div class="header_box">

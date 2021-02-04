@@ -6,6 +6,8 @@ import NavbarAdmin from '../../components/Navbar/NavbarAdmin'
 const DashboardView = () => {
     return (
         <>
+                    <NavbarAdmin />
+
             <BreadcrumbAdmin />
             <div className="row">
                 <CardDashboard />
