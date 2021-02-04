@@ -4,6 +4,12 @@ require('dotenv').config();
 const app = express();
 
 const categoryRouter = require('./Routes/Category')
+const activityRouter = require('./Routes/Activity')
+const fileRouter = require('./Routes/File')
+const basketRouter = require('./Routes/Basket')
+const reservationRouter = require('./Routes/Reservation')
+const customerRouter = require('./Routes/Customer')
+const userRouter = require('./Routes/User')
 
 const cors = require('cors');
 
@@ -40,7 +46,13 @@ app.use(function (req, res, next) {
 
 
 /* routers */
-app.use('/category', categoryRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/activity', activityRouter);
+app.use('/api/file', fileRouter);
+app.use('/api/basket', basketRouter);
+app.use('/api/reservation', reservationRouter);
+app.use('/api/customer', customerRouter);
+app.use('/api/user', userRouter);
 
 
 
