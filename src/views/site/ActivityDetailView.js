@@ -5,36 +5,49 @@ import SectionActivityDetailContent from '../../components/Section/SectionActivi
 import SectionActivityDetailStart from '../../components/Section/SectionActivityDetailStart'
 import { ActivityDetailWrapper, ActivityDetailContext } from '../../contexts/site/ActivityDetailContext'
 import api from '../../services/api'
+import queryString from 'query-string'
+import { CommonContext } from '../../contexts/site/CommonContext'
 
 class ActivityDetailView extends Component {
 
-    constructor(){
+    static contextType = CommonContext
+
+    constructor() {
         super()
         this.state = {
             activity: ''
         }
     }
 
+    async componentDidMount() {
+        const urlParams = await queryString.parse(this.props.location.search);
+
+        const activity = await api.get('/activity/get/' + urlParams.activity)
 
 
-    render(){
+        this.context.setActivity(activity.data)
+        this.context.setisActivityLoaded(true)
+
+    }
+
+    render() {
+
+        console.log(this.context);
         return (
             <>
-            <ActivityDetailWrapper activity_id={this.props.match.params.activityId} >
                 <main>
-                    <SectionActivityDetailStart/>
+                    <SectionActivityDetailStart />
                     <div class="bg_color_1">
-                    <NavbarTourDetail/>
-                    <SectionActivityDetailContent/>
+                        <NavbarTourDetail />
+                        <SectionActivityDetailContent />
                     </div>
                     <Footer />
                 </main>
-            </ActivityDetailWrapper>
-           
+
             </>
         )
     }
-    
+
 }
 
 export default ActivityDetailView

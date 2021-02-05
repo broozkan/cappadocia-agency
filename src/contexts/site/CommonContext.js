@@ -5,6 +5,8 @@ export const CommonContext = createContext()
 
 export const CommonContextWrapper = (props) => {
 
+    const [activity, setActivity] = useState('')
+    const [isActivityLoaded, setisActivityLoaded] = useState(false)
     const [state, setState] = useState({
         is_user_logged_in: false,
         basket_items: [],
@@ -18,20 +20,13 @@ export const CommonContextWrapper = (props) => {
 
     useEffect(() => {
         getBasketItems()
-        
-        /*const user = localStorage.getItem('site-auth')
-
-        if (user) {
-            setState({
-                ...state,
-                is_user_logged_in: true
-            })
-        }*/
 
     }, [])
 
 
+
     const updateState = (key, value, cb) => {
+
         setState({
             ...state,
             [key]: value
@@ -41,8 +36,14 @@ export const CommonContextWrapper = (props) => {
     }
 
     const getBasketItems = async () => {
-        
+
         const basketItems = await api.get('/basket/list/1')
+
+        const user = localStorage.getItem('site-auth')
+        let isUserLoggedIn = false
+        if (user) {
+            isUserLoggedIn = true
+        }
 
 
         // calculate total according to different currencies
@@ -54,6 +55,7 @@ export const CommonContextWrapper = (props) => {
                 sub_total_currency: item.basket_activity[0].activity_currency,
                 sub_total: item.basket_total
             })
+
         })
 
 
@@ -86,21 +88,33 @@ export const CommonContextWrapper = (props) => {
             return subTotalsHtml
         });
 
+
         setState({
             ...state,
             basket_items: basketItems.data.docs,
             basket_items_pagination_info: basketItems.data,
             is_basket_items_loaded: true,
-            basket_total_html: totalHtml
+            basket_total_html: totalHtml,
+            basket_total: total,
+            is_user_logged_in: isUserLoggedIn
         })
     }
 
 
 
-    console.log(state);
+    console.log(activity);
 
     return (
-        <CommonContext.Provider value={{ state: state, getBasketItems: getBasketItems, updateState: updateState }}>
+        <CommonContext.Provider value={{
+            state: state,
+            activity: activity,
+            isActivityLoaded: isActivityLoaded,
+            setisActivityLoaded: setisActivityLoaded,
+            getBasketItems: getBasketItems,
+            updateState: updateState,
+            setActivity: setActivity
+        }}
+        >
             {props.children}
         </CommonContext.Provider>
     )

@@ -85,7 +85,7 @@ const Header = () => {
         <header className="header menu_fixed">
             <div id="preloader"><div data-loader="circle-side"></div></div>
             <div id="logo">
-                <a href="index.html">
+                <a href="/">
                     <img src={logo} width="250" height="64" alt="" className="logo_normal" />
                     <img src={logo} width="250" height="64" alt="" className="logo_sticky" />
                 </a>

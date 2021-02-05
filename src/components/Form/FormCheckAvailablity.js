@@ -1,30 +1,36 @@
 import React, { useContext } from 'react'
+import { Component } from 'react'
 import { ActivityDetailContext } from '../../contexts/site/ActivityDetailContext'
-import ElementScore from '../Element/ElementScore'
+import { CommonContext } from '../../contexts/site/CommonContext'
 
 
-const FormCheckAvailability = () => {
+class FormCheckAvailability extends Component {
+	static contextType = CommonContext
 
-	const activityDetailContext = useContext(ActivityDetailContext)
 
-	return (
-		<form method="GET" action="/seferler">
-			<div class="box_detail booking">
-				<div class="price">
-					<span>{activityDetailContext.activity.activity_price} $ <small>kişi başı</small></span>
-					<ElementScore />
+	render(){
+
+		let categoryId = ''
+		
+		return (
+			<form method="GET" action="/seferler">
+				<div class="box_detail booking">
+					<div class="price">
+						<span>{this.context.activity.activity_price} {this.context.activity.activity_currency} <small>kişi başı</small></span>
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="hidden" name="category_id"  value={categoryId}/>
+						<input class="form-control" type="date" name="activity_checkout_date" placeholder="Tarih.." />
+					</div>
+	
+	
+					<button type="submit" class="btn_1 full-width purchase">Uygunluk Durumunu Kontrol Et</button>
+					<div class="text-center"><small>Bu adımda para alınmayacaktır</small></div>
 				</div>
-				<div class="form-group">
-					<input class="form-control" type="hidden" name="activity_id" value={activityDetailContext.activity._id} />
-					<input class="form-control" type="date" name="activity_checkout_date" placeholder="Tarih.." />
-				</div>
-
-
-				<button type="submit" class="btn_1 full-width purchase">Uygunluk Durumunu Kontrol Et</button>
-				<div class="text-center"><small>Bu adımda para alınmayacaktır</small></div>
-			</div>
-		</form>
-	)
+			</form>
+		)
+	}
+	
 }
 
 export default FormCheckAvailability

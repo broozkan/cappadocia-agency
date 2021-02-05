@@ -20,8 +20,10 @@ import BookingView from '../views/site/BookingView'
 import ContactView from '../views/site/ContactView'
 import HomeView from '../views/site/HomeView'
 import PaymentView from '../views/site/PaymentView'
+import PrivacyContractView from '../views/site/PrivacyContractView'
 import RegisterView from '../views/site/RegisterView'
 import ResetPasswordView from '../views/site/ResetPasswordView'
+import SaleContractView from '../views/site/SaleContractView'
 import UserProfileView from '../views/site/UserProfileView'
 
 const RouterSite = (props) => {
@@ -34,7 +36,7 @@ const RouterSite = (props) => {
                 <Header />
                 <Switch>
                     <Route path="/" exact component={HomeView}></Route>
-                    <Route path="/aktivite/detay/:activityId" exact component={ActivityDetailView}></Route>
+                    <Route path="/aktivite/detay/" exact component={ActivityDetailView}></Route>
                     <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
                     <Route path="/seferler/" exact component={BookingView}></Route>
                     <Route path="/sepet/" exact component={BasketView}></Route>
@@ -45,6 +47,8 @@ const RouterSite = (props) => {
                     <Route path="/hesabim/" exact component={UserProfileView}></Route>
                     <Route path="/hakkimizda/" exact component={AboutUsView}></Route>
                     <Route path="/iletisim/" exact component={ContactView}></Route>
+                    <Route path="/mesafeli-satis-sozlesmesi/" exact component={SaleContractView}></Route>
+                    <Route path="/gizlilik-sozlesmesi/" exact component={PrivacyContractView}></Route>
                 </Switch>
                 <ModalLoginSite />
                 <ModalRegister />

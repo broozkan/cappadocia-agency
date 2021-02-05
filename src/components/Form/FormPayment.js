@@ -14,10 +14,10 @@ class FormPayment extends Component {
         super()
 
         this.state = {
-            payment_user_name: '',
-            payment_user_surname: '',
-            payment_user_email: '',
-            payment_user_phone_number: '',
+            payment_customer_name: '',
+            payment_customer_surname: '',
+            payment_customer_email: '',
+            payment_customer_phone_number: '',
             payment_note: '',
             payment_method: 'online',
             payment_cart_name: '',
@@ -34,6 +34,17 @@ class FormPayment extends Component {
 
         this.handleOnChange = this.handleOnChange.bind(this)
         this.handleOnSubmit = this.handleOnSubmit.bind(this)
+    }
+
+    componentDidMount(){
+        const customer = JSON.parse(localStorage.getItem('customer'))
+        console.log(customer);
+        this.setState({
+            payment_customer_name: customer.customer_name,
+            payment_customer_surname: customer.customer_surname,
+            payment_customer_email: customer.customer_email,
+            payment_customer_phone_number: customer.customer_phone_number
+        })
     }
 
     handleOnChange(e) {
@@ -64,10 +75,10 @@ class FormPayment extends Component {
         const data = {
             reservation_payment_method: this.state.payment_method,
             reservation_basket: this.context.state.basket_items,
-            payment_user_name: this.state.payment_user_name,
-            payment_user_surname: this.state.payment_user_surname,
-            payment_user_email: this.state.payment_user_email,
-            payment_user_phone_number: this.state.payment_user_phone_number,
+            payment_customer_name: this.state.payment_customer_name,
+            payment_customer_surname: this.state.payment_customer_surname,
+            payment_customer_email: this.state.payment_customer_email,
+            payment_customer_phone_number: this.state.payment_customer_phone_number,
             payment_cart_name: this.state.payment_cart_name,
             payment_cart_number: this.state.payment_cart_number,
             payment_cart_expiration_month: this.state.payment_cart_expiration_month,
@@ -77,10 +88,11 @@ class FormPayment extends Component {
             payment_billing_address_1: this.state.payment_billing_address_1,
             payment_billing_address_2: this.state.payment_billing_address_2,
             payment_billing_city: this.state.payment_billing_city,
-            payment_billing_postal_code: this.state.payment_billing_postal_code
+            payment_billing_postal_code: this.state.payment_billing_postal_code,
+            payment_total: this.context.basket_total
         }
 
-        const submitResponse = await api.post('/reservation/new', data)
+        const submitResponse = await api.post('/reservation/new', data, {headers: {'site-token':localStorage.getItem('site-auth')}})
 
         if (submitResponse.data.response) {
             Swal.fire({
@@ -173,7 +185,6 @@ class FormPayment extends Component {
 
                     <div class="col-lg-8">
                         <div class="box_cart">
-                            <MessageExistingCustomer />
                             <div class="form_title">
                                 <h3><strong>1</strong>Bilgileriniz</h3>
                                 <p>Size ulaşabilmemiz adına lütfen bilgilerinizin doğruluğundan emin olun</p>
@@ -183,13 +194,13 @@ class FormPayment extends Component {
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Adınız *</label>
-                                            <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_user_name" name="payment_user_name" />
+                                            <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_customer_name" name="payment_customer_name" value={this.state.payment_customer_name} />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Soyadınız *</label>
-                                            <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_user_surname" name="payment_user_surname" />
+                                            <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_customer_surname" name="payment_customer_surname" value={this.state.payment_customer_surname} />
                                         </div>
                                     </div>
                                 </div>
@@ -197,13 +208,13 @@ class FormPayment extends Component {
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>E-Posta adresiniz *</label>
-                                            <input type="email" id="payment_user_email" name="payment_user_email" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="email" id="payment_customer_email" name="payment_customer_email" class="form-control" required onChange={this.handleOnChange}  value={this.state.payment_customer_email}/>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Telefon Numaranız *</label>
-                                            <input type="text" id="payment_user_phone_number" name="payment_user_phone_number" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_customer_phone_number" name="payment_customer_phone_number" class="form-control" required onChange={this.handleOnChange} value={this.state.payment_customer_phone_number} />
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +222,7 @@ class FormPayment extends Component {
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Notunuz</label>
-                                            <input type="text" id="payment_note" name="payment_note" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_note" name="payment_note" class="form-control" onChange={this.handleOnChange} value={this.state.payment_note} />
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +258,7 @@ class FormPayment extends Component {
                                         <div class="form-group">
                                             <label>Ülke</label>
                                             <div class="">
-                                                <select class="wide add_bottom_15 form-control" required name="payment_billing_country" onChange={this.handleOnChange} id="payment_billing_country" >
+                                                <select class="wide add_bottom_15 form-control" required name="payment_billing_country" onChange={this.handleOnChange} id="payment_billing_country" value={this.state.payment_billing_country}>
                                                     <option value="" selected="">Ülke seçiniz</option>
                                                     <option value="tr">Türkiye</option>
                                                     <option value="usa">Amerika</option>
@@ -263,13 +274,13 @@ class FormPayment extends Component {
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Adres 1</label>
-                                            <input type="text" id="payment_billing_address_1" name="payment_billing_address_1" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_billing_address_1" name="payment_billing_address_1" class="form-control" required onChange={this.handleOnChange} value={this.state.payment_billing_address_1} />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Adres 2</label>
-                                            <input type="text" id="payment_billing_address_2" name="payment_billing_address_2" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_billing_address_2" name="payment_billing_address_2" class="form-control" required onChange={this.handleOnChange}  value={this.state.payment_billing_address_2}/>
                                         </div>
                                     </div>
                                 </div>
@@ -277,13 +288,13 @@ class FormPayment extends Component {
                                     <div class="col-md-6 col-sm-12">
                                         <div class="form-group">
                                             <label>Şehir</label>
-                                            <input type="text" id="payment_billing_city" name="payment_billing_city" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_billing_city" name="payment_billing_city" class="form-control" required onChange={this.handleOnChange}  value={this.state.payment_billing_city}/>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6">
                                         <div class="form-group">
                                             <label>Posta Kodu</label>
-                                            <input type="text" id="payment_billing_postal_code" name="payment_billing_postal_code" class="form-control" required onChange={this.handleOnChange} />
+                                            <input type="text" id="payment_billing_postal_code" name="payment_billing_postal_code" class="form-control" required onChange={this.handleOnChange} value={this.state.payment_billing_postal_code}/>
                                         </div>
                                     </div>
                                 </div>

@@ -19,8 +19,8 @@ const bodyParser = require('body-parser');
 
 
 /* connect to db */
-mongoose.connect(process.env.DB_CONNECTION,{ useNewUrlParser: true, useUnifiedTopology: true } ,(err)=>{
-  if(err) throw err;
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+  if (err) throw err;
   console.log("Connected to db");
 })
 /* connect to db */
@@ -38,7 +38,7 @@ app.use(express.static('/public'));
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Credentials', true)
-  res.header('Access-Control-Allow-Methods', )
+  res.header('Access-Control-Allow-Methods',)
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
@@ -46,13 +46,13 @@ app.use(function (req, res, next) {
 
 
 /* routers */
-app.use('/api/category', categoryRouter);
-app.use('/api/activity', activityRouter);
-app.use('/api/file', fileRouter);
-app.use('/api/basket', basketRouter);
-app.use('/api/reservation', reservationRouter);
-app.use('/api/customer', customerRouter);
-app.use('/api/user', userRouter);
+app.use('/backend/category', categoryRouter);
+app.use('/backend/activity', activityRouter);
+app.use('/backend/file', fileRouter);
+app.use('/backend/basket', basketRouter);
+app.use('/backend/reservation', reservationRouter);
+app.use('/backend/customer', customerRouter);
+app.use('/backend/user', userRouter);
 
 
 

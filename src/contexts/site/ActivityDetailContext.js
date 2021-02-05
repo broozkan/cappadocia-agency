@@ -1,9 +1,12 @@
-import React, {useState, createContext, setState, useEffect} from 'react'
+import React, {useState, createContext, setState, useEffect, useContext} from 'react'
 import api from '../../services/api'
+import { CommonContext } from './CommonContext'
 
 export const ActivityDetailContext = createContext()
 
 export const ActivityDetailWrapper = (props) => {
+
+    const commonContext = useContext(CommonContext)
 
     const [state, setState] = useState({
         activity: '',
@@ -12,23 +15,28 @@ export const ActivityDetailWrapper = (props) => {
 
 
     useEffect(()=>{
+        
+
         if (props.activity_id) {
             getActivity()
         }
+
     },[])
 
     
     
     const getActivity = async () => {
         const activity = await api.get('/activity/get/'+props.activity_id)
-        console.log(activity);
+
+        
+
         setState({
+            ...state,
             activity: activity.data,
             is_activity_loaded: true
         })
     }
 
-    console.log(state);
 
     return(
         <ActivityDetailContext.Provider value={state}>

@@ -91,7 +91,7 @@ class BookingItem extends Component {
                                 <div class="col-lg-5">
                                     <figure>
                                         <small>{this.props.activity.activity_category[0].category_name}</small>
-                                        <a href="hotel-detail.html"><img src={process.env.REACT_APP_API_ENDPOINT + 'file/' + this.props.activity.activity_photos[0].activity_photo_name} class="img-fluid" alt="" width="800" height="533" /><div class="read_more"><span>Detay Gör</span></div></a>
+                                        <a href={"/aktivite/detay/?activity=" + this.props.activity._id}><img src={process.env.REACT_APP_API_ENDPOINT + 'file/' + this.props.activity.activity_photos[0].activity_photo_name} class="img-fluid" alt="" width="800" height="533" /><div class="read_more"><span>Detay Gör</span></div></a>
                                     </figure>
                                 </div>
                                 <div class="col-lg-7">
@@ -105,7 +105,7 @@ class BookingItem extends Component {
                                             class={reservationButtonClass + " rounded float-right"}>
                                             {reservationButtonText}
                                         </a>
-                                        <h3><a href="hotel-detail.html">{this.props.activity.activity_name}</a></h3>
+                                        <h3><a href={"/aktivite/detay/?activity=" + this.props.activity._id}>{this.props.activity.activity_name}</a></h3>
                                         <p className="mb-3">{this.props.activity.activity_short_description} </p>
 
                                         <ul class="booking_list">
@@ -113,7 +113,7 @@ class BookingItem extends Component {
                                                 <div className="col-lg-8">
                                                     <li><strong> <span className="fa fa-calendar"></span> Tarih</strong> {item.quota_info_date} / {item.quota_info_beginning_hour} - {item.quota_info_ending_hour}</li>
                                                     <li><strong> <span className="fa fa-users"></span> Kontenjan</strong> {item.quota} kişi</li>
-                                                    <li className="float-left" > <a href="#">Tüm özellikler <span className="fa fa-chevron-right"></span> </a></li>
+                                                    <li className="float-left" > <a href={"/aktivite/detay/?activity=" + this.props.activity._id}>Tüm özellikler <span className="fa fa-chevron-right"></span> </a></li>
                                                 </div>
                                                 <div className="col-lg-4">
                                                     <span class="price-lg"><strong>{this.props.activity.activity_price} {this.props.activity.activity_currency}</strong> / kişi başı</span>

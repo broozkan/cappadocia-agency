@@ -4441,7 +4441,7 @@ section#reviews {
 
 /*Timeline --------------- */
 ul.cbp_tmtimeline {
-  margin: 45px 0 45px 0;
+  margin: 35px 0 35px 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -4455,7 +4455,7 @@ ul.cbp_tmtimeline {
   bottom: 0;
   width: 2px;
   background: #ebeef3;
-  left: 18.5%;
+  left: 28.5%;
   margin-left: -2px;
 }
 
@@ -4466,7 +4466,7 @@ ul.cbp_tmtimeline {
 
 .cbp_tmtimeline > li .cbp_tmtime {
   display: block;
-  width: 23%;
+  width: 35%;
   padding-right: 80px;
   position: absolute;
 }
@@ -4503,7 +4503,7 @@ img.thumb_visit {
 }
 
 .cbp_tmtimeline > li .cbp_tmlabel {
-  margin: 0 0 15px 25%;
+  margin: 0 0 15px 35%;
   background: #eef3f7;
   padding: 20px;
   position: relative;
@@ -4554,7 +4554,7 @@ img.thumb_visit {
   border-radius: 50%;
   box-shadow: 0 0 0 2px #999;
   text-align: center;
-  left: 18.5%;
+  left: 28.5%;
   top: 0;
   margin: 0 0 0 -25px;
 }
