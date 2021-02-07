@@ -6,6 +6,7 @@ import api from '../../services/api'
 
 const Header = () => {
 
+    const [mobileMenuState, setMobileMenuState] = useState(false)
     const [state, setState] = useState({
         categories: [],
         is_categories_loaded: false
@@ -17,6 +18,9 @@ const Header = () => {
         getCategories()
     }, [])
 
+    const handleToggleMobileMenu = () => {
+        setMobileMenuState(!mobileMenuState)
+    }
 
     const getCategories = async () => {
         const categories = await api.get('/category/list/1', { params: { category_header_visibility: '1' } })
@@ -46,6 +50,12 @@ const Header = () => {
         })
     }
 
+    // render mobile menu
+    let mobileMenuClass = 'closed'
+    if (mobileMenuState) {
+        mobileMenuClass = 'opened'
+    }
+
     return (
         <header className="header menu_fixed">
             <div id="preloader"><div data-loader="circle-side"></div></div>
@@ -56,24 +66,27 @@ const Header = () => {
                 </a>
             </div>
             <ul id="top_menu">
-                <li><a href="wishlist.html" className="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
+                <li><a href="#" className="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
             </ul>
-            <a href="#menu" className="btn_mobile">
+            <a href="#menu" className="btn_mobile float-right" onClick={handleToggleMobileMenu}>
                 <div className="hamburger hamburger--spin" id="hamburger">
                     <div className="hamburger-box">
                         <div className="hamburger-inner"></div>
                     </div>
                 </div>
             </a>
-            <nav id="menu" className="main-menu">
+            <nav id="menu" className={"main-menu active "+mobileMenuClass}>
+                <div className="mobile-menu-header d-none">
+                    <h5>MENU </h5>
+                </div>
                 <ul>
-                    <li><span><a href="/">Anasayfa</a></span></li>
+                    <li><span><a href="/"> Anasayfa</a></span></li>
                     {categoriesHtml}
 
 
 
                     <li><span><a href="/hakkimizda">Kurumsal</a></span>
-                        <ul>
+                        <ul className="d-xs-none" >
                             <li><a href="/iletisim">İletişim</a></li>
                             <li><a href="/hakkimizda">Hakkımızda</a></li>
                         </ul>

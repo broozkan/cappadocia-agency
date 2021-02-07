@@ -34,7 +34,22 @@
 				midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 			});
 		});
-
+	/*var $icon = $("#hamburger");
+	var API = $menu.data("mmenu");
+	$icon.on("click", function () {
+	//	API.open();
+	});
+	API.bind("open:finish", function () {
+		setTimeout(function () {
+			$icon.addClass("is-active");
+		}, 100);
+	});
+	API.bind("close:finish", function () {
+		setTimeout(function () {
+			$icon.removeClass("is-active");
+		}, 100);
+	});
+	*/
 
 		// Carousels
 		$('#carousel').owlCarousel({
@@ -128,22 +143,7 @@
 				}
 			}
 		});
-	/*var $icon = $("#hamburger");
-	var API = $menu.data("mmenu");
-	$icon.on("click", function () {
-	//	API.open();
-	});
-	API.bind("open:finish", function () {
-		setTimeout(function () {
-			$icon.addClass("is-active");
-		}, 100);
-	});
-	API.bind("close:finish", function () {
-		setTimeout(function () {
-			$icon.removeClass("is-active");
-		}, 100);
-	});
-	*/
+
 	// WoW - animation on scroll
 	var wow = new WOW(
 		{

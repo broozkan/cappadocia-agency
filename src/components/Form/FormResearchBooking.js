@@ -80,7 +80,10 @@ class FormResearchBooking extends Component {
 						</div>
 					</div>
 					<div className="col-lg-2">
+						<div className="form-group">
 						<input className="form-control" name="activity_checkout_date" type="date" onChange={this.handleOnChange} value={this.state.activity_checkout_date} />
+
+						</div>
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">

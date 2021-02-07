@@ -1,0 +1,54 @@
+@media (max-width: 480px) {
+
+    .d-xs-none{
+        display: none;
+    }
+
+    .btn_mobile{
+        float: left!important;
+        padding: 20px;
+    }
+    nav#menu.active.closed {
+        display: block!important;
+        background: #f3f3f3;
+        transition: width 0.3s ease;
+        width: 0%!important;
+        height: 100vh;
+        text-align: right;
+        z-index: 1;
+        padding: 0px!important;
+        position: absolute;
+        right: 0;
+     }
+    nav#menu.active.opened {
+        display: block!important;
+        background: #f3f3f3;
+        transition: width 0.3s ease;
+        width: 80%;
+        height: 100vh;
+        text-align: right;
+        z-index: 1;
+        padding: 35px;
+        position: absolute;
+        right: 0;
+     }
+     nav#menu.active li {
+        padding: 30px 0px 0px 0px;
+        width: 100%;
+        border-bottom: 1px solid lightgray;
+     }
+     nav#menu.active li a{
+         color: #555 !important;
+     }
+     nav#menu.active .mobile-menu-header{
+         display: block!important;
+     }
+   
+     header{
+         padding: 0px!important;
+     }
+     .banner-adventure-grid-wrapper{
+         height: 1430px;
+     }
+
+}
