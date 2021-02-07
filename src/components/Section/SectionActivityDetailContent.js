@@ -8,6 +8,7 @@ import FormCheckAvailability from '../Form/FormCheckAvailablity'
 import FormLeaveReview from '../Form/FormLeaveReview'
 import ReviewContainer from '../Review/ReviewContainer'
 import UnorderedListActionPlan from '../UnorderedList/UnorderedListActionPlan'
+import UnorderedListActivityGallery from '../UnorderedList/UnorderedListActivityGallery'
 import UnorderedListCancellationTerms from '../UnorderedList/UnorderedListCancellationTerms'
 import SectionActivityDetailDescription from './SectionActivityDetailDescription'
 import SectionActivityDetailReview from './SectionActivityDetailReview'
@@ -21,28 +22,16 @@ class SectionActivityDetailContent extends Component {
 
 	render() {
 
-		console.log(this.context);
-		// render comment form
-		let commentFormHtml = ''
-		if (this.context.state.is_user_logged_in) {
-			commentFormHtml = (
-				<>
-					<FormLeaveReview />
-				</>
-			)
-		} else {
-			commentFormHtml = (
-				<>
-					<p>Yorumunuz bizim için önemli. Fakat yorum yapabilmek için <a href="#">giriş yapmalısınız.</a> </p>
-				</>
-			)
-		}
-
+	
 
 		return (
 			<div class="container margin_60_35">
 				<div class="row">
 					<div class="col-lg-8">
+						<div className="grid">
+
+						<UnorderedListActivityGallery />
+						</div>
 
 						<section id="description">
 							<div dangerouslySetInnerHTML={{ __html: this.context.activity.activity_description }} />
@@ -75,7 +64,8 @@ class SectionActivityDetailContent extends Component {
 						<div class="add-review">
 							<h6>Bu aktiviteye katıldınız mı?</h6>
 							<h5>Değerlendirme Bırakın</h5>
-							{commentFormHtml}
+							<FormLeaveReview />
+
 						</div>
 					</div>
 

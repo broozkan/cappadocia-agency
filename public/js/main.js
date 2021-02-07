@@ -11,7 +11,7 @@
 		$(window).scroll();
 
 
-		
+
 
 		// Image popups
 		$('.magnific-gallery').each(function () {
@@ -33,6 +33,27 @@
 				closeOnContentClick: true,
 				midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
 			});
+		});
+
+
+		// Carousels
+		$('#carousel').owlCarousel({
+			center: true,
+			items: 2,
+			loop: true,
+			margin: 10,
+			responsive: {
+				0: {
+					items: 1,
+					dots: false
+				},
+				600: {
+					items: 2
+				},
+				1000: {
+					items: 4
+				}
+			}
 		});
 
 		// Atltenative checkbox styles - Switchery
@@ -248,25 +269,7 @@
 		}, 500);
 	});
 
-	// Carousels
-	$('#carousel').owlCarousel({
-		center: true,
-		items: 2,
-		loop: true,
-		margin: 10,
-		responsive: {
-			0: {
-				items: 1,
-				dots: false
-			},
-			600: {
-				items: 2
-			},
-			1000: {
-				items: 4
-			}
-		}
-	});
+
 
 
 	$('#reccomended_adventure').owlCarousel({

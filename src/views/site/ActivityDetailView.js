@@ -7,6 +7,7 @@ import { ActivityDetailWrapper, ActivityDetailContext } from '../../contexts/sit
 import api from '../../services/api'
 import queryString from 'query-string'
 import { CommonContext } from '../../contexts/site/CommonContext'
+import UnorderedListActivityGallery from '../../components/UnorderedList/UnorderedListActivityGallery'
 
 class ActivityDetailView extends Component {
 

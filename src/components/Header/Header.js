@@ -30,45 +30,10 @@ const Header = () => {
 
 
 
-    const handleSignInOnClick = (e) => {
-        e.preventDefault()
-
-        commonContext.updateState('login_modal_visibility', true, () => { })
-    }
-
-    const handleSignOutOnClick = (e) => {
-        e.preventDefault()
-        localStorage.removeItem('site-auth')
-        localStorage.removeItem('user')
-        commonContext.updateState('is_user_logged_in', false, () => {
-            Swal.fire({
-                title: 'Başarılı',
-                text: 'Çıkış yapıldı',
-                icon: 'success'
-            })
-
-            window.location.href = '/'
-        })
-    }
 
 
 
-    // render user login field
-    let basketIconHtml = ''
-    let loginIconHtml = ''
-    if (commonContext.state.is_user_logged_in === true) {
-        basketIconHtml = (
-            <li><a href="/sepet" className="cart-menu-btn" title="Cart"><strong>{commonContext.state.basket_items.length}</strong></a></li>
-        )
-        loginIconHtml = (
-            <li><a href="#" onClick={handleSignOutOnClick} id="sign-in" className="login" title="Çıkış Yap">Çıkış Yap</a></li>
-        )
-
-    } else {
-        loginIconHtml = (
-            <li><a href="#" onClick={handleSignInOnClick} id="sign-in" className="logout" title="Sign In"><span className="fa fa-user-circle fa-2x mt-1"></span></a></li>
-        )
-    }
+ 
 
 
     // render categories
@@ -91,8 +56,6 @@ const Header = () => {
                 </a>
             </div>
             <ul id="top_menu">
-                {basketIconHtml}
-                {loginIconHtml}
                 <li><a href="wishlist.html" className="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
             </ul>
             <a href="#menu" className="btn_mobile">

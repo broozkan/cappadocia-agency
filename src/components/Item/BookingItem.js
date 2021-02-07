@@ -6,6 +6,8 @@ import img from '../../images/tour_2.jpg'
 import api from '../../services/api'
 import Swal from 'sweetalert2'
 import { CommonContext } from '../../contexts/site/CommonContext'
+import { ThemeProvider } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 class BookingItem extends Component {
 
@@ -24,68 +26,39 @@ class BookingItem extends Component {
 
 
     handleOnClickAddToBasket = async (e) => {
-        e.preventDefault()
 
-        if (!this.context.state.is_user_logged_in) {
-            this.context.updateState("login_modal_visibility", true, () => { })
-        } else {
-            const basketTotal = (parseInt(this.props.params.mature_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
+        if(!this.props.params.child_count){
+            this.props.params.child_count = 0
+        }
+        const preReservationTotal = (parseInt(this.props.params.mature_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
 
-            const basketData = {
-                basket_activity: this.props.activity,
-                basket_activity_date: this.props.params.activity_checkout_date,
-                basket_mature_count: this.props.params.mature_count,
-                basket_child_count: this.props.params.child_count,
-                basket_activity_beginning_hour: e.target.dataset.beginning_hour,
-                basket_activity_ending_hour: e.target.dataset.ending_hour,
-                basket_total: basketTotal
-            }
-
-            const submitResponse = await api.post('/basket/new/', basketData)
-
-            if (submitResponse.data.response) {
-                Swal.fire({
-                    title: "Başarılı",
-                    text: "Sepetinize eklendi",
-                    icon: "success"
-                })
-
-                this.setState({
-                    reservated_activity_beginning_hour: basketData.basket_activity_beginning_hour,
-                    reservated_activity_ending_hour: basketData.basket_activity_ending_hour
-                })
-            } else {
-                Swal.fire({
-                    title: "Hata",
-                    text: submitResponse.data.responseData,
-                    icon: "error"
-                })
-            }
+        const preReservationData = {
+            pre_reservation_activity: this.props.activity,
+            pre_reservation_activity_date: this.props.params.activity_checkout_date,
+            pre_reservation_mature_count: this.props.params.mature_count,
+            pre_reservation_child_count: this.props.params.child_count,
+            pre_reservation_activity_beginning_hour: e.target.dataset.beginning_hour,
+            pre_reservation_activity_ending_hour: e.target.dataset.ending_hour,
+            pre_reservation_total: preReservationTotal
         }
 
+
+        localStorage.setItem('pre_reservation_data', JSON.stringify(preReservationData))
 
 
 
     }
     render() {
+
+        console.log(this.context);
+
         // render quota informations
         let quotaInformationHtml = ''
         quotaInformationHtml = this.props.activity.activity_quota_informations.map((item) => {
-            let reservationButtonText = 'Rezervasyon Yap'
-            let reservationButtonClass = 'btn_2'
-            if (this.state.reservated_activity_beginning_hour == item.quota_info_beginning_hour && this.state.reservated_activity_ending_hour == item.quota_info_ending_hour) {
-                reservationButtonText = (
-                    <>
-                        <span className="fa fa-check"></span> Sepete Eklendi
-                    </>
-                )
-                reservationButtonClass = 'btn_1'
-            }
 
             if (item.quota_info_date == this.props.params.activity_checkout_date) {
                 return (
                     <>
-
                         <div class="box_list isotope-item popular">
                             <div class="row no-gutters">
                                 <div class="col-lg-5">
@@ -102,8 +75,16 @@ class BookingItem extends Component {
                                             data-ending_hour={item.quota_info_ending_hour}
                                             data-activity_price={this.props.activity.activity_price}
                                             onClick={this.handleOnClickAddToBasket}
-                                            class={reservationButtonClass + " rounded float-right"}>
-                                            {reservationButtonText}
+                                            href={
+                                                "/yolcu-formu/"+this.props.activity._id+
+                                                "/"+item.quota_info_date+
+                                                "/"+item.quota_info_beginning_hour+"/"+
+                                                item.quota_info_ending_hour+"/"+
+                                                this.props.params.mature_count+"/"+
+                                                this.props.params.child_count+"/"
+                                            }
+                                            class="btn_2 rounded float-right">
+                                            Rezervasyon Yap
                                         </a>
                                         <h3><a href={"/aktivite/detay/?activity=" + this.props.activity._id}>{this.props.activity.activity_name}</a></h3>
                                         <p className="mb-3">{this.props.activity.activity_short_description} </p>

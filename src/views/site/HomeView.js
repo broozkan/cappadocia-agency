@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer'
 import SectionAdventureGrid from '../../components/Section/SectionAdventureGrid'
 import ModalLogin from '../../components/Modal/ModalLoginSite'
 import ModalForgetPassword from '../../components/Modal/ModalForgetPassword'
+import SectionFeedbacks from '../../components/Section/SectionFeedbacks'
 
 const HomeView = () => {
     return (
@@ -17,10 +18,9 @@ const HomeView = () => {
             <Slider />
             <SectionPopularTours />
             <SectionAdventureGrid />
-            <SectionPopularHotels />
+            <SectionFeedbacks />
             <SectionParallax />
             <Footer />
-            <ModalLogin />
             <ModalForgetPassword />
         </main>
         </>

@@ -20,15 +20,15 @@ router.get('/list/:page', async (req, res) => {
         if (req.query.activity_name) {
             req.query.activity_name = { $regex: new RegExp(req.query.activity_name, "i") }
         }
-        
+
         if (req.query._id) {
             req.query._id = mongoose.Types.ObjectId(req.query._id)
         }
-        if(req.query["activity_category._id"]){
+        if (req.query["activity_category._id"]) {
             req.query["activity_category._id"] = mongoose.Types.ObjectId(req.query["activity_category._id"])
         }
     }
-    
+
     const aggregate = Activity.activityModel.aggregate([{
         $match: req.query
     }])

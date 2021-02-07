@@ -19,6 +19,8 @@ import BasketView from '../views/site/BasketView'
 import BookingView from '../views/site/BookingView'
 import ContactView from '../views/site/ContactView'
 import HomeView from '../views/site/HomeView'
+import PassengerFormView from '../views/site/PassengerFormView'
+import PaymentSuccessView from '../views/site/PaymentSuccessView'
 import PaymentView from '../views/site/PaymentView'
 import PrivacyContractView from '../views/site/PrivacyContractView'
 import RegisterView from '../views/site/RegisterView'
@@ -39,8 +41,9 @@ const RouterSite = (props) => {
                     <Route path="/aktivite/detay/" exact component={ActivityDetailView}></Route>
                     <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
                     <Route path="/seferler/" exact component={BookingView}></Route>
-                    <Route path="/sepet/" exact component={BasketView}></Route>
+                    <Route path="/yolcu-formu/:activityId/:activityDate/:activityBeginningHour/:activityEndingHour/:matureCount/:childCount/" exact component={PassengerFormView}></Route>
                     <Route path="/odeme/" exact component={PaymentView}></Route>
+                    <Route path="/odeme/basarili/:conversationId" exact component={PaymentSuccessView}></Route>
 
                     <Route path="/kayit/" exact component={RegisterView}></Route>
                     <Route path="/parola-sifirla/" exact component={ResetPasswordView}></Route>
@@ -50,8 +53,6 @@ const RouterSite = (props) => {
                     <Route path="/mesafeli-satis-sozlesmesi/" exact component={SaleContractView}></Route>
                     <Route path="/gizlilik-sozlesmesi/" exact component={PrivacyContractView}></Route>
                 </Switch>
-                <ModalLoginSite />
-                <ModalRegister />
 
             </CommonContextWrapper>
 

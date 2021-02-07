@@ -3,7 +3,10 @@ var aggregatePaginate = require("mongoose-aggregate-paginate-v2")
 const Basket = require("./Basket")
 
 const reservationSchema = mongoose.Schema({
-    reservation_basket: [Basket.basketSchema],
+    reservation: {
+        type: Object,
+        required: true
+    },
     reservation_payment_method: {
         type: String,
         required: true
