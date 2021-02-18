@@ -1,48 +1,64 @@
 import React, { Component } from 'react'
 import api from '../../services/api'
 import TourItem from '../Item/TourItem'
+import OwlCarousel from "react-owl-carousel";
 
 
 class SectionPopularTours extends Component {
 
-    constructor(){
+    constructor() {
         super()
 
         this.state = {
-            activities: []
+            activities: [],
+            is_activities_loaded: false
         }
     }
 
 
-    async componentDidMount(){
-        const activities = await api.get('/activity/list/1',{})
-       
+    async componentDidMount() {
+        const activities = await api.get('/activity/list/1', {})
+
         this.setState({
-            activities: activities.data.docs
+            activities: activities.data.docs,
+            is_activities_loaded: true
         })
     }
 
     render() {
 
         // render activities
-        let activitiesHtml = this.state.activities.map((item) => {
-            return(
-                <TourItem activity={item} />
-            )
-        })
+        let activitiesHtml = ''
+        let carouselHtml = ''
+        if (this.state.is_activities_loaded) {
+            activitiesHtml = this.state.activities.map((item) => {
+                return (
+                    <TourItem activity={item} />
+                )
+            })
+
+            if (activitiesHtml != '') {
+                carouselHtml = (
+                    <OwlCarousel className="owl-theme" loop margin={20} items={4} nav>
+                        {activitiesHtml}
+                    </OwlCarousel>
+                )
+            }
+        }
+
+
+
 
         return (
-            <div class="container container-custom margin_80_0">
-                <div class="main_title_2">
+            <div className="container container-custom margin_80_0">
+                <div className="main_title_2">
                     <span><em></em></span>
                     <h2>Popüler Turlarımız</h2>
                     <p>En çok tercih edilen turlarımız</p>
                 </div>
-                <div id="reccomended" class="owl-carousel owl-theme">
-                    {activitiesHtml}
-                </div>
-                <p class="btn_home_align"><a href="tours-grid-isotope.html" class="btn_1 rounded">Tüm turları gör</a></p>
-                <hr class="large"></hr>
+                {carouselHtml}
+                <p className="btn_home_align"><a href="tours-grid-isotope.html" className="btn_1 rounded">Tüm turları gör</a></p>
+                <hr className="large"></hr>
             </div>
         )
     }

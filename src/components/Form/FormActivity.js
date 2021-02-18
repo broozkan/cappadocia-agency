@@ -3,6 +3,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import api from '../../services/api';
 import Swal from 'sweetalert2';
+import dateFormat from 'dateformat'
 
 
 class FormActivity extends Component {
@@ -30,10 +31,10 @@ class FormActivity extends Component {
 		}
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 
 		this.getCategories()
-		
+
 		if (this.props.activity_id) {
 			this.getActivity()
 		}
@@ -45,7 +46,7 @@ class FormActivity extends Component {
 		const activity = await api.get('/activity/get/' + this.props.activity_id)
 
 		this.setState({
-			
+
 			activity_category: activity.data.activity_category[0],
 			activity_language: activity.data.activity_language,
 			activity_short_description: activity.data.activity_short_description,
@@ -66,9 +67,38 @@ class FormActivity extends Component {
 		const categories = await api.get('/category/list/1', {})
 
 		await this.setState({
-			
+
 			categories: categories.data.docs
 		})
+
+	}
+
+	handleOnClickAddMoreQuota = async () => {
+		let quotas = this.state.activity_quota_informations
+
+		let todayDate = new Date()
+
+		for (let index = 1; index < 31; index++) {
+
+			//console.log(todayDate.getDate() + index);
+			await todayDate.setDate(todayDate.getDate() + 1)
+			
+
+			const quotaInfoDate = todayDate.getFullYear()+'-'+("0" + (todayDate.getMonth() + 1)).slice(-2)+'-'+("0" + todayDate.getDate()).slice(-2)
+
+
+			quotas.push({
+				quota_info_date: quotaInfoDate,
+				quota_info_beginning_hour: '09:00',
+				quota_info_ending_hour: '10:00',
+				quota: '10'
+			})
+
+			this.setState({
+				activity_quota_informations: quotas
+			})
+
+		}
 
 	}
 
@@ -83,12 +113,12 @@ class FormActivity extends Component {
 					}
 				})
 				this.setState({
-					
+
 					activity_category: activity_category
 				})
 			} else {
 				this.setState({
-					
+
 					[e.target.name]: e.target.value
 				})
 			}
@@ -109,14 +139,14 @@ class FormActivity extends Component {
 			}
 
 			this.setState({
-				
+
 				activity_photos: activity_photos,
 				activity_photo_names: activity_photo_names
 			})
 
 		} else {
 			this.setState({
-				
+
 				[e.target.name]: e.target.value
 			})
 		}
@@ -129,7 +159,7 @@ class FormActivity extends Component {
 
 
 		this.setState({
-			
+
 			activity_description: data
 		})
 
@@ -152,7 +182,7 @@ class FormActivity extends Component {
 			submitResponse = await api.put('/activity/update/' + this.props.activity_id, formData, { headers: { 'content-type': 'multipart/form-data' } })
 
 			this.setState({
-				
+
 				is_form_submitting: false
 			})
 		} else {
@@ -174,7 +204,7 @@ class FormActivity extends Component {
 				icon: 'error'
 			})
 			this.setState({
-				
+
 				is_form_submitting: false
 			})
 		}
@@ -191,7 +221,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_cancellation_terms: cancellationInfoArray
 		})
 
@@ -209,7 +239,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_cancellation_terms: newArray
 		})
 	}
@@ -228,7 +258,7 @@ class FormActivity extends Component {
 
 
 		this.setState({
-			
+
 			activity_cancellation_terms: newArray
 		})
 	}
@@ -245,7 +275,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_action_plan: actionPlanArray
 		})
 
@@ -263,7 +293,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_action_plan: newArray
 		})
 	}
@@ -282,7 +312,7 @@ class FormActivity extends Component {
 
 
 		this.setState({
-			
+
 			activity_action_plan: newArray
 		})
 	}
@@ -299,7 +329,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_additional_informations: additionalInfoArray
 		})
 
@@ -317,7 +347,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_additional_informations: newArray
 		})
 	}
@@ -336,7 +366,7 @@ class FormActivity extends Component {
 
 
 		this.setState({
-			
+
 			activity_additional_informations: newArray
 		})
 	}
@@ -354,7 +384,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_quota_informations: quotaInfoArray
 		})
 
@@ -372,7 +402,7 @@ class FormActivity extends Component {
 		})
 
 		this.setState({
-			
+
 			activity_quota_informations: newArray
 		})
 	}
@@ -391,7 +421,7 @@ class FormActivity extends Component {
 
 
 		this.setState({
-			
+
 			activity_quota_informations: newArray
 		})
 	}
@@ -407,7 +437,7 @@ class FormActivity extends Component {
 
 		// render categories
 		let categoriesHtml = this.state.categories.map((item) => {
-			return(
+			return (
 				<option value={item._id}>{item.category_name}</option>
 			)
 		})
@@ -655,6 +685,7 @@ class FormActivity extends Component {
 				<h5>
 					5. Kontenjan Bilgileri
 					<button type="button" className="btn btn-success btn-sm ml-2" onClick={this.handleOnClickNewQuotaInfo}><span className="fa fa-plus"></span></button>
+					<button className="btn btn-success ml-2 btn-sm" type="button" onClick={this.handleOnClickAddMoreQuota}>Bugünden itibaren 30 kontenjan ekle</button>
 				</h5>
 				{quotaInfoHtml}
 				<div class="form-group">

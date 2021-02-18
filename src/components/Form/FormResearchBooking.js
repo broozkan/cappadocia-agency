@@ -4,7 +4,7 @@ import api from '../../services/api'
 
 class FormResearchBooking extends Component {
 
-	constructor(){
+	constructor() {
 		super()
 
 		this.state = {
@@ -19,9 +19,9 @@ class FormResearchBooking extends Component {
 		this.handleOnChange = this.handleOnChange.bind(this)
 	}
 
-	async componentDidMount(){
+	async componentDidMount() {
 		const urlParams = this.props.params
-		
+
 		if (urlParams) {
 			this.setState({
 				category_id: urlParams.category_id,
@@ -29,19 +29,25 @@ class FormResearchBooking extends Component {
 				mature_count: urlParams.mature_count,
 				child_count: urlParams.child_count
 			})
+		} else {
+			const date = new Date()
+			const today = date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2)
+			this.setState({
+				activity_checkout_date: today
+			})
 		}
-		
+
 
 		this.getCategories()
 	}
 
-	handleOnChange(e){
+	handleOnChange(e) {
 		this.setState({
 			[e.target.name]: e.target.value
 		})
 	}
 
-	async getCategories(){
+	async getCategories() {
 		const categories = await api.get('/category/list/1')
 
 		this.setState({
@@ -57,17 +63,17 @@ class FormResearchBooking extends Component {
 		let optionCategoriesHtml = ''
 		if (this.state.is_categories_loaded) {
 			optionCategoriesHtml = this.state.categories.map((item) => {
-				return(
+				return (
 					<option value={item._id}>{item.category_name}</option>
 				)
 			})
-		}else{
+		} else {
 			optionCategoriesHtml = (
 				<option>Kategoriler yükleniyor...</option>
 			)
 		}
 
-	
+
 		return (
 			<form className="form-research-booking" method="GET" action="/seferler">
 				<div class="row no-gutters custom-search-input-2 inner">
@@ -81,7 +87,7 @@ class FormResearchBooking extends Component {
 					</div>
 					<div className="col-lg-2">
 						<div className="form-group">
-						<input className="form-control" name="activity_checkout_date" type="date" onChange={this.handleOnChange} value={this.state.activity_checkout_date} />
+							<input className="form-control" name="activity_checkout_date" type="date" onChange={this.handleOnChange} value={this.state.activity_checkout_date} />
 
 						</div>
 					</div>
@@ -99,7 +105,7 @@ class FormResearchBooking extends Component {
 					</div>
 					<div class="col-lg-2">
 						<select class="wide form-control" name="child_count" onChange={this.handleOnChange} value={this.state.child_count}>
-						<option value="" disabled selected>Çocuk Sayısı</option>
+							<option value="" disabled selected>Çocuk Sayısı</option>
 							<option value="0">0 çocuk</option>
 							<option value="1">1 çocuk</option>
 							<option value="2">2 çocuk</option>

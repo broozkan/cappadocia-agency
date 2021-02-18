@@ -3,6 +3,9 @@ import Swal from 'sweetalert2'
 import { CommonContext } from '../../contexts/site/CommonContext'
 import logo from '../../images/hot-air-balloon.svg'
 import api from '../../services/api'
+import translationPng from '../../images/translation.png'
+import unitedKingdomPng from '../../images/united-kingdom.png'
+import turkeyPng from '../../images/turkey.png'
 
 const Header = () => {
 
@@ -66,7 +69,9 @@ const Header = () => {
                 </a>
             </div>
             <ul id="top_menu">
-                <li><a href="#" className="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
+                <li>
+                    <a href="#" className="" title="Your wishlist"></a>
+                </li>
             </ul>
             <a href="#menu" className="btn_mobile float-right" onClick={handleToggleMobileMenu}>
                 <div className="hamburger hamburger--spin" id="hamburger">
@@ -91,6 +96,12 @@ const Header = () => {
                             <li><a href="/hakkimizda">Hakkımızda</a></li>
                         </ul>
                     </li>
+                    <li><span><a href="#0"><img src={translationPng} className="img-fluid d-xs-none" /></a></span>
+					<ul id="language">
+						<li><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /></a></li>
+						<li><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /></a></li>
+					</ul>
+				</li>
                 </ul>
             </nav>
         </header>
