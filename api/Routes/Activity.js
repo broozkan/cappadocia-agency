@@ -65,24 +65,31 @@ router.post('/new', MultipartyMiddleware, async (req, res) => {
 
             let tmp_path = req.files.file[index].path
             let target_path = path.join(uploadDir, req.files.file[index].name)
-
-
-            fs.rename(tmp_path, target_path, (err) => {
-                if (err) {
-                    res.send({
-                        response: false,
-                        responseData: "Dosya yüklenemedi"
-                    })
-                    res.end()
-
-                    return false
-                } else {
-                    fs.unlink(tmp_path, (err) => {
-
-                    })
-
-                }
-            })
+            
+            if (fs.existsSync(path.join(uploadDir,req.files.file[index].path))) {
+                fs.rename(tmp_path, target_path, (err) => {
+                    if (err) {
+                        res.send({
+                            response: false,
+                            responseData: "Dosya yüklenemedi"
+                        })
+                        res.end()
+    
+                        return false
+                    } else {
+                        fs.unlink(tmp_path, (err) => {
+                            if(err){
+                                res.send({
+                                    response: false,
+                                    responseData : err
+                                })
+                            }
+                        })
+    
+                    }
+                })
+            }
+            
         }
 
 
@@ -133,13 +140,14 @@ router.put('/update/:activityId', MultipartyMiddleware, async (req, res) => {
 
     if (req.files.file) {
 
+
         for (let index = 0; index < req.files.file.length; index++) {
 
             let tmp_path = req.files.file[index].path
             let target_path = path.join(uploadDir, req.files.file[index].name)
 
-
             fs.rename(tmp_path, target_path, (err) => {
+
                 if (err) {
                     res.send({
                         response: false,
@@ -180,7 +188,6 @@ router.put('/update/:activityId', MultipartyMiddleware, async (req, res) => {
             activity_additional_informations: req.body.activity_additional_informations,
             activity_quota_informations: req.body.activity_quota_informations
         }
-
         , (err, updatedActivity) => {
             if (err) {
                 res.send({
