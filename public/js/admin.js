@@ -62,8 +62,6 @@
  	$(this).parent().parent().parent().fadeOut('slow', function (c) {});
  });
 	
-  // Selectbox
-  $(".selectbox").selectbox();
   
   // Pricing add
 	function newMenuItem() {

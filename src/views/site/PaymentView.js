@@ -15,6 +15,7 @@ class PaymentView extends Component {
 
     render(){
     
+        console.log(JSON.parse(localStorage.getItem('pre_reservation_data')));
         return (
             <>
                 <main>

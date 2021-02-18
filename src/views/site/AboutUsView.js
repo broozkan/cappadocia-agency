@@ -22,27 +22,36 @@ const AboutUsView = () => {
             <main>
                 <AboutUsPageTitle />
                 <div class="bg_color_1">
-                            <div class="container margin_80_55">
-                                <div class="main_title_2">
-                                    <span><em></em></span>
-                                    <h2>Hakkımızda</h2>
-                                    <p>Bizi daha yakından tanıyın</p>
-                                </div>
-                                <div class="row justify-content-between">
-                                    <div class="col-lg-6 wow animated" data-wow-offset="150">
-                                        <figure class="block-reveal">
-                                            <div class="block-horizzontal"></div>
-                                            <img src="img/about_1.jpg" class="img-fluid" alt="" />
-                                        </figure>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <p>Önceliğimiz müşteri memnuniyeti <strong>ve en önemlisi keyifli bir tatil</strong>. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. Buralar birlikte doldurulacak. </p>
-                                        <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore <strong>percipitur definitiones</strong> ex, nihil utinam recusabo mel no. Dolores reprehendunt no sit, quo cu viris theophrastus. Sit unum efficiendi cu.</p>
-                                        <p><em>CEO Vahit Serttaş</em></p>
-                                    </div>
-                                </div>
+                    <div class="container margin_80_55">
+                        <div class="main_title_2">
+                            <span><em></em></span>
+                            <h2>Hakkımızda</h2>
+                            <p>Bizi daha yakından tanıyın</p>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="col-lg-6 wow animated" data-wow-offset="150">
+                                <figure class="block-reveal">
+                                    <div class="block-horizzontal"></div>
+                                    <img src="img/about_1.jpg" class="img-fluid" alt="" />
+                                </figure>
+                            </div>
+                            <div class="col-lg-5">
+                                <h5>Turkey Balloons Cappadocia (turkeyballoonscappadocia.com)</h5>
+                                <p>
+                                    Reliance Tour Travel (Türsab #11645) online Kapadokya’da balon turları, aktivite turları, bölge turları üzerine hizmet veren rezervasyon sitesidir.
+                                </p>
+                                <p>
+                                    Kapadokya’nın eşsiz güzelliklerini sizelere en doğru biçimde, güvenli ve tecrübeli ekibi ile siz kıymetli misafirlerimize hayatı boyunca unutamayacakları bir Kapadokya serüveni sunmaktır.
+
+                                </p>
+                                <p>
+                                    Kapadokya’nın büyülü dünyasına birbirinden değerli ve tecrübeli partnerlerimiz ile bizimle  turlarını gerçekleştiren 3000 üzerinde yerli ve yabancı misafirimizin bizi tercih etmesinden dolayı sizlere en güvenilir ve hesaplı hizmeti sunuyoruz.
+                                    Eşsiz güzellikleri ile rüya gibi bir Kapadokya turlarınızı bizimle gerçekleştirin...
+                                </p>
                             </div>
                         </div>
+                    </div>
+                </div>
                 <div class="bg_color_1" style={{ transform: 'none' }}>
                     <div class="container margin_60_35" style={{ transform: 'none' }}>
                         <div class="main_title_2">
@@ -52,12 +61,30 @@ const AboutUsView = () => {
                         </div>
 
                         <div className="row">
-                            <CardAboutUs />
-                            <CardAboutUs />
-                            <CardAboutUs />
+                            <div class="col-lg-4 col-md-6">
+                                <a class="box_feat" href="#0">
+                                    <i class="pe-7s-medal"></i>
+                                    <h3>Mutlu Misafirler</h3>
+                                    <p>Keyifli tatiller.</p>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a class="box_feat" href="#0">
+                                    <i class="pe-7s-medal"></i>
+                                    <h3>Profesyonel Ekip</h3>
+                                    <p>Güvenli tatiller.</p>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <a class="box_feat" href="#0">
+                                    <i class="pe-7s-medal"></i>
+                                    <h3>Kaliteli Hizmet</h3>
+                                    <p>Eğlenceli tatiller.</p>
+                                </a>
+                            </div>
 
                         </div>
-                       
+
                     </div>
                 </div>
                 <Footer />

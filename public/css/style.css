@@ -114,6 +114,10 @@ Author URI: http://themeforest.net/user/Ansonika/
   }
 
   /* Submenu*/
+  .main-menu ul ul#language{
+
+    min-width: 60px;
+  }
   .main-menu ul ul {
     position: absolute;
     z-index: 1;
@@ -3606,6 +3610,7 @@ a.box_feat h3 {
 }
 .box_grid .wrapper {
   padding: 25px;
+  min-height: 200px;
 }
 .box_grid .wrapper h3 {
   font-size: 20px;

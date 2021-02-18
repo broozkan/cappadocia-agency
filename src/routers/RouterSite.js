@@ -30,13 +30,12 @@ import UserProfileView from '../views/site/UserProfileView'
 
 const RouterSite = (props) => {
 
-
-
     return (
         <Router>
             <CommonContextWrapper>
                 <Header />
                 <Switch>
+
                     <Route path="/" exact component={HomeView}></Route>
                     <Route path="/aktivite/detay/" exact component={ActivityDetailView}></Route>
                     <Route path="/aktiviteler/" exact component={ActivityListView}></Route>

@@ -13,43 +13,23 @@
 
 
 
-		// Image popups
-		$('.magnific-gallery').each(function () {
-			$(this).magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				preloader: true,
-				gallery: {
-					enabled: true
-				},
-				removalDelay: 500, //delay removal by X to allow out-animation
-				callbacks: {
-					beforeOpen: function () {
-						// just a hack that adds mfp-anim class to markup 
-						this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-						this.st.mainClass = this.st.el.attr('data-effect');
-					}
-				},
-				closeOnContentClick: true,
-				midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-			});
+
+		/*var $icon = $("#hamburger");
+		var API = $menu.data("mmenu");
+		$icon.on("click", function () {
+		//	API.open();
 		});
-	/*var $icon = $("#hamburger");
-	var API = $menu.data("mmenu");
-	$icon.on("click", function () {
-	//	API.open();
-	});
-	API.bind("open:finish", function () {
-		setTimeout(function () {
-			$icon.addClass("is-active");
-		}, 100);
-	});
-	API.bind("close:finish", function () {
-		setTimeout(function () {
-			$icon.removeClass("is-active");
-		}, 100);
-	});
-	*/
+		API.bind("open:finish", function () {
+			setTimeout(function () {
+				$icon.addClass("is-active");
+			}, 100);
+		});
+		API.bind("close:finish", function () {
+			setTimeout(function () {
+				$icon.removeClass("is-active");
+			}, 100);
+		});
+		*/
 
 		// Carousels
 		$('#carousel').owlCarousel({
@@ -79,26 +59,32 @@
 			});
 		});
 
-		$('#reccomended').owlCarousel({
-			center: true,
-			items: 2,
-			loop: true,
-			margin: 0,
-			responsive: {
-				0: {
-					items: 1
+
+
+
+
+		// Image popups
+		$('.magnific-gallery').each(function () {
+			$(this).magnificPopup({
+				delegate: 'a',
+				type: 'image',
+				preloader: true,
+				gallery: {
+					enabled: true
 				},
-				767: {
-					items: 2
+				removalDelay: 500, //delay removal by X to allow out-animation
+				callbacks: {
+					beforeOpen: function () {
+						// just a hack that adds mfp-anim class to markup 
+						this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+						this.st.mainClass = this.st.el.attr('data-effect');
+					}
 				},
-				1000: {
-					items: 3
-				},
-				1400: {
-					items: 4
-				}
-			}
+				closeOnContentClick: true,
+				midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+			});
 		});
+
 	});
 
 	// Sticky nav
