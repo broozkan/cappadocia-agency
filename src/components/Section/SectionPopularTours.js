@@ -38,8 +38,31 @@ class SectionPopularTours extends Component {
             })
 
             if (activitiesHtml != '') {
+                const responsive = {
+                    0: {
+                        items: 1,
+                    },
+                    450: {
+                        items: 2,
+                    },
+                    600: {
+                        items: 3,
+                    },
+                    1000: {
+                        items: 4,
+                    }
+                }
                 carouselHtml = (
-                    <OwlCarousel className="owl-theme" loop margin={20} items={4} nav>
+                    <OwlCarousel className="owl-theme"
+                        loop={true}
+                        margin={20}
+                        nav={false}
+                        dots={true}
+                        autoplay={true}
+                        autoplayTimeout={2000}
+                        items={4}
+                        responsive={responsive}
+                    >
                         {activitiesHtml}
                     </OwlCarousel>
                 )
