@@ -2,7 +2,8 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 
 } from 'react-router-dom'
 import RouterMain from './routers/RouterMain';
@@ -15,11 +16,11 @@ function App() {
         <Switch>
           <Route path="/">
             <RouterMain />
-          </Route>      
+          </Route>
         </Switch>
       </Router>
 
-      
+
     </div>
   );
 }

@@ -6,6 +6,7 @@ const FormCategory = (props) => {
 
 
 	const [state, setState] = useState({
+		category_language: 'tr',
 		category_name: '',
 		category_description: '',
 		category_header_visibility: false,
@@ -13,7 +14,6 @@ const FormCategory = (props) => {
 	})
 
 	useEffect(()=>{
-		console.log(props);
 		if(props.category_id){
 			getCategory()
 		}
@@ -22,6 +22,7 @@ const FormCategory = (props) => {
 
 	const resetState = () => {
 		setState({
+			category_language: 'tr',
 			category_name: '',
 			category_description: '',
 			category_header_visibility: false,
@@ -34,6 +35,7 @@ const FormCategory = (props) => {
 
 		setState({
 			...state,
+			category_language: category.data.category_language,
 			category_name: category.data.category_name,
 			category_description: category.data.category_description,
 			category_header_visibility: category.data.category_header_visibility
@@ -66,6 +68,7 @@ const FormCategory = (props) => {
 		})
 
 		const formData = {
+			category_language: state.category_language,
 			category_name: state.category_name,
 			category_description: state.category_description,
 			category_header_visibility: state.category_header_visibility
@@ -104,6 +107,14 @@ const FormCategory = (props) => {
 	
 	return (
 		<form onSubmit={handleOnSubmit}>
+			<div class="form-group">
+				<label>Kategori Dili *</label>
+				<select className="form-control" name="category_language" value={state.category_language} onChange={handleOnChange}>
+					<option value="" disabled selected>Dil seçiniz</option>
+					<option value="tr">Türkçe</option>
+					<option value="en">İngilizce</option>
+				</select>
+			</div>
 			<div class="form-group">
 				<label>Kategori Adı *</label>
 				<input type="text" class="form-control" required name="category_name" onChange={handleOnChange} value={state.category_name} placeholder="Kategori adı giriniz" />

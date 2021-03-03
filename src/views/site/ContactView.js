@@ -4,6 +4,7 @@ import FormContact from '../../components/Form/FormContact'
 import MapContact from '../../components/Map/MapContact'
 import ContactPageTitle from '../../components/PageTitle/ContactPageTitle'
 import SectionContactInfo from '../../components/Section/SectionContactInfo'
+import { getTranslatedString } from '../../controllers/controller'
 
 const ContactView = () => {
     return (
@@ -19,8 +20,8 @@ const ContactView = () => {
                                 <MapContact />
                             </div>
                             <div class="col-lg-6">
-                                <h4>Bize mesaj gönderin</h4>
-                                <p>Her türlü istek, öneri veya şikayetleriniz için bize buradan ulaşabilirsiniz</p>
+                                <h4>{getTranslatedString('form_contact_send_us_message')}</h4>
+                                <p>{getTranslatedString('form_contact_send_us_message_p')}</p>
                                 <div id="message-contact"></div>
                                 <FormContact />
                             </div>

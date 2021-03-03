@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import api from '../../services/api'
 import TourItem from '../Item/TourItem'
 import OwlCarousel from "react-owl-carousel";
+import { getTranslatedString } from '../../controllers/controller';
 
 
 class SectionPopularTours extends Component {
@@ -17,8 +18,7 @@ class SectionPopularTours extends Component {
 
 
     async componentDidMount() {
-        const activities = await api.get('/activity/list/1', {})
-
+        const activities = await api.get('/activity/list/1', { params: { activity_language: localStorage.getItem('language') } })
         this.setState({
             activities: activities.data.docs,
             is_activities_loaded: true
@@ -68,6 +68,7 @@ class SectionPopularTours extends Component {
                 )
             }
         }
+        // render activities
 
 
 
@@ -76,11 +77,11 @@ class SectionPopularTours extends Component {
             <div className="container container-custom margin_80_0">
                 <div className="main_title_2">
                     <span><em></em></span>
-                    <h2>Popüler Turlarımız</h2>
-                    <p>En çok tercih edilen turlarımız</p>
+                    <h2>{getTranslatedString('popular_tours_h2')}</h2>
+                    <p>{getTranslatedString('popular_tours_p')}</p>
                 </div>
                 {carouselHtml}
-                <p className="btn_home_align"><a href="tours-grid-isotope.html" className="btn_1 rounded">Tüm turları gör</a></p>
+                <p className="btn_home_align"><a href="tours-grid-isotope.html" className="btn_1 rounded">{getTranslatedString('popular_tours_link')}</a></p>
                 <hr className="large"></hr>
             </div>
         )

@@ -1,6 +1,7 @@
 import React, { Component, useContext, useEffect } from 'react'
 import { ActivityDetailContext } from '../../contexts/site/ActivityDetailContext'
 import { CommonContext } from '../../contexts/site/CommonContext'
+import { getTranslatedString } from '../../controllers/controller'
 
 
 
@@ -15,7 +16,7 @@ class SectionActivityDetailStart extends Component {
 		if (this.context.isActivityLoaded) {
 			activityPhotosHtml = this.context.activity.activity_photos.map((item) => {
 				return (
-					<a href={process.env.REACT_APP_API_ENDPOINT + 'file/' + item.activity_photo_name} class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">Fotoğrafları Görüntüle</a>
+					<a href={process.env.REACT_APP_API_ENDPOINT + 'file/' + item.activity_photo_name} class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">{getTranslatedString('activity_detail_show_photos')}</a>
 
 				)
 			})

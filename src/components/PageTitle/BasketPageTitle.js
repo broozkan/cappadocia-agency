@@ -1,4 +1,5 @@
 import React from 'react'
+import { getTranslatedString } from '../../controllers/controller'
 
 const BasketPageTitle = () => {
     return (
@@ -7,7 +8,7 @@ const BasketPageTitle = () => {
 				<div class="container">
 					<div class="bs-wizard clearfix">
 						<div class="bs-wizard-step active">
-							<div class="text-center bs-wizard-stepnum">SEPET</div>
+							<div class="text-center bs-wizard-stepnum">{getTranslatedString('basket')}</div>
 							<div class="progress">
 								<div class="progress-bar"></div>
 							</div>
@@ -15,7 +16,7 @@ const BasketPageTitle = () => {
 						</div>
 
 						<div class="bs-wizard-step disabled">
-							<div class="text-center bs-wizard-stepnum">ÖDEME</div>
+							<div class="text-center bs-wizard-stepnum">{getTranslatedString('payment')}</div>
 							<div class="progress">
 								<div class="progress-bar"></div>
 							</div>
@@ -23,7 +24,7 @@ const BasketPageTitle = () => {
 						</div>
 
 						<div class="bs-wizard-step disabled">
-							<div class="text-center bs-wizard-stepnum">BİTİŞ!</div>
+							<div class="text-center bs-wizard-stepnum">{getTranslatedString('finish')}!</div>
 							<div class="progress">
 								<div class="progress-bar"></div>
 							</div>

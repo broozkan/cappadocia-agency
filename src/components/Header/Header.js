@@ -6,6 +6,7 @@ import api from '../../services/api'
 import translationPng from '../../images/translation.png'
 import unitedKingdomPng from '../../images/united-kingdom.png'
 import turkeyPng from '../../images/turkey.png'
+import { getTranslatedString } from '../../controllers/controller'
 
 const Header = () => {
 
@@ -25,8 +26,15 @@ const Header = () => {
         setMobileMenuState(!mobileMenuState)
     }
 
+    const handleOnClick = (e) => {
+        localStorage.setItem('language', e.currentTarget.dataset.language)
+        window.location.reload()
+    }
+
     const getCategories = async () => {
-        const categories = await api.get('/category/list/1', { params: { category_header_visibility: '1' } })
+        const categories = await api.get('/category/list/1', 
+        { params: { category_header_visibility: '1', category_language: localStorage.getItem('language')} }
+        )
 
         setState({
             ...state,
@@ -40,7 +48,7 @@ const Header = () => {
 
 
 
- 
+
 
 
     // render categories
@@ -48,7 +56,7 @@ const Header = () => {
     if (state.is_categories_loaded) {
         categoriesHtml = state.categories.map((item) => {
             return (
-                <li><span><a href={"/seferler?category_id="+item._id+"&mature_count=1&child_count=0"}>{item.category_name}</a></span></li>
+                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name}</a></span></li>
             )
         })
     }
@@ -80,28 +88,28 @@ const Header = () => {
                     </div>
                 </div>
             </a>
-            <nav id="menu" className={"main-menu active "+mobileMenuClass}>
+            <nav id="menu" className={"main-menu active " + mobileMenuClass}>
                 <div className="mobile-menu-header d-none">
                     <h5>MENU </h5>
                 </div>
                 <ul>
-                    <li><span><a href="/"> Anasayfa</a></span></li>
+                    <li><span><a href="/"> {getTranslatedString('header_home')}</a></span></li>
                     {categoriesHtml}
 
 
 
-                    <li><span><a href="/hakkimizda">Kurumsal</a></span>
+                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')}</a></span>
                         <ul className="d-xs-none" >
-                            <li><a href="/iletisim">İletişim</a></li>
-                            <li><a href="/hakkimizda">Hakkımızda</a></li>
+                            <li><a href="/iletisim">{getTranslatedString('contact')}</a></li>
+                            <li><a href="/hakkimizda">{getTranslatedString('header_about')}</a></li>
                         </ul>
                     </li>
                     <li><span><a href="#0"><img src={translationPng} className="img-fluid d-xs-none" /></a></span>
-					<ul id="language">
-						<li><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /></a></li>
-						<li><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /></a></li>
-					</ul>
-				</li>
+                        <ul id="language">
+                            <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /></a></li>
+                            <li onClick={handleOnClick} data-language="tr"><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /></a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </header>

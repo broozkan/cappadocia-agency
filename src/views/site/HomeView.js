@@ -12,17 +12,19 @@ import ModalForgetPassword from '../../components/Modal/ModalForgetPassword'
 import SectionFeedbacks from '../../components/Section/SectionFeedbacks'
 
 const HomeView = () => {
+
+
     return (
         <>
-        <main>
-            <Slider />
-            <SectionPopularTours />
-            <SectionAdventureGrid />
-            <SectionFeedbacks />
-            <SectionParallax />
-            <Footer />
-            <ModalForgetPassword />
-        </main>
+            <main>
+                <Slider />
+                <SectionPopularTours />
+                <SectionAdventureGrid />
+                <SectionFeedbacks />
+                <SectionParallax />
+                <Footer />
+                <ModalForgetPassword />
+            </main>
         </>
     )
 }

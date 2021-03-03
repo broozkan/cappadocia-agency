@@ -8,6 +8,7 @@ import NavbarSortBooking from '../../components/Navbar/NavbarSortBooking'
 import queryString from 'query-string'
 import api from '../../services/api'
 import dateFormat from 'dateformat'
+import { getTranslatedString } from '../../controllers/controller'
 
 class BookingView extends Component {
 
@@ -75,8 +76,8 @@ class BookingView extends Component {
             if (this.state.results.length < 1) {
                 resultsHtml = (
                     <>
-                    <h4 className="text-center">Aradığınız tarihte kontenjan bulunamadı :(</h4>
-                    <p className="text-center">Tarihi değiştirmeyi deneyin</p>
+                    <h4 className="text-center">{getTranslatedString('booking_not_found_h4')} :(</h4>
+                    <p className="text-center">{getTranslatedString('booking_not_found_p')}</p>
                     </>
 
                 )

@@ -12,6 +12,7 @@ import RouterAdmin from './RouterAdmin'
 const RouterMain = (props) => {
 
     let location = useLocation()
+    console.log(location);
     location = location.pathname.split("/")
 
     

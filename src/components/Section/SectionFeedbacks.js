@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { Component } from 'react'
+import { getTranslatedString } from '../../controllers/controller'
 import FeedbackItem from '../Item/FeedbackItem'
 
 class SectionFeedbacks extends Component {
@@ -18,8 +19,8 @@ class SectionFeedbacks extends Component {
 			<div className="container margin_80_55">
 			<div class="main_title_2">
 					<span><em></em></span>
-					<h2>Değerli Yorumlarınız</h2>
-					<p>Sizin mutluluğunuz bizim işimizi aşkla yapmamızı sağlıyor</p>
+					<h2>{getTranslatedString('feedback_h2')}</h2>
+					<p>{getTranslatedString('feedback_p')}</p>
 				</div>
 				<div id="carousel" class="owl-carousel owl-theme">
 

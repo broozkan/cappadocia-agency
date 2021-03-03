@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Component } from 'react'
 import { ActivityDetailContext } from '../../contexts/site/ActivityDetailContext'
 import { CommonContext } from '../../contexts/site/CommonContext'
+import { getTranslatedString } from '../../controllers/controller'
 import ButtonGroupShareActivity from '../ButtonGroup/ButtonGroupShareActivity'
 import FormCheckAvailability from '../Form/FormCheckAvailablity'
 import FormLeaveReview from '../Form/FormLeaveReview'
@@ -22,7 +23,7 @@ class SectionActivityDetailContent extends Component {
 
 	render() {
 
-	
+
 
 		return (
 			<div class="container margin_60_35">
@@ -30,20 +31,20 @@ class SectionActivityDetailContent extends Component {
 					<div class="col-lg-8">
 						<div className="grid">
 
-						<UnorderedListActivityGallery />
+							<UnorderedListActivityGallery />
 						</div>
 
 						<section id="description">
 							<div dangerouslySetInnerHTML={{ __html: this.context.activity.activity_description }} />
 							<br></br>
-							<h5 className="mt-5">İptal &amp; İade Bilgileri</h5>
+							<h5 className="mt-5">{getTranslatedString('cancellation')} &amp; {getTranslatedString('refund')} {getTranslatedString('informations')}</h5>
 							<UnorderedListCancellationTerms />
 
-							<h5 className="mt-5">Hareket Bilgileri</h5>
+							<h5 className="mt-5">{getTranslatedString('action')} {getTranslatedString('action')}</h5>
 							<UnorderedListActionPlan />
 						</section>
 						<section id="reviews">
-							<h2>Değerlendirmeler</h2>
+							<h2>{getTranslatedString('reviews')}</h2>
 							<div class="reviews-container">
 								<div class="row">
 									<div class="col-lg-3">
@@ -62,8 +63,8 @@ class SectionActivityDetailContent extends Component {
 						<hr></hr>
 
 						<div class="add-review">
-							<h6>Bu aktiviteye katıldınız mı?</h6>
-							<h5>Değerlendirme Bırakın</h5>
+							<h6>{getTranslatedString('activity_detail_attempt_question')}</h6>
+							<h5>{getTranslatedString('activity_detail_leave_review')}</h5>
 							<FormLeaveReview />
 
 						</div>

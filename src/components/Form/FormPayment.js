@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Swal from 'sweetalert2'
 import { CommonContext } from '../../contexts/site/CommonContext'
+import { getTranslatedString } from '../../controllers/controller'
 import api from '../../services/api'
 import AsideTotalPayment from '../Aside/AsideTotalPayment'
 import ElementScore from '../Element/ElementScore'
@@ -67,7 +68,7 @@ class FormPayment extends Component {
         const submitResponse = await api.post('/reservation/new', data, { headers: { 'site-token': localStorage.getItem('site-auth') } })
 
         if (submitResponse.data.response) {
-            window.location.href = '/odeme/basarili/'+submitResponse.data.conversationId+''
+            window.location.href = '/odeme/basarili/' + submitResponse.data.conversationId + ''
         } else {
             Swal.fire({
                 title: 'Hata',
@@ -88,7 +89,7 @@ class FormPayment extends Component {
         if (this.state.payment_method == "cash") {
             paymentFieldHtml = (
                 <div className="form-group">
-                    <h5> <span className="fa fa-warning"></span> Ödemeyi aktivite öncesi ekibimiz sizden tahsil edecektir.</h5>
+                    <h5> <span className="fa fa-warning"></span> {getTranslatedString('form_payment_cash_description')}</h5>
 
                 </div>
             )
@@ -96,13 +97,13 @@ class FormPayment extends Component {
             paymentFieldHtml = (
                 <>
                     <div class="form-group">
-                        <label>Kart üzerindeki isim *</label>
+                        <label>{getTranslatedString('form_payment_name_on_card')} *</label>
                         <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_cart_name" name="payment_cart_name" />
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="form-group">
-                                <label>Kart Numarası *</label>
+                                <label>{getTranslatedString('card_number')} *</label>
                                 <input type="text" id="payment_cart_number" name="payment_cart_number" class="form-control" required onChange={this.handleOnChange} />
                             </div>
                         </div>
@@ -112,7 +113,7 @@ class FormPayment extends Component {
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label>Sok kullanma Tarihi *</label>
+                            <label>{getTranslatedString('expirement_date')} *</label>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -155,13 +156,13 @@ class FormPayment extends Component {
                         <div class="box_cart">
 
                             <div class="form_title">
-                                <h3><strong>1</strong>Ödeme Bilgileri</h3>
-                                <p>SSL güvenlik sertifikası ile kart bilgilerinizi koruyor ve saklamıyoruz.</p>
+                                <h3><strong>1</strong>{getTranslatedString('payment')} {getTranslatedString('informations')}</h3>
+                                <p>{getTranslatedString('form_payment_p_1')}</p>
                             </div>
 
                             <div class="step">
                                 <div class="form-group">
-                                    <label class="container_check"> Nakit olarak ödemek istiyorum
+                                    <label class="container_check"> {getTranslatedString('form_payment_pay_with_cash')}
                                         <input type="checkbox" name="payment_method" onChange={this.handleOnChange} value={this.state.payment_method} />
                                         <span class="checkmark"></span>
                                     </label>
@@ -174,10 +175,7 @@ class FormPayment extends Component {
 
 
                             <hr></hr>
-                            <div id="policy">
-                                <h5>İptal Politikası</h5>
-                                <p class="nomargin">Satın aldığınız paketin iptal politikası dahilindedir <a href="#0">Ürüne ait iptal politikasına</a> tıklayarak ulaşabilirsiniz. </p>
-                            </div>
+
                         </div>
                     </div>
 

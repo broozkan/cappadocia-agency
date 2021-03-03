@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
 import { CommonContext } from '../../contexts/site/CommonContext'
 import { ThemeProvider } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { getTranslatedString } from '../../controllers/controller'
 
 class BookingItem extends Component {
 
@@ -27,7 +28,7 @@ class BookingItem extends Component {
 
     handleOnClickAddToBasket = async (e) => {
 
-        if(!this.props.params.child_count){
+        if (!this.props.params.child_count) {
             this.props.params.child_count = 0
         }
         const preReservationTotal = (parseInt(this.props.params.mature_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
@@ -50,7 +51,6 @@ class BookingItem extends Component {
     }
     render() {
 
-        console.log(this.context);
 
         // render quota informations
         let quotaInformationHtml = ''
@@ -76,15 +76,15 @@ class BookingItem extends Component {
                                             data-activity_price={this.props.activity.activity_price}
                                             onClick={this.handleOnClickAddToBasket}
                                             href={
-                                                "/yolcu-formu/"+this.props.activity._id+
-                                                "/"+item.quota_info_date+
-                                                "/"+item.quota_info_beginning_hour+"/"+
-                                                item.quota_info_ending_hour+"/"+
-                                                this.props.params.mature_count+"/"+
-                                                this.props.params.child_count+"/"
+                                                "/yolcu-formu/" + this.props.activity._id +
+                                                "/" + item.quota_info_date +
+                                                "/" + item.quota_info_beginning_hour + "/" +
+                                                item.quota_info_ending_hour + "/" +
+                                                this.props.params.mature_count + "/" +
+                                                this.props.params.child_count + "/"
                                             }
                                             class="btn_2 rounded float-right">
-                                            Rezervasyon Yap
+                                            {getTranslatedString('booking_item_make_reservation')}
                                         </a>
                                         <h3><a href={"/aktivite/detay/?activity=" + this.props.activity._id}>{this.props.activity.activity_name}</a></h3>
                                         <p className="mb-3">{this.props.activity.activity_short_description} </p>
@@ -92,12 +92,12 @@ class BookingItem extends Component {
                                         <ul class="booking_list">
                                             <div className="row">
                                                 <div className="col-lg-8">
-                                                    <li><strong> <span className="fa fa-calendar"></span> Tarih</strong> {item.quota_info_date} / {item.quota_info_beginning_hour} - {item.quota_info_ending_hour}</li>
-                                                    <li><strong> <span className="fa fa-users"></span> Kontenjan</strong> {item.quota} kişi</li>
-                                                    <li className="float-left" > <a href={"/aktivite/detay/?activity=" + this.props.activity._id}>Tüm özellikler <span className="fa fa-chevron-right"></span> </a></li>
+                                                    <li><strong> <span className="fa fa-calendar"></span> {getTranslatedString('booking_item_date')}</strong> {item.quota_info_date} / {item.quota_info_beginning_hour} - {item.quota_info_ending_hour}</li>
+                                                    <li><strong> <span className="fa fa-users"></span> {getTranslatedString('booking_item_quota')}</strong> {item.quota} {getTranslatedString('booking_item_person')}</li>
+                                                    <li className="float-left" > <a href={"/aktivite/detay/?activity=" + this.props.activity._id}>{getTranslatedString('tour_item_show_details')} <span className="fa fa-chevron-right"></span> </a></li>
                                                 </div>
                                                 <div className="col-lg-4">
-                                                    <span class="price-lg"><strong>{this.props.activity.activity_price} {this.props.activity.activity_currency}</strong> / kişi başı</span>
+                                                    <span class="price-lg"><strong>{this.props.activity.activity_price} {this.props.activity.activity_currency}</strong> / {getTranslatedString('per_person')}</span>
                                                 </div>
                                             </div>
 

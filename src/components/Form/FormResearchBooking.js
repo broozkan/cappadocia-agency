@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { getTranslatedString } from '../../controllers/controller'
 import api from '../../services/api'
 
 
@@ -48,7 +49,7 @@ class FormResearchBooking extends Component {
 	}
 
 	async getCategories() {
-		const categories = await api.get('/category/list/1')
+		const categories = await api.get('/category/list/1', {params: {category_language: localStorage.getItem('language')}})
 
 		this.setState({
 			categories: categories.data.docs,
@@ -94,29 +95,29 @@ class FormResearchBooking extends Component {
 					<div class="col-lg-2">
 						<div class="form-group">
 							<select class="wide form-control" name="mature_count" onChange={this.handleOnChange} value={this.state.mature_count}>
-								<option value="" disabled selected>Yetişkin Sayısı</option>
-								<option value="1">1 Yetişkin</option>
-								<option value="2">2 Yetişkin</option>
-								<option value="3">3 Yetişkin</option>
-								<option value="4">4 Yetişkin</option>
+								<option value="" disabled selected>{getTranslatedString('form_research_mature')} {getTranslatedString('form_research_count')}</option>
+								<option value="1">1 {getTranslatedString('form_research_mature')}</option>
+								<option value="2">2 {getTranslatedString('form_research_mature')}</option>
+								<option value="3">3 {getTranslatedString('form_research_mature')}</option>
+								<option value="4">4 {getTranslatedString('form_research_mature')}</option>
 							</select>
 							<i class="icon_profile"></i>
 						</div>
 					</div>
 					<div class="col-lg-2">
 						<select class="wide form-control" name="child_count" onChange={this.handleOnChange} value={this.state.child_count}>
-							<option value="" disabled selected>Çocuk Sayısı</option>
-							<option value="0">0 çocuk</option>
-							<option value="1">1 çocuk</option>
-							<option value="2">2 çocuk</option>
-							<option value="3">3 çocuk</option>
-							<option value="4">4 çocuk</option>
+							<option value="" disabled selected>{getTranslatedString('form_research_child')} {getTranslatedString('form_research_count')}</option>
+							<option value="0">0 {getTranslatedString('form_research_child')}</option>
+							<option value="1">1 {getTranslatedString('form_research_child')}</option>
+							<option value="2">2 {getTranslatedString('form_research_child')}</option>
+							<option value="3">3 {getTranslatedString('form_research_child')}</option>
+							<option value="4">4 {getTranslatedString('form_research_child')}</option>
 						</select>
 						<i class="icon_profile"></i>
 
 					</div>
 					<div class="col-lg-2">
-						<input type="submit" class="btn_search" value="Ara" />
+						<input type="submit" class="btn_search" value={getTranslatedString('form_research_search')} />
 					</div>
 				</div>
 			</form>
