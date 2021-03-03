@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2")
 
 const categorySchema = mongoose.Schema({
+    category_language: {
+        type: String,
+        required: [true, "Kategori dili zorunludur"]
+    },
     category_name: {
         type: String,
         required: [true, "Kategori adı zorunludur"]

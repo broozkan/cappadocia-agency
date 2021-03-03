@@ -47,10 +47,11 @@ router.get('/get/:categoryId', async (req, res) => {
 
 
 router.post('/new', async (req, res) => {
-
+    console.log(req.body);
 
 
     const category = new Category.categoryModel({
+        category_language: req.body.category_language,
         category_name: req.body.category_name,
         category_description: req.body.category_description,
         category_header_visibility: req.body.category_header_visibility
@@ -82,6 +83,7 @@ router.put('/update/:categoryId', async (req, res) => {
     await Category.categoryModel.findByIdAndUpdate(
         { _id: req.params.categoryId },
         {
+            category_language: req.body.category_language,
             category_name: req.body.category_name,
             category_description: req.body.category_description,
             category_header_visibility: req.body.category_header_visibility
