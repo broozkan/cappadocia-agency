@@ -38,7 +38,7 @@ class ListReservation extends Component {
 
 
     async handleCancelReservationClick(e) {
-        
+
 
         const submitResponse = await api.post('/reservation/cancel-reservation/' + e.target.dataset.id)
 
@@ -61,23 +61,7 @@ class ListReservation extends Component {
     }
 
     render() {
-
-
-        // render reservation acctivity content
-        let reservationActivityContentHtml = this.props.reservation.reservation_basket.map((item) => {
-
-            return (
-                <>
-                    <li><strong>Aktivite</strong> {item.basket_activity[0].activity_name}</li>
-                    <li><strong>Tarih</strong> {item.basket_activity_date} - {item.basket_activity_beginning_hour} / {item.basket_activity_ending_hour}</li>
-                    <li><strong>Tutar</strong> {item.basket_total} {item.basket_activity[0].activity_currency}</li>
-                    <li><strong>Yetişkin Sayısı</strong> {item.basket_mature_count}</li>
-                    <li><strong>Çocuk Sayısı</strong> {item.basket_child_count}</li>
-                    <hr></hr>
-                </>
-
-            )
-        })
+        console.log(this.props);
 
 
 
@@ -109,12 +93,20 @@ class ListReservation extends Component {
 
         return (
             <li>
-                <figure><img src="/img/hotel_1.jpg" alt="" /></figure>
-                <h4>{"Burhan Özkan"} {reservationApprovementHtml}</h4>
+                <figure><img src={`${process.env.REACT_APP_API_ENDPOINT}file/${this.props.reservation.reservation.pre_reservation_activity.activity_photos[0].activity_photo_name}`} alt="" /></figure>
+                <h4>
+                    {`${this.props.reservation.reservation.pre_reservation_passenger.contact_informations_name} `} 
+                    
+                    {this.props.reservation.reservation.pre_reservation_passenger.contact_informations_surname}
+                    {reservationApprovementHtml}
+                    </h4>
                 <ul class="booking_list">
-                    {reservationActivityContentHtml}
-                    <li><strong>Toplam Tutar</strong> 200 €</li>
-                    <li><strong>Ödeme Tipi</strong> {reservationMethodNameHtml}</li>
+                    <li><strong>Aktivite</strong> {this.props.reservation.reservation.pre_reservation_activity.activity_name}</li>
+                    <li><strong>Tarih</strong> {this.props.reservation.reservation.pre_reservation_activity_date} - {this.props.reservation.reservation.pre_reservation_activity_beginning_hour} / {this.props.reservation.reservation.pre_reservation_activity_ending_hour}</li>
+                    <li><strong>Tutar</strong> {this.props.reservation.reservation.pre_reservation_total} {this.props.reservation.reservation.pre_reservation_activity.activity_currency}</li>
+                    <li><strong>Yetişkin Sayısı</strong> {this.props.reservation.reservation.pre_reservation_mature_count}</li>
+                    <li><strong>Çocuk Sayısı</strong> {this.props.reservation.reservation.pre_reservation_child_count}</li>
+                    <li><strong>Ödeme Tipi</strong> {this.props.reservation.reservation_payment_method}</li>
                 </ul>
                 <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Sms Gönder</a></p>
                 <ul class="buttons">

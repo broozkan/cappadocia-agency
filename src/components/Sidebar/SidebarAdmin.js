@@ -22,13 +22,13 @@ const SidebarAdmin = () => {
                     <span class="nav-link-text"> Rezervasyonlar <span class="badge badge-pill badge-primary">6 Yeni</span></span>
                 </a>
             </li>
-            
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Reviews">
+
+            {/* <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Reviews">
                 <a class="nav-link" href="/admin/degerlendirmeler">
                     <i class="fa fa-fw fa-star"></i>
                     <span class="nav-link-text"> Değerlendirmeler/Yorumlar</span>
                 </a>
-            </li>
+            </li> */}
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Add listing">
                 <a class="nav-link" href="/admin/kategoriler">
                     <i class="fa fa-fw fa-list"></i>
