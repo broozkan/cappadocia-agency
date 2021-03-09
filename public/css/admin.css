@@ -518,7 +518,7 @@ hr.double {
 .btn_1 {
   border: none;
   color: #fff;
-  background: #fc5b62;
+  background: #0054a6;
   cursor: pointer;
   padding: 10px 15px;
   display: inline-block;
@@ -589,8 +589,8 @@ hr.double {
 }
 
 #admin .btn-primary {
-  background-color: #fc5b62;
-  border-color: #fc5b62;
+  background-color: #0054a6;
+  border-color: #0054a6;
 }
 #admin .btn-primary:hover {
   background-color: #0054a6;
@@ -685,8 +685,8 @@ label.fix_spacing {
 
 /*-------- 3.2 Pagination --------*/
 .page-item.active .page-link {
-  background-color: #fc5b62;
-  border-color: #fc5b62;
+  background-color: #0054a6;
+  border-color: #0054a6;
 }
 
 .page-item.disabled .page-link {

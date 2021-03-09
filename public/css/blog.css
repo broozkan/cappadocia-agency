@@ -113,7 +113,7 @@ article.blog .post_info h3 a {
   color: #333;
 }
 article.blog .post_info h3 a:hover {
-  color: #fc5b62;
+  color: #0054a6;
 }
 article.blog .post_info ul {
   margin: 0 -30px 0 -30px;
@@ -192,7 +192,7 @@ article.blog .post_info ul li:last-child {
   color: #333;
 }
 .comments-list h3 a:hover {
-  color: #fc5b62;
+  color: #0054a6;
 }
 .comments-list li {
   margin-bottom: 10px;
@@ -237,7 +237,7 @@ article.blog .post_info ul li:last-child {
   color: #333;
 }
 .widget ul.cats a:hover {
-  color: #fc5b62;
+  color: #0054a6;
 }
 .widget ul.cats a span {
   position: absolute;
@@ -257,7 +257,7 @@ article.blog .post_info ul li:last-child {
   display: inline-block;
 }
 .tags a:hover {
-  background-color: #fc5b62;
+  background-color: #0054a6;
   color: #fff;
 }
 
@@ -298,7 +298,7 @@ article.blog .post_info ul li:last-child {
   color: #999;
 }
 .postmeta ul li a:hover {
-  color: #fc5b62;
+  color: #0054a6;
 }
 
 .dropcaps p:first-child::first-letter {

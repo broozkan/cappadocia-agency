@@ -4,6 +4,17 @@
         display: none;
     }
 
+    .mobile-visibility-hidden{
+        visibility: hidden;
+        width: 0px;
+    }
+    .mobile-visibility-visible{
+        transition: width 0.3s ease;
+        width: 100%;
+        visibility: visible;
+    }
+    
+
     .btn_mobile{
         float: left!important;
         padding: 20px;

@@ -195,6 +195,11 @@ const translations = {
         "tr": 'Kaliteli Hizmet',
         "en": 'Quality Service'
     },
+    "search_quickly": {
+        "tr": "Hemen Bul",
+        "en": "Search Quickly",
+
+    },
     /* common words end */
 
 

@@ -3,6 +3,7 @@
 /*============================================================================================*/
 
 
+
 /* ADVENTURE GRID */
 .banner-adventure-grid-wrapper{
     background: black;
@@ -22,6 +23,7 @@
     height: calc(2.68rem + 8px)!important;
     border: none;
 }
+
 
 .navbar-sort-booking ul li{
     font-size: 0.8rem;

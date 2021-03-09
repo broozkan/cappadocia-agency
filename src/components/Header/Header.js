@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 import { CommonContext } from '../../contexts/site/CommonContext'
-import logo from '../../images/hot-air-balloon.svg'
+import logo from '../../images/logo.png'
 import api from '../../services/api'
 import translationPng from '../../images/translation.png'
 import unitedKingdomPng from '../../images/united-kingdom.png'
@@ -32,8 +32,8 @@ const Header = () => {
     }
 
     const getCategories = async () => {
-        const categories = await api.get('/category/list/1', 
-        { params: { category_header_visibility: '1', category_language: localStorage.getItem('language')} }
+        const categories = await api.get('/category/list/1',
+            { params: { category_header_visibility: '1', category_language: localStorage.getItem('language') } }
         )
 
         setState({
@@ -72,8 +72,8 @@ const Header = () => {
             <div id="preloader"><div data-loader="circle-side"></div></div>
             <div id="logo">
                 <a href="/">
-                    <img src={logo} width="250" height="64" alt="" className="logo_normal" />
-                    <img src={logo} width="250" height="64" alt="" className="logo_sticky" />
+                    <img src={logo} height="150" alt="" className="logo_normal" />
+                    <img src={logo} height="150" alt="" className="logo_sticky" />
                 </a>
             </div>
             <ul id="top_menu">

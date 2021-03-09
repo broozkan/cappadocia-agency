@@ -563,7 +563,7 @@
   width: 36px;
   height: 36px;
   line-height: 36px;
-  background-color: #fc5b62;
+  background-color: #0054a6;
   position: relative;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -574,7 +574,7 @@
 .marker-cluster-small div,
 .marker-cluster-medium div,
 .marker-cluster-large div {
-  background-color: #fc5b62;
+  background-color: #0054a6;
 }
 
 .marker-cluster div:before {
@@ -583,9 +583,9 @@
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   border-radius: 50%;
-  border: 7px solid #fc5b62;
+  border: 7px solid #0054a6;
   opacity: 0.2;
-  box-shadow: inset 0 0 0 4px #fc5b62;
+  box-shadow: inset 0 0 0 4px #0054a6;
   position: absolute;
   top: 0;
   left: 0;
@@ -652,7 +652,7 @@
   font-weight: 500;
 }
 .leaflet-popup-content a {
-  color: #fc5b62;
+  color: #0054a6;
 }
 .leaflet-popup-content span.infobox_rate {
   display: inline-block;
