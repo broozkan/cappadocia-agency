@@ -2,6 +2,7 @@ import React from 'react'
 import tursabLogo from '../../images/tursab-logo.png'
 import logo from '../../images/hot-air-balloon.svg'
 import { getTranslatedString } from '../../controllers/controller'
+import logoBand from '../../images/logo-band.png'
 
 const Footer = () => {
     return (
@@ -49,16 +50,16 @@ const Footer = () => {
                 </div>
                 <hr></hr>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <ul id="footer-selector">
 
-                            <li><img src="img/cards_all.svg" alt="" /></li>
+                            <li><img src={logoBand} className="img-fluid" alt="" /></li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <ul id="additional_links">
-                            <li><a href="#0">{getTranslatedString('footer_privacy_policy')}</a></li>
-                            <li><a href="#0">K.V.K.K.</a></li>
+                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')}</a></li>
+                            <li><a href="/mesafeli-satis-sozlesmesi">K.V.K.K.</a></li>
                             <li><span>© 2021 Reliance Tour Travel</span></li>
                         </ul>
                     </div>

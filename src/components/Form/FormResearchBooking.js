@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import { CommonContext } from '../../contexts/site/CommonContext'
 import { getTranslatedString } from '../../controllers/controller'
 import api from '../../services/api'
 
 
 class FormResearchBooking extends Component {
+
 
 	constructor() {
 		super()
@@ -21,6 +23,10 @@ class FormResearchBooking extends Component {
 	}
 
 	async componentDidMount() {
+		if (!localStorage.getItem('language')) {
+			localStorage.setItem('language', 'tr')
+		}
+
 		const urlParams = this.props.params
 
 		if (urlParams) {
@@ -49,6 +55,7 @@ class FormResearchBooking extends Component {
 	}
 
 	async getCategories() {
+		console.log(localStorage.getItem('language'));
 		const categories = await api.get('/category/list/1', {params: {category_language: localStorage.getItem('language')}})
 
 		this.setState({

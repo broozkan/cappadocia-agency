@@ -6,6 +6,7 @@ import api from '../../services/api'
 import AsideTotalPayment from '../Aside/AsideTotalPayment'
 import ElementScore from '../Element/ElementScore'
 import MessageExistingCustomer from '../Message/MessageExistingCustomer'
+import payWithIyzico from '../../images/iyzico_ile_ode.png'
 
 
 class FormPayment extends Component {
@@ -180,6 +181,12 @@ class FormPayment extends Component {
                     </div>
 
                     <AsideTotalPayment />
+                </div>
+                <div className="row">
+                    <div className="col-lg-12">
+                        <img src={payWithIyzico} className="img-fluid" />
+
+                    </div>
                 </div>
             </form>
         )

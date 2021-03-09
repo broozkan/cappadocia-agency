@@ -15,7 +15,11 @@ export const CommonContextWrapper = (props) => {
     useEffect(() => {
 
         const currentLanguage = localStorage.getItem('language')
-        setLanguage(currentLanguage)
+        if(currentLanguage){
+            setLanguage(currentLanguage)
+        }else{
+            setLanguage('tr')
+        }
         
 
 
