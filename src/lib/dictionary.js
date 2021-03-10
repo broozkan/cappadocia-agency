@@ -400,6 +400,11 @@ const translations = {
         "tr": "Gizlilik Sözleşmesi",
         "en": "Privacy Policy"
     },
+    "footer_ecommerce_policy":
+    {
+        "tr": "Mesafeli Satış Sözleşmesi",
+        "en": "E-Commerce Policy"
+    },
     "booking_page_title":
     {
         "tr": "TARİH SEÇİN",

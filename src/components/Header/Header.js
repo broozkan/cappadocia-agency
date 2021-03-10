@@ -56,7 +56,7 @@ const Header = () => {
     if (state.is_categories_loaded) {
         categoriesHtml = state.categories.map((item) => {
             return (
-                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name}</a></span></li>
+                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name} <span className="fa fa-chevron-right"></span></a></span></li>
             )
         })
     }
@@ -65,6 +65,12 @@ const Header = () => {
     let mobileMenuClass = 'closed'
     if (mobileMenuState) {
         mobileMenuClass = 'opened'
+    }
+
+    // render current language image
+    let languageImageSrc = turkeyPng
+    if (localStorage.getItem('language') == "en") {
+        languageImageSrc = unitedKingdomPng
     }
 
     return (
@@ -89,22 +95,35 @@ const Header = () => {
                 </div>
             </a>
             <nav id="menu" className={"main-menu active " + mobileMenuClass}>
-                <div className="mobile-menu-header d-none">
-                    <h5>MENU </h5>
+                <div className="row">
+                    <div className="col-4">
+                        <img src={logo} className="d-lg-none img-fluid float-left" width="100" />
+                    </div>
+                    <div className="col-8">
+                        <div className="mobile-menu-header d-none">
+                            <h5>MENU </h5>
+                        </div>
+                    </div>
                 </div>
+
                 <ul>
-                    <li><span><a href="/"> {getTranslatedString('header_home')}</a></span></li>
+                    <li><span><a href="/"> {getTranslatedString('header_home')} <span className="fa fa-home"></span></a></span></li>
                     {categoriesHtml}
 
 
 
-                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')}</a></span>
-                        <ul className="d-xs-none" >
-                            <li><a href="/iletisim">{getTranslatedString('contact')}</a></li>
-                            <li><a href="/hakkimizda">{getTranslatedString('header_about')}</a></li>
+                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')} <span className="fa fa-chevron-down"></span></a></span>
+                        <ul>
+                            <li><a href="/iletisim">{getTranslatedString('contact')} <span className="fa fa-phone"></span></a></li>
+                            <li><a href="/hakkimizda">{getTranslatedString('header_about')} <span className="fa fa-chevron-right"></span></a></li>
+                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')} <span className="fa fa-chevron-right"></span></a></li>
+                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')} <span className="fa fa-chevron-right"></span></a></li>
                         </ul>
                     </li>
-                    <li><span><a href="#0"><img src={translationPng} className="img-fluid d-xs-none" /></a></span>
+                    <li>
+                        <span>
+                            <a href="#0"><img src={languageImageSrc} width="30" className="img-fluid d-xs-none" /></a>
+                        </span>
                         <ul id="language">
                             <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /></a></li>
                             <li onClick={handleOnClick} data-language="tr"><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /></a></li>

@@ -28,6 +28,8 @@ const Footer = () => {
                             <li><a href="/">{getTranslatedString('header_home')}</a></li>
                             <li><a href="/">{getTranslatedString('header_commercial')}</a></li>
                             <li><a href="/">{getTranslatedString('contact')}</a></li>
+                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')}</a></li>
+                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')}</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -59,6 +61,7 @@ const Footer = () => {
                     <div class="col-lg-8">
                         <ul id="additional_links">
                             <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')}</a></li>
+                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')}</a></li>
                             <li><a href="/mesafeli-satis-sozlesmesi">K.V.K.K.</a></li>
                             <li><span>© 2021 Reliance Tour Travel</span></li>
                         </ul>
