@@ -4,9 +4,10 @@ import { CommonContext } from '../../contexts/site/CommonContext'
 import logo from '../../images/logo.png'
 import api from '../../services/api'
 import translationPng from '../../images/translation.png'
-import unitedKingdomPng from '../../images/united-kingdom.png'
-import turkeyPng from '../../images/turkey.png'
+
 import { getTranslatedString } from '../../controllers/controller'
+import emailIcon from '../../assets/png/email.png'
+import ListLanguage from '../List/ListLanguage'
 
 const Header = () => {
 
@@ -26,10 +27,7 @@ const Header = () => {
         setMobileMenuState(!mobileMenuState)
     }
 
-    const handleOnClick = (e) => {
-        localStorage.setItem('language', e.currentTarget.dataset.language)
-        window.location.reload()
-    }
+
 
     const getCategories = async () => {
         const categories = await api.get('/category/list/1',
@@ -56,7 +54,7 @@ const Header = () => {
     if (state.is_categories_loaded) {
         categoriesHtml = state.categories.map((item) => {
             return (
-                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name} <span className="fa fa-chevron-right"></span></a></span></li>
+                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name} <span className="fa d-lg-none fa-chevron-right"></span></a></span></li>
             )
         })
     }
@@ -67,14 +65,25 @@ const Header = () => {
         mobileMenuClass = 'opened'
     }
 
-    // render current language image
-    let languageImageSrc = turkeyPng
-    if (localStorage.getItem('language') == "en") {
-        languageImageSrc = unitedKingdomPng
-    }
+
 
     return (
         <header className="header menu_fixed">
+            <div className="row">
+                <div className="col-lg-12 text-right">
+                    <nav className="main-menu header-top-bar d-xs-none">
+                        <ul>
+                            <li>
+                                <a href="#" className="text-white"><span><img src={emailIcon} width="25" />  info@turkeyballoonscappadocia.com</span></a>
+                            </li>
+                            <ListLanguage />
+                        </ul>
+
+                    </nav>
+
+
+                </div>
+            </div>
             <div id="preloader"><div data-loader="circle-side"></div></div>
             <div id="logo">
                 <a href="/">
@@ -107,28 +116,24 @@ const Header = () => {
                 </div>
 
                 <ul>
-                    <li><span><a href="/"> {getTranslatedString('header_home')} <span className="fa fa-home"></span></a></span></li>
+                    <li><span><a href="/"> {getTranslatedString('header_home')} <span className="fa d-lg-none fa-home"></span></a></span></li>
                     {categoriesHtml}
 
 
 
-                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')} <span className="fa fa-chevron-down"></span></a></span>
+                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')} <span className="fa d-lg-none fa-chevron-down"></span></a></span>
                         <ul>
-                            <li><a href="/iletisim">{getTranslatedString('contact')} <span className="fa fa-phone"></span></a></li>
-                            <li><a href="/hakkimizda">{getTranslatedString('header_about')} <span className="fa fa-chevron-right"></span></a></li>
-                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')} <span className="fa fa-chevron-right"></span></a></li>
-                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')} <span className="fa fa-chevron-right"></span></a></li>
+                            <li><a href="/iletisim">{getTranslatedString('contact')} <span className="fa d-lg-none fa-phone"></span></a></li>
+                            <li><a href="/hakkimizda">{getTranslatedString('header_about')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
+                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
+                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <span>
-                            <a href="#0"><img src={languageImageSrc} width="30" className="img-fluid d-xs-none" /></a>
-                        </span>
-                        <ul id="language">
-                            <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /></a></li>
-                            <li onClick={handleOnClick} data-language="tr"><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /></a></li>
-                        </ul>
-                    </li>
+                    <div className="d-lg-none">
+                        <ListLanguage />
+
+                    </div>
+
                 </ul>
             </nav>
         </header>

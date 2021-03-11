@@ -231,8 +231,8 @@ const translations = {
     },
     "slider_p":
     {
-        "tr": 'Balon turları, atv turları, eşsiz kapadokya turizmi',
-        "en": 'Balloon tours, atv tours, unique cappadocia tourism'
+        "tr": 'Balon turları, özel turlar, eşsiz kapadokya turizmi',
+        "en": 'Balloon tours, special tours, unique cappadocia tourism'
     },
     "form_research_mature":
     {
@@ -324,6 +324,16 @@ const translations = {
     {
         "tr": "Safari Macerasını Kapadokya'da Yaşayın",
         "en": "Live Safari Adventure in Cappadocia"
+    },
+    "adventure_grid_underground_city":
+    {
+        "tr": "Yer Altı Şehrini Gezin",
+        "en": "Discover Underground City"
+    },
+    "adventure_grid_history":
+    {
+        "tr": "Tarihe Yakından Bakın",
+        "en": "Look up History Closer"
     },
     "adventure_grid_feel_good":
     {

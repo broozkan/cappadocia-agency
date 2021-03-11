@@ -78,13 +78,17 @@ class FormActivity extends Component {
 
 		let todayDate = new Date()
 
+		if (quotas.length > 0) {
+			todayDate = new Date(quotas[quotas.length - 1].quota_info_date)
+		}
+
 		for (let index = 1; index < 31; index++) {
 
 			//console.log(todayDate.getDate() + index);
 			await todayDate.setDate(todayDate.getDate() + 1)
-			
 
-			const quotaInfoDate = todayDate.getFullYear()+'-'+("0" + (todayDate.getMonth() + 1)).slice(-2)+'-'+("0" + todayDate.getDate()).slice(-2)
+
+			const quotaInfoDate = todayDate.getFullYear() + '-' + ("0" + (todayDate.getMonth() + 1)).slice(-2) + '-' + ("0" + todayDate.getDate()).slice(-2)
 
 
 			quotas.push({

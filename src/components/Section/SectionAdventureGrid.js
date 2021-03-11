@@ -5,6 +5,8 @@ import img3 from '../../images/adventure_latest_3.jpg'
 import img4 from '../../images/adventure_latest_4.jpg'
 import img5 from '../../images/adventure_latest_5.jpg'
 import { getTranslatedString } from '../../controllers/controller'
+import redValley from '../../images/red-walley.jpg'
+import quadAtvCappadocia from '../../images/quad-atv-cappadocia.jpg'
 
 const SectionAdventureGrid = () => {
 	return (
@@ -35,7 +37,7 @@ const SectionAdventureGrid = () => {
 							<div class="col-xl-6 col-lg-6 col-md-6">
 								<a href="/seferler?category_id=600d36ef6c804215a8877723&mature_count=1&child_count=0" class="grid_item latest_adventure">
 									<figure>
-										<img src={img5} class="img-fluid" alt="" />
+										<img src={redValley} style={{height: "11rem"}} class="img-fluid" alt="" />
 										<div class="info">
 											<em>{getTranslatedString('adventure_grid_discover')}</em>
 											<h3>{getTranslatedString('adventure_grid_discover_valleys')}</h3>
@@ -46,10 +48,10 @@ const SectionAdventureGrid = () => {
 							<div class="col-xl-6 col-lg-6 col-md-6">
 								<a href="restaurant-detail.html" class="grid_item latest_adventure">
 									<figure>
-										<img src={img2} class="img-fluid" alt="" />
+										<img src={quadAtvCappadocia} class="img-fluid" alt="" />
 										<div class="info">
-											<em>{getTranslatedString('adventure_grid_sport')}</em>
-											<h3>{getTranslatedString('adventure_grid_join_bicycle_tour')}</h3>
+											<em>{getTranslatedString('adventure_grid_excitement')}</em>
+											<h3>{getTranslatedString('adventure_grid_safari')}</h3>
 										</div>
 									</figure>
 								</a>
@@ -59,8 +61,8 @@ const SectionAdventureGrid = () => {
 									<figure>
 										<img src={img3} class="img-fluid" style={{ height: '275px' }} alt="" />
 										<div class="info">
-											<em>{getTranslatedString('adventure_grid_excitement')}</em>
-											<h3>{getTranslatedString('adventure_grid_safari')}</h3>
+											<em>{getTranslatedString('adventure_grid_history')}</em>
+											<h3>{getTranslatedString('adventure_grid_underground_city')}</h3>
 										</div>
 									</figure>
 								</a>

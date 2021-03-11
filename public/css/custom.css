@@ -2,7 +2,22 @@
 /* Your custom styles below */
 /*============================================================================================*/
 
-
+/* HEADER */
+span.language-text{
+    font-size: 1rem;
+    padding: 5px;
+}
+.sticky .header-top-bar{
+    display: none;
+}
+.header-top-bar{
+    color: #ffffff;
+    z-index: 10!important;
+    border-bottom: 1px solid #ffffff;
+}
+.header-top-bar span{
+    font-size: 0.8rem;
+}
 
 /* ADVENTURE GRID */
 .banner-adventure-grid-wrapper{

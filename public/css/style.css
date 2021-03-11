@@ -66,7 +66,7 @@ Author URI: http://themeforest.net/user/Ansonika/
     position: relative;
     z-index: 9;
     width: auto;
-    top: 12px;
+    top: 0px;
     right: 15px;
     float: right;
     -moz-transition: all 0.3s ease-in-out;
@@ -96,7 +96,7 @@ Author URI: http://themeforest.net/user/Ansonika/
   /*First level styles */
   .main-menu > ul > li span > a {
     color: #fff;
-    padding: 0 8px 15px 8px;
+    padding: 10px;
     font-size: 14px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -896,7 +896,7 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  padding: 20px 30px;
+  padding: 0px 30px;
   z-index: 2;
   border-bottom: 1px solid rgba(255, 255, 255, 0);
 }
@@ -928,6 +928,7 @@ header.header.sticky .logo_normal {
 }
 header.header.sticky .logo_sticky {
   display: inline-block;
+  height: 50px;
 }
 
 ul#top_menu {

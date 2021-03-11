@@ -60,6 +60,58 @@ class FormPassengerInformation extends Component {
 
 	render() {
 
+		const preReservationData = JSON.parse(localStorage.getItem('pre_reservation_data'))
+		let formChildFieldHtml = ''
+		if (preReservationData.pre_reservation_child_count != "0") {
+			formChildFieldHtml = (
+				<>
+					<h5>1. {getTranslatedString('child')} {getTranslatedString('informations')}</h5>
+					<div className="row mt-4">
+						<div className="col-lg-4">
+							<div class="form-group ">
+								<label>{getTranslatedString('gender')} *</label>
+								<select className="form-control" onChange={this.handleOnChange} name="child_passenger_gender" value={this.state.child_passenger_gender} required>
+									<option value="" disabled selected>{getTranslatedString('gender_placeholder')}</option>
+									<option value="male">Erkek</option>
+									<option value="female">Kadın</option>
+									<option value="other">Diğer</option>
+								</select>
+							</div>
+						</div>
+						<div className="col-lg-4">
+							<div class="form-group ">
+								<label>{getTranslatedString('name')} *</label>
+								<input type="text" class="form-control" name="child_passenger_name" required value={this.state.child_passenger_name} onChange={this.handleOnChange} />
+							</div>
+						</div>
+						<div className="col-lg-4">
+							<div class="form-group">
+								<label>{getTranslatedString('surname')} *</label>
+								<input type="text" class="form-control" name="child_passenger_surname" required value={this.state.child_passenger_surname} onChange={this.handleOnChange} />
+							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-lg-4">
+							<div class="form-group ">
+								<label>{getTranslatedString('id_number')} *</label>
+								<input type="text" class="form-control" name="child_passenger_id_number" required value={this.state.child_passenger_id_number} onChange={this.handleOnChange} />
+							</div>
+						</div>
+						<div className="col-lg-4">
+							<div class="form-group ">
+								<label>{getTranslatedString('country')} *</label>
+								<select className="form-control" name="child_passenger_country" onChange={this.handleOnChange} value={this.state.child_passenger_country}>
+									<option value="" disabled selected>{getTranslatedString('country_placeholder')}</option>
+									<option value="tr" >Türkiye</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</>
+			)
+		}
+
 		return (
 
 			<form onSubmit={this.handleSubmit} method="POST">
@@ -116,53 +168,11 @@ class FormPassengerInformation extends Component {
 							<div className="col-lg-4">
 								<div class="form-group ">
 									<label>{getTranslatedString('phone_number')} *</label>
-									<input type="number" class="form-control" name="passenger_phone_number" required value={this.state.passenger_phone_number} onChange={this.handleOnChange}  />
+									<input type="number" class="form-control" name="passenger_phone_number" required value={this.state.passenger_phone_number} onChange={this.handleOnChange} />
 								</div>
 							</div>
 						</div>
-						<h5>1. {getTranslatedString('child')} {getTranslatedString('informations')}</h5>
-						<div className="row mt-4">
-							<div className="col-lg-4">
-								<div class="form-group ">
-									<label>{getTranslatedString('gender')} *</label>
-									<select className="form-control" onChange={this.handleOnChange} name="child_passenger_gender" value={this.state.child_passenger_gender} required>
-										<option value="" disabled selected>{getTranslatedString('gender_placeholder')}</option>
-										<option value="male">Erkek</option>
-										<option value="female">Kadın</option>
-										<option value="other">Diğer</option>
-									</select>
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div class="form-group ">
-									<label>{getTranslatedString('name')} *</label>
-									<input type="text" class="form-control" name="child_passenger_name" required value={this.state.child_passenger_name} onChange={this.handleOnChange} />
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div class="form-group">
-									<label>{getTranslatedString('surname')} *</label>
-									<input type="text" class="form-control" name="child_passenger_surname" required value={this.state.child_passenger_surname} onChange={this.handleOnChange} />
-								</div>
-							</div>
-						</div>
-						<div className="row">
-							<div className="col-lg-4">
-								<div class="form-group ">
-									<label>{getTranslatedString('id_number')} *</label>
-									<input type="text" class="form-control" name="child_passenger_id_number" required value={this.state.child_passenger_id_number} onChange={this.handleOnChange} />
-								</div>
-							</div>
-							<div className="col-lg-4">
-								<div class="form-group ">
-									<label>{getTranslatedString('country')} *</label>
-									<select className="form-control" name="child_passenger_country" onChange={this.handleOnChange} value={this.state.child_passenger_country}>
-										<option value="" disabled selected>{getTranslatedString('country_placeholder')}</option>
-										<option value="tr" >Türkiye</option>
-									</select>
-								</div>
-							</div>
-						</div>
+						{formChildFieldHtml}
 						<h5>{getTranslatedString('contact')} {getTranslatedString('informations')}</h5>
 						<div className="row mt-4">
 							<div className="col-lg-4">

@@ -3,6 +3,8 @@ import tursabLogo from '../../images/tursab-logo.png'
 import logo from '../../images/hot-air-balloon.svg'
 import { getTranslatedString } from '../../controllers/controller'
 import logoBand from '../../images/logo-band.png'
+import phoneIcon from '../../assets/png/smartphone.png'
+import emailIcon from '../../assets/png/email.png'
 
 const Footer = () => {
     return (
@@ -35,8 +37,8 @@ const Footer = () => {
                     <div class="col-lg-4 col-md-6">
                         <h5>{getTranslatedString('footer_contact_us')}</h5>
                         <ul class="contacts">
-                            <li><a href="tel://61280932400"><i class="ti-mobile"></i> + 90 (532) 695 59 68</a></li>
-                            <li><a href="mailto:info@turkeyballoonscappadocia.com"><i class="ti-email"></i> info@turkeyballoonscappadocia.com</a></li>
+                            <li><a href="tel://61280932400"><img src={phoneIcon} className="img-fluid" width="20" /> + 90 (532) 695 59 68</a></li>
+                            <li><a href="mailto:info@turkeyballoonscappadocia.com"><img src={emailIcon} className="img-fluid" width="20" /> info@turkeyballoonscappadocia.com</a></li>
                         </ul>
                         <div id="newsletter">
                             <h6>{getTranslatedString('footer_subscribe')}</h6>
