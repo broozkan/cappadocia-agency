@@ -90,7 +90,7 @@ class FormResearchBooking extends Component {
 							<select class="wide form-control" onChange={this.handleOnChange} name="category_id" value={this.state.category_id}>
 								{optionCategoriesHtml}
 							</select>
-							<i class="icon_search"></i>
+							<i class="fa fa-search"></i>
 						</div>
 					</div>
 					<div className="col-lg-2">
@@ -108,7 +108,7 @@ class FormResearchBooking extends Component {
 								<option value="3">3 {getTranslatedString('form_research_mature')}</option>
 								<option value="4">4 {getTranslatedString('form_research_mature')}</option>
 							</select>
-							<i class="icon_profile"></i>
+							<i class="fa fa-user"></i>
 						</div>
 					</div>
 					<div class="col-lg-2">
@@ -120,7 +120,7 @@ class FormResearchBooking extends Component {
 							<option value="3">3 {getTranslatedString('form_research_child')}</option>
 							<option value="4">4 {getTranslatedString('form_research_child')}</option>
 						</select>
-						<i class="icon_profile"></i>
+						<i class="fa fa-user"></i>
 
 					</div>
 					<div class="col-lg-2">

@@ -5,6 +5,9 @@ import { getTranslatedString } from '../../controllers/controller'
 import logoBand from '../../images/logo-band.png'
 import phoneIcon from '../../assets/png/smartphone.png'
 import emailIcon from '../../assets/png/email.png'
+import facebookLogo from '../../assets/png/facebook.png'
+import instagramLogo from '../../assets/png/instagram.png'
+import tripadvisorLogo from '../../assets/png/tripadvisor.png'
 
 const Footer = () => {
     return (
@@ -18,9 +21,9 @@ const Footer = () => {
                         <div class="follow_us">
                             <ul>
                                 <li>{getTranslatedString('footer_follow_us')}</li>
-                                <li><a href="#0"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#0"><i class="ti-pinterest"></i></a></li>
-                                <li><a href="#0"><i class="ti-instagram"></i></a></li>
+                                <li><a href="https://facebook.com/turkeyballoonstour" target="_blank"><img className="img-fluid" width="25" src={facebookLogo} /></a></li>
+                                <li><a href="https://instagram.com/turkeyballoonscappadocia?igshid=nfo0hsgnutdh" target="_blank"><img className="img-fluid" width="25" src={instagramLogo} /></a></li>
+                                <li><a href="https://www.tripadvisor.com.tr/Attraction_Review-g297983-d17310136-Reviews-Reliance_Tour_Travel_Agency-Goreme_Cappadocia.html" target="_blank"><img className="img-fluid" width="25" src={tripadvisorLogo} /></a></li>
                             </ul>
                         </div>
                     </div>
