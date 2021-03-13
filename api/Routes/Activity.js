@@ -65,8 +65,8 @@ router.post('/new', MultipartyMiddleware, async (req, res) => {
 
             let tmp_path = req.files.file[index].path
             let target_path = path.join(uploadDir, req.files.file[index].name)
-            
-            if (fs.existsSync(path.join(uploadDir,req.files.file[index].path))) {
+
+            if (fs.existsSync(path.join(uploadDir, req.files.file[index].path))) {
                 fs.rename(tmp_path, target_path, (err) => {
                     if (err) {
                         res.send({
@@ -74,22 +74,22 @@ router.post('/new', MultipartyMiddleware, async (req, res) => {
                             responseData: "Dosya yüklenemedi"
                         })
                         res.end()
-    
+
                         return false
                     } else {
                         fs.unlink(tmp_path, (err) => {
-                            if(err){
+                            if (err) {
                                 res.send({
                                     response: false,
-                                    responseData : err
+                                    responseData: err
                                 })
                             }
                         })
-    
+
                     }
                 })
             }
-            
+
         }
 
 
@@ -138,6 +138,8 @@ router.put('/update/:activityId', MultipartyMiddleware, async (req, res) => {
 
     req.body = JSON.parse(req.body.data)
 
+
+
     if (req.files.file) {
 
 
@@ -167,8 +169,6 @@ router.put('/update/:activityId', MultipartyMiddleware, async (req, res) => {
 
 
         req.body.activity_photos = req.files.file
-    } else {
-        req.body.activity_photos = []
     }
 
     // update operation

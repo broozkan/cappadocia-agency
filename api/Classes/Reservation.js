@@ -13,7 +13,7 @@ class Reservation {
     }
 
 
-    save = async (cb) => {
+    async save(cb) {
         const savedReservation = new ReservationModel.reservationModel({
             reservation: this.reservation,
             reservation_payment_method: this.payment_method,

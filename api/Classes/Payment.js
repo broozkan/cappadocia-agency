@@ -21,7 +21,7 @@ class Payment {
     }
 
 
-    setRequest = (data) => {
+    setRequest(data) {
 
         this.request = {
             locale: Iyzipay.LOCALE.TR,
@@ -84,7 +84,7 @@ class Payment {
     }
 
 
-    executePayment = (cb) => {
+    executePayment(cb) {
 
         this.iyzipay.payment.create(this.request, (err, result) => {
             if (result.status == 'success') {
