@@ -4,6 +4,7 @@ import { CommonContext } from '../../contexts/site/CommonContext'
 import logo from '../../images/logo.png'
 import api from '../../services/api'
 import translationPng from '../../images/translation.png'
+import phoneIcon from '../../assets/png/smartphone.png'
 
 import { getTranslatedString } from '../../controllers/controller'
 import emailIcon from '../../assets/png/email.png'
@@ -74,6 +75,9 @@ const Header = () => {
                     <nav className="main-menu header-top-bar d-xs-none">
                         <ul>
                             <li>
+                                <a href="#" className="text-white"><span><img src={phoneIcon} width="25" />  +90 (536) 212 70 78</span></a>
+                            </li>
+                            <li>
                                 <a href="#" className="text-white"><span><img src={emailIcon} width="25" />  info@turkeyballoonscappadocia.com</span></a>
                             </li>
                             <ListLanguage />
@@ -125,8 +129,6 @@ const Header = () => {
                         <ul>
                             <li><a href="/iletisim">{getTranslatedString('contact')} <span className="fa d-lg-none fa-phone"></span></a></li>
                             <li><a href="/hakkimizda">{getTranslatedString('header_about')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
-                            <li><a href="/mesafeli-satis-sozlesmesi">{getTranslatedString('footer_ecommerce_policy')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
-                            <li><a href="/gizlilik-sozlesmesi">{getTranslatedString('footer_privacy_policy')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
                         </ul>
                     </li>
                     <div className="d-lg-none">
