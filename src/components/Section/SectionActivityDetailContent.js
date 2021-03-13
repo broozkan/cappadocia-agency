@@ -13,6 +13,7 @@ import UnorderedListActivityGallery from '../UnorderedList/UnorderedListActivity
 import UnorderedListCancellationTerms from '../UnorderedList/UnorderedListCancellationTerms'
 import SectionActivityDetailDescription from './SectionActivityDetailDescription'
 import SectionActivityDetailReview from './SectionActivityDetailReview'
+import SectionActivityGallery from './SectionActivityGallery'
 
 class SectionActivityDetailContent extends Component {
 
@@ -30,8 +31,8 @@ class SectionActivityDetailContent extends Component {
 				<div class="row">
 					<div class="col-lg-8">
 						<div className="grid">
-
-							<UnorderedListActivityGallery />
+							
+							<SectionActivityGallery />
 						</div>
 
 						<section id="description">

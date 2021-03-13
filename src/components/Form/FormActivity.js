@@ -4,9 +4,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import api from '../../services/api';
 import Swal from 'sweetalert2';
 import dateFormat from 'dateformat'
+import ModalMultipleQuota from '../Modal/ModalMultipleQuota';
+import { AdminContext } from '../../contexts/site/AdminContext';
 
 
 class FormActivity extends Component {
+	static contextType = AdminContext
 
 	constructor(props) {
 		super(props)
@@ -27,12 +30,12 @@ class FormActivity extends Component {
 			activity_quota_informations: [],
 			categories: [],
 			is_form_submitting: false,
+			multiple_quota_modal_visibility: false,
 			ckeditor: ''
 		}
 	}
 
 	componentDidMount() {
-
 		this.getCategories()
 
 		if (this.props.activity_id) {
@@ -73,16 +76,28 @@ class FormActivity extends Component {
 
 	}
 
-	handleOnClickAddMoreQuota = async () => {
-		let quotas = this.state.activity_quota_informations
-
-		let todayDate = new Date()
-
-		if (quotas.length > 0) {
-			todayDate = new Date(quotas[quotas.length - 1].quota_info_date)
+	handleOnClickOpenMultipleQuotaModal = () => {
+		if (this.state.multiple_quota_modal_visibility) {
+			this.setState({
+				multiple_quota_modal_visibility: false
+			})
+		} else {
+			this.setState({
+				multiple_quota_modal_visibility: true
+			})
 		}
 
-		for (let index = 1; index < 31; index++) {
+		console.log(this.state);
+
+	}
+
+	handleOnClickAddMoreQuota = async () => {
+		let quotas = []
+
+		let todayDate = new Date(this.context.multipleQuotaInformations.multiple_quota_beginning_date)
+
+
+		for (let index = 1; index < this.context.multipleQuotaInformations.multiple_quota_iteration_count; index++) {
 
 			//console.log(todayDate.getDate() + index);
 			await todayDate.setDate(todayDate.getDate() + 1)
@@ -93,9 +108,9 @@ class FormActivity extends Component {
 
 			quotas.push({
 				quota_info_date: quotaInfoDate,
-				quota_info_beginning_hour: '09:00',
-				quota_info_ending_hour: '10:00',
-				quota: '10'
+				quota_info_beginning_hour: this.context.multipleQuotaInformations.multiple_quota_beginning_hour,
+				quota_info_ending_hour: this.context.multipleQuotaInformations.multiple_quota_ending_hour,
+				quota: this.context.multipleQuotaInformations.multiple_quota_quota_count
 			})
 
 			this.setState({
@@ -437,7 +452,6 @@ class FormActivity extends Component {
 
 
 	render() {
-		console.log(this.state);
 
 		// render categories
 		let categoriesHtml = this.state.categories.map((item) => {
@@ -619,88 +633,95 @@ class FormActivity extends Component {
 			)
 		}
 
-		return (
-			<form onSubmit={this.handleSubmit} method="POST">
-				<h5>1. Aktivite Bilgileri</h5>
-				<div class="form-group mt-4">
-					<label>Aktivite Kategorisi</label>
-					<select className="form-control" name="activity_category" value={this.state.activity_category._id} onChange={this.handleOnChange}>
-						<option value="" selected disabled>Kategori Seçiniz</option>
-						{categoriesHtml}
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Aktivite Dili</label>
-					<select className="form-control" name="activity_language" value={this.state.activity_language} onChange={this.handleOnChange}>
-						<option value="" selected disabled>Dil Seçiniz</option>
-						<option value="tr">Türkçe</option>
-						<option value="en">İngilizce</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Aktivite Adı</label>
-					<input type="text" class="form-control" name="activity_name" value={this.state.activity_name} onChange={this.handleOnChange} placeholder="Aktivite adı giriniz" />
-				</div>
-				<div class="form-group">
-					<label>Aktivite Kısa Açıklaması</label>
-					<input type="text" class="form-control" name="activity_short_description" value={this.state.activity_short_description} onChange={this.handleOnChange} placeholder="Aktivite kısa açıklaması giriniz" />
-				</div>
-				<div class="form-group">
-					<label>Aktivite Görselleri <sup>İlk görsel kapak fotoğrafı olacaktır</sup> </label>
-					<input type="file" multiple onChange={this.handleOnChange} class="form-control" />
-				</div>
-				<div class="form-group">
-					<label>Aktivite Fiyat Birimi</label>
-					<select className="form-control" name="activity_currency" value={this.state.activity_currency} onChange={this.handleOnChange}>
-						<option value="" disabled selected>Birim seçiniz</option>
-						<option value="₺">Türk Lirası</option>
-						<option value="$">Amerikan Doları</option>
-						<option value="€">Euro</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label>Aktivite Fiyatı <sup>Kişi başı fiyat giriniz</sup> </label>
-					<input type="number" step=".01" class="form-control" name="activity_price" value={this.state.activity_price} onChange={this.handleOnChange} placeholder="Aktivite fiyatı giriniz" />
-				</div>
-				<div class="form-group">
-					<label>Aktivite Detaylı Açıklaması</label>
-					{ckEditorHtml}
-				</div>
+		// render multiple quota modal
+		let modalMultipleQuotaModalJsx = ''
+		if (this.state.multiple_quota_modal_visibility) {
+			modalMultipleQuotaModalJsx = <ModalMultipleQuota handleOnSubmit={this.handleOnClickAddMoreQuota} />
+		}
 
-				<hr></hr>
-				<h5>
-					2. İptal & İade Bilgileri
+		return (
+			<>
+				{modalMultipleQuotaModalJsx}
+				<form onSubmit={this.handleSubmit} method="POST">
+					<h5>1. Aktivite Bilgileri</h5>
+					<div class="form-group mt-4">
+						<label>Aktivite Kategorisi</label>
+						<select className="form-control" name="activity_category" value={this.state.activity_category._id} onChange={this.handleOnChange}>
+							<option value="" selected disabled>Kategori Seçiniz</option>
+							{categoriesHtml}
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Aktivite Dili</label>
+						<select className="form-control" name="activity_language" value={this.state.activity_language} onChange={this.handleOnChange}>
+							<option value="" selected disabled>Dil Seçiniz</option>
+							<option value="tr">Türkçe</option>
+							<option value="en">İngilizce</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Aktivite Adı</label>
+						<input type="text" class="form-control" name="activity_name" value={this.state.activity_name} onChange={this.handleOnChange} placeholder="Aktivite adı giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Kısa Açıklaması</label>
+						<input type="text" class="form-control" name="activity_short_description" value={this.state.activity_short_description} onChange={this.handleOnChange} placeholder="Aktivite kısa açıklaması giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Görselleri <sup>İlk görsel kapak fotoğrafı olacaktır</sup> </label>
+						<input type="file" multiple onChange={this.handleOnChange} class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Fiyat Birimi</label>
+						<select className="form-control" name="activity_currency" value={this.state.activity_currency} onChange={this.handleOnChange}>
+							<option value="" disabled selected>Birim seçiniz</option>
+							<option value="₺">Türk Lirası</option>
+							<option value="$">Amerikan Doları</option>
+							<option value="€">Euro</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Aktivite Fiyatı <sup>Kişi başı fiyat giriniz</sup> </label>
+						<input type="number" step=".01" class="form-control" name="activity_price" value={this.state.activity_price} onChange={this.handleOnChange} placeholder="Aktivite fiyatı giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Detaylı Açıklaması</label>
+						{ckEditorHtml}
+					</div>
+
+					<hr></hr>
+					<h5>
+						2. İptal & İade Bilgileri
 					<button type="button" className="btn btn-success btn-sm ml-2" onClick={this.handleOnClickNewCancellation}><span className="fa fa-plus"></span></button>
-				</h5>
-				{cancellationInfoHtml}
-				<hr></hr>
-				<h5>
-					3. Hareket Bilgileri
+					</h5>
+					{cancellationInfoHtml}
+					<hr></hr>
+					<h5>
+						3. Hareket Bilgileri
 					<button type="button" className="btn btn-success btn-sm ml-2" onClick={this.handleOnClickNewActionPlan}><span className="fa fa-plus"></span></button>
-				</h5>
-				{actionPlanHtml}
-				<hr></hr>
-				<h5>
-					4. Ek Bilgiler
+					</h5>
+					{actionPlanHtml}
+					<hr></hr>
+					<h5>
+						4. Ek Bilgiler
 					<button type="button" className="btn btn-success btn-sm ml-2" onClick={this.handleOnClickNewAdditionalInfo}><span className="fa fa-plus"></span></button>
-				</h5>
-				{additionalInfoHtml}
-				<hr></hr>
-				<h5>
-					5. Kontenjan Bilgileri
+					</h5>
+					{additionalInfoHtml}
+					<hr></hr>
+					<h5>
+						5. Kontenjan Bilgileri
 					<button type="button" className="btn btn-success btn-sm ml-2" onClick={this.handleOnClickNewQuotaInfo}><span className="fa fa-plus"></span></button>
-					<button className="btn btn-success ml-2 btn-sm" type="button" onClick={this.handleOnClickAddMoreQuota}>Bugünden itibaren 30 kontenjan ekle</button>
-				</h5>
-				{quotaInfoHtml}
-				<div class="form-group">
-					<p><button type="submit" class="btn_1 medium">Kaydet</button></p>
-				</div>
-			</form>
+						<button className="btn btn-success ml-2 btn-sm" type="button" onClick={this.handleOnClickOpenMultipleQuotaModal}>Toplu kontenjan ekle</button>
+					</h5>
+					{quotaInfoHtml}
+					<div class="form-group">
+						<p><button type="submit" class="btn_1 medium">Kaydet</button></p>
+					</div>
+				</form>
+			</>
 		)
 	}
 }
-
-
 
 
 export default FormActivity

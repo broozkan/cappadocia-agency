@@ -14,14 +14,16 @@ const ListLanguage = () => {
 
     // render current language image
     let languageImageSrc = turkeyPng
+    let languageText = 'TR'
     if (localStorage.getItem('language') == "en") {
         languageImageSrc = unitedKingdomPng
+        languageText = 'EN'
     }
 
     return (
         <li>
             <span>
-                <a href="#0"><img src={languageImageSrc} width="25" className="img-fluid d-xs-none" /><span className="language-text">TR <span className="fa fa-chevron-down"></span></span></a>
+                <a href="#0"><img src={languageImageSrc} width="25" className="img-fluid d-xs-none" /><span className="language-text">{languageText} <span className="fa fa-chevron-down"></span></span></a>
             </span>
             <ul id="language">
                 <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /> <span className="language-text">EN</span></a></li>

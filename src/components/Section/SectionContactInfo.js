@@ -20,7 +20,7 @@ const SectionContactInfo = () => {
 					<li>
 						<i class="pe-7s-phone"></i>
 						<h4>{getTranslatedString('phone_number')}</h4>
-						<span>+ 90 (532) 695 59 68<br></br><small>{getTranslatedString('monday')} / {getTranslatedString('sunday')} 09:00 - 20:00</small></span>
+						<span>+ 90 (536) 212 70 78<br></br><small>{getTranslatedString('monday')} / {getTranslatedString('sunday')} 09:00 - 20:00</small></span>
 					</li>
 				</ul>
 			</div>
