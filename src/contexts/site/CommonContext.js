@@ -11,7 +11,6 @@ export const CommonContextWrapper = (props) => {
     const [preReservation, setPreReservation] = useState('')
     const [isPreReservationLoaded, setIsPreReservationLoaded] = useState(false)
 
-
     useEffect(() => {
         const currentLanguage = localStorage.getItem('language')
 

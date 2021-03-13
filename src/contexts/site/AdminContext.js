@@ -10,16 +10,18 @@ export const AdminContextWrapper = (props) => {
         is_user_logged_in: false
     })
 
+    const [multipleQuotaInformations, setMultipleQuotaInformations] = useState()
+
     const location = useLocation()
-    
+
 
 
     useEffect(() => {
-      
+
         if (!localStorage.getItem('admin-auth')) {
             if (location.pathname == "/admin/giris" || location.pathname == "/admin/cikis") {
-                
-            }else{
+
+            } else {
                 window.location.href = '/admin/giris'
             }
         }
@@ -38,9 +40,14 @@ export const AdminContextWrapper = (props) => {
 
 
 
- 
+
     return (
-        <AdminContext.Provider value={{ state: state, updateState: updateState }}>
+        <AdminContext.Provider value={{
+            state: state,
+            updateState: updateState,
+            setMultipleQuotaInformations: setMultipleQuotaInformations,
+            multipleQuotaInformations: multipleQuotaInformations
+        }}>
             {props.children}
         </AdminContext.Provider>
     )
