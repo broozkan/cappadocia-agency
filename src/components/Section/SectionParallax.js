@@ -12,7 +12,7 @@ const SectionParallax = () => {
 						<div class="box_1">
 							<h3>{getTranslatedString('parallax_h3')}</h3>
 							<p>{getTranslatedString('parallax_p')} </p>
-							<a href="#0" class="btn_1 rounded">{getTranslatedString('parallax_call')}</a>
+							<a href="tel:+905362127078" class="btn_1 rounded">{getTranslatedString('parallax_call')}</a>
 						</div>
 					</div>
 				</div>

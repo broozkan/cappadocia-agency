@@ -22,12 +22,12 @@ const ListLanguage = () => {
 
     return (
         <li>
-            <span className="d-xs-none">
-                <a href="#0"><img src={languageImageSrc} width="25" className="img-fluid d-xs-none" /><span className="language-text">{languageText} <span className="fa fa-chevron-down"></span></span></a>
+            <span>
+                <a href="#0"><img src={languageImageSrc} width="25" className="img-fluid" /><span className="language-text">{languageText} <span className="fa fa-chevron-down"></span></span></a>
             </span>
             <ul id="language">
-                <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /> <span className="language-text d-xs-none">EN</span></a></li>
-                <li onClick={handleOnClick} data-language="tr"><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /> <span className="language-text d-xs-none">TR</span></a></li>
+                <li onClick={handleOnClick} data-language="en"><a href="#"><img src={unitedKingdomPng} width="25" className="img-fluid" /> <span className="language-text ">EN</span></a></li>
+                <li onClick={handleOnClick} data-language="tr"><a href="#"><img src={turkeyPng} width="25" className="img-fluid" /> <span className="language-text ">TR</span></a></li>
             </ul>
         </li>
     )
