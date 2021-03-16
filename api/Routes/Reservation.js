@@ -6,6 +6,7 @@ const dateFormat = require('dateformat')
 const { sendEmail } = require('../Controllers/Controller')
 const Payment = require('../Classes/Payment')
 const Reservation = require('../Classes/Reservation')
+const ReservationModel = require('../Models/Reservation')
 
 
 // get reservation list
@@ -28,7 +29,7 @@ router.get('/list/:page', async (req, res) => {
     }
 
 
-    const aggregate = Reservation.reservationModel.aggregate([{
+    const aggregate = ReservationModel.reservationModel.aggregate([{
         $match: req.query
     }])
 
@@ -38,7 +39,7 @@ router.get('/list/:page', async (req, res) => {
         limit: 25
     }
 
-    Reservation.reservationModel.aggregatePaginate(aggregate, options, (err, result) => {
+    ReservationModel.reservationModel.aggregatePaginate(aggregate, options, (err, result) => {
         res.send(result)
     })
 })
@@ -46,7 +47,7 @@ router.get('/list/:page', async (req, res) => {
 // get specific reservation
 router.get('/get/:reservationId', async (req, res) => {
 
-    Reservation.reservationModel.findById(req.params.reservationId, (err, result) => {
+    ReservationModel.reservationModel.findById(req.params.reservationId, (err, result) => {
         res.send(result)
     })
 })
@@ -66,14 +67,17 @@ router.post('/new', async (req, res) => {
                 const reservation = new Reservation(req.body.reservation, req.body.payment_method)
                 reservation.save((result) => {
                     console.log(result);
+                    res.send(result)
                 })
+            } else {
+                res.send(result)
             }
         })
     } else {
-        
+
         const reservation = new Reservation(req.body.reservation, req.body.payment_method)
         reservation.save((result) => {
-            console.log(result);
+            res.send(result)
         })
 
     }
@@ -159,7 +163,7 @@ router.put('/update/:reservationId', async (req, res) => {
 
 
     // update operation
-    await Reservation.reservationModel.findByIdAndUpdate(
+    await ReservationModel.reservationModel.findByIdAndUpdate(
         { _id: req.params.reservationId },
         {
             reservation_basket: req.body.reservation_basket,
@@ -186,7 +190,7 @@ router.put('/update/:reservationId', async (req, res) => {
 
 router.post('/approve-reservation/:reservationId', async (req, res) => {
     // update operation
-    await Reservation.reservationModel.findByIdAndUpdate(
+    await ReservationModel.reservationModel.findByIdAndUpdate(
         { _id: req.params.reservationId },
         {
             reservation_verification: "approved"
@@ -210,7 +214,7 @@ router.post('/approve-reservation/:reservationId', async (req, res) => {
 
 router.post('/cancel-reservation/:reservationId', async (req, res) => {
     // update operation
-    await Reservation.reservationModel.findByIdAndUpdate(
+    await ReservationModel.reservationModel.findByIdAndUpdate(
         { _id: req.params.reservationId },
         {
             reservation_verification: "cancelled"
@@ -232,7 +236,7 @@ router.post('/cancel-reservation/:reservationId', async (req, res) => {
 })
 router.delete('/delete/:reservationId', async (req, res) => {
 
-    await Reservation.reservationModel.deleteOne({ _id: req.params.reservationId }, (err) => {
+    await ReservationModel.reservationModel.deleteOne({ _id: req.params.reservationId }, (err) => {
         if (err) {
             res.send({
                 response: false,

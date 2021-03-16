@@ -29,7 +29,7 @@ class Reservation {
                 })
             } else {
                 cb({
-                    response: false,
+                    response: true,
                     responseData: savedReservation
                 })
             }
