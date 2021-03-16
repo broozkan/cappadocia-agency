@@ -29,10 +29,10 @@ class SectionActivityDetailContent extends Component {
 		return (
 			<div class="container margin_60_35">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-8 order-2">
 						<div className="grid">
-							
 							<SectionActivityGallery />
+
 						</div>
 
 						<section id="description">
@@ -71,7 +71,7 @@ class SectionActivityDetailContent extends Component {
 						</div>
 					</div>
 
-					<aside class="col-lg-4" id="sidebar">
+					<aside class="col-lg-4 order-1" id="sidebar">
 						<FormCheckAvailability />
 						<ButtonGroupShareActivity />
 

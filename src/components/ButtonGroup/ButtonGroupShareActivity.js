@@ -2,13 +2,13 @@ import React from 'react'
 
 
 const ButtonGroupShareActivity = () => {
-    return(
-        <ul class="share-buttons">
-						<li><a class="fb-share" href="#0"><i class="social_facebook"></i> Share</a></li>
-						<li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Tweet</a></li>
-						<li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Share</a></li>
-					</ul>
-    )
+	return (
+		<ul className="share-buttons text-center">
+			<li className=""><a className="fb-share  " href="https://facebook.com/turkeyballoonstour" target="_blank"><i class="fab fa-facebook-f"></i> </a></li>
+			<li className=""><a className="twitter-share " href="https://instagram.com/turkeyballoonscappadocia?igshid=nfo0hsgnutdh" target="_blank"><i class="fab fa-instagram"></i> </a></li>
+			<li className=""><a className="tripadvisor-share " href="https://www.tripadvisor.com.tr/Attraction_Review-g297983-d17310136-Reviews-Reliance_Tour_Travel_Agency-Goreme_Cappadocia.html" target="_blank"><i className="fab fa-tripadvisor"></i> </a></li>
+		</ul>
+	)
 }
 
 

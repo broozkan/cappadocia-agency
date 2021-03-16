@@ -33,15 +33,6 @@ class SectionActivityGallery extends Component {
             const responsive = {
                 0: {
                     items: 1,
-                },
-                450: {
-                    items: 2,
-                },
-                600: {
-                    items: 3,
-                },
-                1000: {
-                    items: 4,
                 }
             }
             carouselHtml = (
@@ -49,10 +40,10 @@ class SectionActivityGallery extends Component {
                     loop={true}
                     margin={10}
                     nav={false}
-                    dots={true}
+                    dots={false}
                     autoplay={true}
                     autoplayTimeout={2000}
-                    items={2}
+                    items={1}
                     responsive={responsive}
                 >
                     {activityMediaListHtml}
@@ -65,7 +56,7 @@ class SectionActivityGallery extends Component {
 
 
         return (
-            <div className="margin_80_0">
+            <div className="">
                 {carouselHtml}
                 <hr className="large"></hr>
             </div>

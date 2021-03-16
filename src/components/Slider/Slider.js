@@ -7,7 +7,7 @@ import { getTranslatedString } from '../../controllers/controller'
 
 const Slider = () => {
 
-  const [isFormVisible, setIsFormVisible] = useState(false)
+  const [isFormVisible, setIsFormVisible] = useState(true)
 
 
   const handleOnClick = () => {

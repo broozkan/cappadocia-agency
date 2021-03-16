@@ -88,6 +88,7 @@ class FormResearchBooking extends Component {
 					<div class="col-lg-4">
 						<div class="form-group">
 							<select class="wide form-control" onChange={this.handleOnChange} name="category_id" value={this.state.category_id}>
+								<option value="" disabled selected>{getTranslatedString('form_research_select_default')}</option>
 								{optionCategoriesHtml}
 							</select>
 							<i class="fa fa-search"></i>
@@ -106,7 +107,12 @@ class FormResearchBooking extends Component {
 								<option value="1">1 {getTranslatedString('form_research_mature')}</option>
 								<option value="2">2 {getTranslatedString('form_research_mature')}</option>
 								<option value="3">3 {getTranslatedString('form_research_mature')}</option>
-								<option value="4">4 {getTranslatedString('form_research_mature')}</option>
+								<option value="5">5 {getTranslatedString('form_research_mature')}</option>
+								<option value="6">6 {getTranslatedString('form_research_mature')}</option>
+								<option value="7">7 {getTranslatedString('form_research_mature')}</option>
+								<option value="8">8 {getTranslatedString('form_research_mature')}</option>
+								<option value="9">9 {getTranslatedString('form_research_mature')}</option>
+								<option value="10">10 {getTranslatedString('form_research_mature')}</option>
 							</select>
 							<i class="fa fa-user"></i>
 						</div>

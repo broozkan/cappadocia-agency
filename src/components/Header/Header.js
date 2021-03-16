@@ -72,13 +72,13 @@ const Header = () => {
         <header className="header menu_fixed">
             <div className="row">
                 <div className="col-lg-12 text-right">
-                    <nav className="main-menu header-top-bar d-xs-none">
+                    <nav className="main-menu header-top-bar">
                         <ul>
-                            <li>
-                                <a href="#" className="text-white"><span><img src={phoneIcon} width="25" />  +90 (536) 212 70 78</span></a>
+                            <li className="d-xs-none">
+                                <a href="tel:+905362127078" className="text-white"><span><img src={phoneIcon} width="25" />  +90 (536) 212 70 78</span></a>
                             </li>
-                            <li>
-                                <a href="#" className="text-white"><span><img src={emailIcon} width="25" />  info@turkeyballoonscappadocia.com</span></a>
+                            <li className="d-xs-none">
+                                <a href="mailto:info@turkeyballoonscappadocia.com" className="text-white"><span><img src={emailIcon} width="25" />  info@turkeyballoonscappadocia.com</span></a>
                             </li>
                             <ListLanguage />
                         </ul>
@@ -94,12 +94,15 @@ const Header = () => {
                     <img src={logo} height="150" alt="" className="logo_normal" />
                     <img src={logo} height="150" alt="" className="logo_sticky" />
                 </a>
+
             </div>
             <ul id="top_menu">
+
                 <li>
                     <a href="#" className="" title="Your wishlist"></a>
                 </li>
             </ul>
+
             <a href="#menu" className="btn_mobile float-right" onClick={handleToggleMobileMenu}>
                 <div className="hamburger hamburger--spin" id="hamburger">
                     <div className="hamburger-box">
@@ -114,7 +117,6 @@ const Header = () => {
                     </div>
                     <div className="col-8">
                         <div className="mobile-menu-header d-none">
-                            <h5>MENU </h5>
                         </div>
                     </div>
                 </div>
@@ -125,16 +127,14 @@ const Header = () => {
 
 
 
-                    <li><span><a href="/hakkimizda">{getTranslatedString('header_commercial')} <span className="fa d-lg-none fa-chevron-down"></span></a></span>
+                    <li>
+                        <span><a href="/hakkimizda">{getTranslatedString('header_commercial')} <span className="fa d-lg-none fa-chevron-down"></span></a></span>
                         <ul>
                             <li><a href="/iletisim">{getTranslatedString('contact')} <span className="fa d-lg-none fa-phone"></span></a></li>
                             <li><a href="/hakkimizda">{getTranslatedString('header_about')} <span className="fa d-lg-none fa-chevron-right"></span></a></li>
                         </ul>
                     </li>
-                    <div className="d-lg-none">
-                        <ListLanguage />
 
-                    </div>
 
                 </ul>
             </nav>

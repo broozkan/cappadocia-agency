@@ -7759,9 +7759,9 @@ ul.share-buttons li a.twitter-share:hover {
 }
 ul.share-buttons li i {
   font-size: 16px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   position: relative;
-  right: 3px;
+  right: 0px;
   top: 2px;
 }
 

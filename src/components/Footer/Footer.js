@@ -1,6 +1,6 @@
 import React from 'react'
 import tursabLogo from '../../images/tursab-logo.png'
-import logo from '../../images/hot-air-balloon.svg'
+import logo from '../../images/logo.png'
 import { getTranslatedString } from '../../controllers/controller'
 import logoBand from '../../images/logo-band.png'
 import phoneIcon from '../../assets/png/smartphone.png'
@@ -15,7 +15,7 @@ const Footer = () => {
             <div class="container margin_60_35">
                 <div class="row">
                     <div class="col-lg-5 col-md-12 p-r-5">
-                        <p><img src={logo} width="250" height="64" alt="" /></p>
+                        <p><img src={logo} height="120" alt="" /></p>
                         <p>{getTranslatedString('footer_p')}</p>
                         <img src={tursabLogo} width="120" height="63" />
                         <div class="follow_us">

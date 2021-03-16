@@ -10,6 +10,7 @@ import SectionAdventureGrid from '../../components/Section/SectionAdventureGrid'
 import ModalLogin from '../../components/Modal/ModalLoginSite'
 import ModalForgetPassword from '../../components/Modal/ModalForgetPassword'
 import SectionFeedbacks from '../../components/Section/SectionFeedbacks'
+import LinkWhatsapp from '../../components/Link/LinkWhatsapp'
 
 const HomeView = () => {
 
@@ -17,6 +18,7 @@ const HomeView = () => {
     return (
         <>
             <main>
+                <LinkWhatsapp />
                 <Slider />
                 <SectionPopularTours />
                 <SectionAdventureGrid />

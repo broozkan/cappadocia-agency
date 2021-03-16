@@ -234,6 +234,11 @@ const translations = {
         "tr": 'Balon turları, özel turlar, eşsiz kapadokya turizmi',
         "en": 'Balloon tours, special tours, unique cappadocia tourism'
     },
+    "form_research_select_default":
+    {
+        "tr": "Lütfen Tur Seçiniz",
+        "en": "Please Select Tour"
+    },
     "form_research_mature":
     {
         "tr": 'Yetişkin',
