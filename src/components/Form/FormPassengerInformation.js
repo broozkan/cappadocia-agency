@@ -55,18 +55,11 @@ class FormPassengerInformation extends Component {
 
 	handleOnChangeMatureForm = (e) => {
 		let maturePassengerInformations = this.state.mature_passengers
-		console.log(e);
-		return false
+
 
 		maturePassengerInformations.map((item, index) => {
 			if (index == e.target.dataset.index) {
-				if (e.target.name == "passenger_phone_number") {
-					item[e.target.name] = e
-
-				} else {
-					item[e.target.name] = e.target.value
-
-				}
+				item[e.target.name] = e.target.value
 			}
 		})
 
@@ -85,7 +78,7 @@ class FormPassengerInformation extends Component {
 	handleOnChangePhoneNumber = (e) => {
 
 		this.setState({
-			passenger_phone_number: e
+			contact_informations_phone_number: e
 		})
 	}
 
@@ -163,21 +156,6 @@ class FormPassengerInformation extends Component {
 		// render mature form
 
 		let matureFormJsx = this.state.mature_passengers.map((item, index) => {
-			let phoneNumberFieldJsx = ''
-			if (index == 0) {
-				phoneNumberFieldJsx = (
-					<>
-						<label>{getTranslatedString('phone_number')} *</label>
-						<PhoneInput
-							placeholder="Enter phone number"
-							data-index={index}
-							value={this.state.passenger_phone_number}
-							name="passenger_phone_number"
-							onChange={this.handleOnChangePhoneNumber}
-						/>
-					</>
-				)
-			}
 
 			return (
 				<>
@@ -231,7 +209,8 @@ class FormPassengerInformation extends Component {
 						</div>
 						<div className="col-lg-4">
 							<div class="form-group ">
-								{phoneNumberFieldJsx}
+								<label>{getTranslatedString('phone_number')} *</label>
+								<input type="text" class="form-control" data-index={index} name="passenger_phone_number" required value={this.state.passenger_phone_number} onChange={this.handleOnChangeMatureForm} />
 							</div>
 						</div>
 					</div>
@@ -270,16 +249,22 @@ class FormPassengerInformation extends Component {
 							</div>
 						</div>
 						<div className="row">
-							<div className="col-lg-4">
-								<div class="form-group ">
-									<label>{getTranslatedString('phone_number')} *</label>
-									<input type="text" class="form-control" name="contact_informations_phone_number" required value={this.state.contact_informations_phone_number} onChange={this.handleOnChange} />
-								</div>
-							</div>
+
 							<div className="col-lg-4">
 								<div class="form-group ">
 									<label>{getTranslatedString('email_address')} *</label>
 									<input type="text" class="form-control" name="contact_informations_email_address" required value={this.state.contact_informations_email_address} onChange={this.handleOnChange} />
+								</div>
+							</div>
+							<div className="col-lg-4">
+								<div class="form-group ">
+									<label>{getTranslatedString('phone_number')} *</label>
+									<PhoneInput
+										placeholder="Enter phone number"
+										value={this.state.contact_informations_phone_number}
+										name="contact_informations_phone_number"
+										onChange={this.handleOnChangePhoneNumber}
+									/>
 								</div>
 							</div>
 
