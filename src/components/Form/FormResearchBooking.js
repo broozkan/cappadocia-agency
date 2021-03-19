@@ -14,7 +14,7 @@ class FormResearchBooking extends Component {
 			categories: [],
 			category_id: '',
 			activity_checkout_date: '',
-			mature_count: '',
+			adult_count: '',
 			child_count: '',
 			is_categories_loaded: false
 		}
@@ -33,7 +33,7 @@ class FormResearchBooking extends Component {
 			this.setState({
 				category_id: urlParams.category_id,
 				activity_checkout_date: urlParams.activity_checkout_date,
-				mature_count: urlParams.mature_count,
+				adult_count: urlParams.adult_count,
 				child_count: urlParams.child_count
 			})
 		} else {
@@ -102,17 +102,17 @@ class FormResearchBooking extends Component {
 					</div>
 					<div class="col-lg-2">
 						<div class="form-group">
-							<select class="wide form-control" name="mature_count" onChange={this.handleOnChange} value={this.state.mature_count}>
-								<option value="" disabled selected>{getTranslatedString('form_research_mature')} {getTranslatedString('form_research_count')}</option>
-								<option value="1">1 {getTranslatedString('form_research_mature')}</option>
-								<option value="2">2 {getTranslatedString('form_research_mature')}</option>
-								<option value="3">3 {getTranslatedString('form_research_mature')}</option>
-								<option value="5">5 {getTranslatedString('form_research_mature')}</option>
-								<option value="6">6 {getTranslatedString('form_research_mature')}</option>
-								<option value="7">7 {getTranslatedString('form_research_mature')}</option>
-								<option value="8">8 {getTranslatedString('form_research_mature')}</option>
-								<option value="9">9 {getTranslatedString('form_research_mature')}</option>
-								<option value="10">10 {getTranslatedString('form_research_mature')}</option>
+							<select class="wide form-control" name="adult_count" onChange={this.handleOnChange} value={this.state.adult_count}>
+								<option value="" disabled selected>{getTranslatedString('form_research_adult')} {getTranslatedString('form_research_count')}</option>
+								<option value="1">1 {getTranslatedString('form_research_adult')}</option>
+								<option value="2">2 {getTranslatedString('form_research_adult')}</option>
+								<option value="3">3 {getTranslatedString('form_research_adult')}</option>
+								<option value="5">5 {getTranslatedString('form_research_adult')}</option>
+								<option value="6">6 {getTranslatedString('form_research_adult')}</option>
+								<option value="7">7 {getTranslatedString('form_research_adult')}</option>
+								<option value="8">8 {getTranslatedString('form_research_adult')}</option>
+								<option value="9">9 {getTranslatedString('form_research_adult')}</option>
+								<option value="10">10 {getTranslatedString('form_research_adult')}</option>
 							</select>
 							<i class="fa fa-user"></i>
 						</div>
