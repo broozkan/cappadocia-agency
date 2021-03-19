@@ -53,7 +53,7 @@ router.post('/new', async (req, res) => {
         basket_activity_date: req.body.basket_activity_date,
         basket_activity_beginning_hour: req.body.basket_activity_beginning_hour,
         basket_activity_ending_hour: req.body.basket_activity_ending_hour,
-        basket_mature_count: req.body.basket_mature_count,
+        basket_adult_count: req.body.basket_adult_count,
         basket_child_count: req.body.basket_child_count,
         basket_total: req.body.basket_total
     })
@@ -89,7 +89,7 @@ router.put('/update/:basketId', async (req, res) => {
             basket_activity_date: req.body.basket_activity_date,
             basket_activity_beginning_hour: req.body.basket_activity_beginning_hour,
             basket_activity_ending_hour: req.body.basket_activity_ending_hour,
-            basket_mature_count: req.body.basket_mature_count,
+            basket_adult_count: req.body.basket_adult_count,
             basket_child_count: req.body.basket_child_count,
             basket_total: req.body.basket_total
         }

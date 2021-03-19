@@ -16,7 +16,7 @@ const basketSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    basket_mature_count: {
+    basket_adult_count: {
         type: Number,
         required: true
     },

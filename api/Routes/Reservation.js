@@ -22,6 +22,11 @@ router.get('/list/:page', async (req, res) => {
             req.query._id = mongoose.Types.ObjectId(req.query._id)
         }
 
+        
+        if (req.query["reservation.pre_reservation_passenger.contact_informations_name"]) {
+            req.query["reservation.pre_reservation_passenger.contact_informations_name"] = { $regex: new RegExp(req.query["reservation.pre_reservation_passenger.contact_informations_name"], "i") }
+        }
+
         if (req.query["reservation_basket.basket_activity._id"]) {
             req.query["reservation_basket.basket_activity._id"] = mongoose.Types.ObjectId(req.query["reservation_basket.basket_activity._id"])
         }
@@ -29,9 +34,10 @@ router.get('/list/:page', async (req, res) => {
     }
 
 
-    const aggregate = ReservationModel.reservationModel.aggregate([{
-        $match: req.query
-    }])
+    const aggregate = ReservationModel.reservationModel.aggregate([
+        { $match: req.query },
+        { $sort: { reservation_query_date: -1 } }
+    ])
 
 
     const options = {
@@ -129,7 +135,7 @@ const newReservation = (reservationData) => {
     //         emailHtml += '<tr style="text-align:center">'
     //         emailHtml += '<td>' + reservationData.reservation.pre_reservation_activity.activity_name + '</td>'
     //         emailHtml += '<td>' + reservationData.reservation.pre_reservation_activity_date + ' / ' + reservationData.reservation.pre_reservation_activity_beginning_hour + '-' + reservationData.reservation.pre_reservation_activity_ending_hour + '</td>'
-    //         emailHtml += '<td>' + reservationData.reservation.pre_reservation_mature_count + '</td>'
+    //         emailHtml += '<td>' + reservationData.reservation.pre_reservation_adult_count + '</td>'
     //         emailHtml += '<td>' + reservationData.reservation.pre_reservation_child_count + '</td>'
     //         emailHtml += '</tr>'
     //         emailHtml += '</tbody>'
