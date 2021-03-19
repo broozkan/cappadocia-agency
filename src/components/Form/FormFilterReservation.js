@@ -15,7 +15,8 @@ class FormFilterReservation extends Component {
 			activities: [],
 			is_activities_loaded: false,
 			reservation_user_name: '',
-			reservation_verification: ''
+			reservation_verification: '',
+			reservation_activity_date: ''
 		}
 
 
@@ -24,7 +25,7 @@ class FormFilterReservation extends Component {
 	}
 
 
-	async componentDidMount(){
+	async componentDidMount() {
 		const categories = await api.get('/category/list/1')
 		const activities = await api.get('/activity/list/1')
 
@@ -51,10 +52,11 @@ class FormFilterReservation extends Component {
 		e.preventDefault()
 
 		const filters = {
-			reservation_user_name: this.state.reservation_user_name,
+			'reservation.pre_reservation_passenger.contact_informations_name': this.state.reservation_user_name,
 			reservation_verification: this.state.reservation_verification,
 			reservation_query_date: this.state.reservation_query_date,
-			"reservation_basket.basket_activity._id": this.state.reservation_activity
+			'reservation.pre_reservation_activity_date': this.state.reservation_activity_date,
+			"reservation_basket.basket_activity._id": this.state.reservation_activity,
 		}
 
 		this.props.getReservations(1, filters)
@@ -66,11 +68,11 @@ class FormFilterReservation extends Component {
 		let categoriesHtml = ''
 		if (this.state.is_categories_loaded) {
 			categoriesHtml = this.state.categories.map((item) => {
-				return(
+				return (
 					<option value={item._id}>{item.category_name}</option>
 				)
 			})
-		}else{
+		} else {
 			categoriesHtml = (
 				<option value="">Kategoriler yükleniyor...</option>
 			)
@@ -89,7 +91,7 @@ class FormFilterReservation extends Component {
 				<option value="">Aktiviteler yükleniyor...</option>
 			)
 		}
-		
+
 		return (
 			<form className="" onSubmit={this.handleOnSubmit}>
 				<div className=" inner-2" style={{ display: 'inline-flex' }}>
@@ -100,11 +102,15 @@ class FormFilterReservation extends Component {
 					<div className="form-group">
 						<label>İşlem tarihi</label>
 						<input className="form-control" type="date" onChange={this.handleOnChange} name="reservation_query_date" value={this.reservation_query_date} />
-						
+					</div>
+
+					<div className="form-group">
+						<label>Aktivitenin Gerçekleşeceği Tarih</label>
+						<input className="form-control" type="date" onChange={this.handleOnChange} name="reservation_activity_date" value={this.reservation_activity_date} />
 					</div>
 					<div className="form-group">
 						<label>Onay Durumu</label>
-						
+
 						<select className="form-control wide" onChange={this.handleOnChange} name="reservation_verification" value={this.reservation_verification}>
 							<option value="">Tüm onay durumları</option>
 							<option value="pending">Onay Bekliyor</option>
@@ -114,7 +120,7 @@ class FormFilterReservation extends Component {
 					</div>
 					<div className="form-group">
 						<label>Aktivite</label>
-						
+
 						<select className="form-control wide" onChange={this.handleOnChange} name="reservation_activity" value={this.reservation_activity}>
 							<option value="">Tüm aktiviteler</option>
 							{activitiesHtml}
