@@ -31,12 +31,12 @@ class BookingItem extends Component {
         if (!this.props.params.child_count) {
             this.props.params.child_count = 0
         }
-        const preReservationTotal = (parseInt(this.props.params.mature_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
+        const preReservationTotal = (parseInt(this.props.params.adult_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
 
         const preReservationData = {
             pre_reservation_activity: this.props.activity,
             pre_reservation_activity_date: this.props.params.activity_checkout_date,
-            pre_reservation_mature_count: this.props.params.mature_count,
+            pre_reservation_adult_count: this.props.params.adult_count,
             pre_reservation_child_count: this.props.params.child_count,
             pre_reservation_activity_beginning_hour: e.target.dataset.beginning_hour,
             pre_reservation_activity_ending_hour: e.target.dataset.ending_hour,
@@ -80,7 +80,7 @@ class BookingItem extends Component {
                                                 "/" + item.quota_info_date +
                                                 "/" + item.quota_info_beginning_hour + "/" +
                                                 item.quota_info_ending_hour + "/" +
-                                                this.props.params.mature_count + "/" +
+                                                this.props.params.adult_count + "/" +
                                                 this.props.params.child_count + "/"
                                             }
                                             class="btn_2 rounded float-right">

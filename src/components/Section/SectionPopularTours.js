@@ -81,7 +81,7 @@ class SectionPopularTours extends Component {
                     <p>{getTranslatedString('popular_tours_p')}</p>
                 </div>
                 {carouselHtml}
-                <p className="btn_home_align"><a href="/seferler?category_id=601b0f2d73ffa82ce46161f4&mature_count=1&child_count=0" className="btn_1 rounded">{getTranslatedString('popular_tours_link')}</a></p>
+                <p className="btn_home_align"><a href="/seferler?category_id=601b0f2d73ffa82ce46161f4&adult_count=1&child_count=0" className="btn_1 rounded">{getTranslatedString('popular_tours_link')}</a></p>
                 <hr className="large"></hr>
             </div>
         )

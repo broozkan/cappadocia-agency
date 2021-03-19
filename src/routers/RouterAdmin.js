@@ -22,6 +22,7 @@ import UpdateActivityView from '../views/admin/UpdateActivityView'
 import { AdminContextWrapper } from '../contexts/site/AdminContext'
 import LoginView from '../views/admin/LoginView'
 import LogoutView from '../views/admin/LogoutView'
+import ReservationDetailView from '../views/admin/ReservationDetailView'
 
 const RouterAdmin = (props) => {
 
@@ -41,6 +42,7 @@ const RouterAdmin = (props) => {
                                 <Route path="/admin/mesajlar" exact component={MessagesView}></Route>
                                 <Route path="/admin/rezervasyonlar" exact component={ReservationsView}></Route>
                                 <Route path="/admin/rezervasyon/yeni" exact component={NewReservationView}></Route>
+                                <Route path="/admin/rezervasyon/detay/:reservationId" exact component={ReservationDetailView}></Route>
                                 <Route path="/admin/degerlendirmeler" exact component={ReviewsView}></Route>
                                 <Route path="/admin/aktiviteler" exact component={ActivitiesView}></Route>
                                 <Route path="/admin/aktivite/yeni" exact component={NewActivityView}></Route>

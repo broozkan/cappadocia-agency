@@ -1,19 +1,7 @@
 import React from 'react'
 import Footer from '../../components/Footer/Footer'
-import NavbarUserProfile from '../../components/Navbar/NavbarUserProfile'
-import UserProfilePageTitle from '../../components/PageTitle/UserProfilePageTitle'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useLocation
-
-} from 'react-router-dom'
-import FormPersonalInformation from '../../components/Form/FormPersonalInformation'
-import TablePreviousPurchases from '../../components/Table/TablePreviousPurchases'
-import FormResetPassword from '../../components/Form/FormResetPassword'
+import logo from '../../images/logo.png'
 import AboutUsPageTitle from '../../components/PageTitle/AboutUsPageTitle'
-import CardAboutUs from '../../components/Card/CardAboutUs'
 import { getTranslatedString } from '../../controllers/controller'
 
 const AboutUsView = () => {
@@ -33,7 +21,7 @@ const AboutUsView = () => {
                             <div class="col-lg-6 wow animated" data-wow-offset="150">
                                 <figure class="block-reveal">
                                     <div class="block-horizzontal"></div>
-                                    <img src="img/about_1.jpg" class="img-fluid" alt="" />
+                                    <img src={logo} class="img-fluid" alt="" />
                                 </figure>
                             </div>
                             <div class="col-lg-5">

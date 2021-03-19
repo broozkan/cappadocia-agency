@@ -22,7 +22,7 @@ const SectionAdventureGrid = () => {
 				</div>
 				<div className="row">
 					<div class="col-xl-6 col-lg-6 col-md-6">
-						<a href="/seferler?category_id=601b0f2d73ffa82ce46161f4&mature_count=1&child_count=0" class="grid_item latest_adventure">
+						<a href="/seferler?category_id=601b0f2d73ffa82ce46161f4&adult_count=1&child_count=0" class="grid_item latest_adventure">
 							<figure>
 								<img src={img} class="img-fluid" alt="" />
 								<div class="info">
@@ -35,7 +35,7 @@ const SectionAdventureGrid = () => {
 					<div className="col-xl-6 col-lg-6 col-md-6">
 						<div className="row">
 							<div class="col-xl-6 col-lg-6 col-md-6">
-								<a href="/seferler?category_id=600d36ef6c804215a8877723&mature_count=1&child_count=0" class="grid_item latest_adventure">
+								<a href="/seferler?category_id=600d36ef6c804215a8877723&adult_count=1&child_count=0" class="grid_item latest_adventure">
 									<figure>
 										<img src={redValley} style={{height: "11rem"}} class="img-fluid" alt="" />
 										<div class="info">
@@ -57,7 +57,7 @@ const SectionAdventureGrid = () => {
 								</a>
 							</div>
 							<div class="col-xl-8 col-lg-6 col-md-6">
-								<a href="/seferler?category_id=600d3cc5d0df7c1a74ed968d&mature_count=1&child_count=0" class="grid_item latest_adventure">
+								<a href="/seferler?category_id=600d3cc5d0df7c1a74ed968d&adult_count=1&child_count=0" class="grid_item latest_adventure">
 									<figure>
 										<img src={img3} class="img-fluid" style={{ height: '275px' }} alt="" />
 										<div class="info">
@@ -68,7 +68,7 @@ const SectionAdventureGrid = () => {
 								</a>
 							</div>
 							<div class="col-xl-4 col-lg-6 col-md-6">
-								<a href="/seferler?category_id=601b0fbc73ffa82ce46161f5&mature_count=1&child_count=0" class="grid_item latest_adventure">
+								<a href="/seferler?category_id=601b0fbc73ffa82ce46161f5&adult_count=1&child_count=0" class="grid_item latest_adventure">
 									<figure>
 										<img src={img4} class="img-fluid" style={{ height: '275px' }} alt="" />
 										<div class="info">

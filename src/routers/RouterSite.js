@@ -40,7 +40,7 @@ const RouterSite = (props) => {
                     <Route path="/aktivite/detay/" exact component={ActivityDetailView}></Route>
                     <Route path="/aktiviteler/" exact component={ActivityListView}></Route>
                     <Route path="/seferler/" exact component={BookingView}></Route>
-                    <Route path="/yolcu-formu/:activityId/:activityDate/:activityBeginningHour/:activityEndingHour/:matureCount/:childCount/" exact component={PassengerFormView}></Route>
+                    <Route path="/yolcu-formu/:activityId/:activityDate/:activityBeginningHour/:activityEndingHour/:adultCount/:childCount/" exact component={PassengerFormView}></Route>
                     <Route path="/odeme/" exact component={PaymentView}></Route>
                     <Route path="/odeme/basarili/:conversationId" exact component={PaymentSuccessView}></Route>
 

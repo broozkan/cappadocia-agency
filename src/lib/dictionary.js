@@ -85,6 +85,16 @@ const translations = {
         "tr": 'kişi başı',
         "en": 'per person'
     },
+    "plan":
+    {
+        "tr": 'Planı',
+        "en": 'Plan'
+    },
+    "additional":
+    {
+        "tr": 'Ek',
+        "en": 'Additional'
+    },
     "basket":
     {
         "tr": 'Sepet',
@@ -239,10 +249,10 @@ const translations = {
         "tr": "Lütfen Tur Seçiniz",
         "en": "Please Select Tour"
     },
-    "form_research_mature":
+    "form_research_adult":
     {
         "tr": 'Yetişkin',
-        "en": 'Mature'
+        "en": 'Adult'
     },
     "form_research_child":
     {
@@ -473,7 +483,7 @@ const translations = {
     "passenger_information_h5_1":
     {
         "tr": "Yetişkin Misafir Bilgileri",
-        "en": "Mature Passenger Informations"
+        "en": "Adult Passenger Informations"
     },
     "gender_placeholder":
     {

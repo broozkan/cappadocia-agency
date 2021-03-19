@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const CardDashboard = () => {
+const CardDashboard = (props) => {
 
     return (
         <div class="col-xl-3 col-sm-6 mb-3">
@@ -10,9 +10,9 @@ const CardDashboard = () => {
                     <div class="card-body-icon">
                         <i class="fa fa-fw fa-envelope-open"></i>
                     </div>
-                    <div class="mr-5"><h5>26 Yeni Rezervasyon!</h5></div>
+                    <div class="mr-5"><h5>{props.title}</h5></div>
                 </div>
-                <a class="card-footer text-white clearfix small z-1" href="messages.html">
+                <a class="card-footer text-white clearfix small z-1" href={props.url}>
                     <span class="float-left">Detay Gör</span>
                     <span class="float-right">
                         <i class="fa fa-angle-right"></i>

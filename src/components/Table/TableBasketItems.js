@@ -58,7 +58,7 @@ class TableBasketItems extends Component {
         if (this.context.state.is_basket_items_loaded) {
             basketItemsHtml = this.context.state.basket_items.map((item) => {
 
-                const totalPassenger = parseInt(item.basket_mature_count) + parseInt(item.basket_child_count)
+                const totalPassenger = parseInt(item.basket_adult_count) + parseInt(item.basket_child_count)
 
                 return (
                     <tr>

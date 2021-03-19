@@ -10,6 +10,7 @@ import FormLeaveReview from '../Form/FormLeaveReview'
 import ReviewContainer from '../Review/ReviewContainer'
 import UnorderedListActionPlan from '../UnorderedList/UnorderedListActionPlan'
 import UnorderedListActivityGallery from '../UnorderedList/UnorderedListActivityGallery'
+import UnorderedListAdditionalInformations from '../UnorderedList/UnorderedListAdditionalInformations'
 import UnorderedListCancellationTerms from '../UnorderedList/UnorderedListCancellationTerms'
 import SectionActivityDetailDescription from './SectionActivityDetailDescription'
 import SectionActivityDetailReview from './SectionActivityDetailReview'
@@ -41,8 +42,11 @@ class SectionActivityDetailContent extends Component {
 							<h5 className="mt-5">{getTranslatedString('cancellation')} &amp; {getTranslatedString('refund')} {getTranslatedString('informations')}</h5>
 							<UnorderedListCancellationTerms />
 
-							<h5 className="mt-5">{getTranslatedString('action')} {getTranslatedString('action')}</h5>
+							<h5 className="mt-5">{getTranslatedString('action')} {getTranslatedString('plan')}</h5>
 							<UnorderedListActionPlan />
+
+							<h5 className="mt-5">{getTranslatedString('additional')} {getTranslatedString('informations')}</h5>
+							<UnorderedListAdditionalInformations />
 						</section>
 						<section id="reviews">
 							<h2>{getTranslatedString('reviews')}</h2>
@@ -71,7 +75,7 @@ class SectionActivityDetailContent extends Component {
 						</div>
 					</div>
 
-					<aside class="col-lg-4 order-1" id="sidebar">
+					<aside class="col-lg-4 order-1 order-md-2" id="sidebar">
 						<FormCheckAvailability />
 						<ButtonGroupShareActivity />
 

@@ -55,7 +55,7 @@ const Header = () => {
     if (state.is_categories_loaded) {
         categoriesHtml = state.categories.map((item) => {
             return (
-                <li><span><a href={"/seferler?category_id=" + item._id + "&mature_count=1&child_count=0"}>{item.category_name} <span className="fa d-lg-none fa-chevron-right"></span></a></span></li>
+                <li><span><a href={"/seferler?category_id=" + item._id + "&adult_count=1&child_count=0"}>{item.category_name} <span className="fa d-lg-none fa-chevron-right"></span></a></span></li>
             )
         })
     }
