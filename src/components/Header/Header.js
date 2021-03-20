@@ -15,7 +15,9 @@ const Header = () => {
     const [mobileMenuState, setMobileMenuState] = useState(false)
     const [state, setState] = useState({
         categories: [],
-        is_categories_loaded: false
+        is_categories_loaded: false,
+        activities: [],
+        is_activities_loaded: false
     })
 
     const commonContext = useContext(CommonContext)
@@ -35,12 +37,19 @@ const Header = () => {
             { params: { category_header_visibility: '1', category_language: localStorage.getItem('language') } }
         )
 
+        const activities = await api.get('/activity/list/1',
+            { params: { activity_language: localStorage.getItem('language') } }
+        )
+
         setState({
             ...state,
             categories: categories.data.docs,
-            is_categories_loaded: true
+            is_categories_loaded: true,
+            activities: activities.data.docs,
+            is_activities_loaded: true
         })
     }
+
 
 
 
@@ -54,8 +63,25 @@ const Header = () => {
     let categoriesHtml = ''
     if (state.is_categories_loaded) {
         categoriesHtml = state.categories.map((item) => {
+
+            let activitiesDropdownJsx = state.activities.map((activityItem) => {
+                if (item._id == activityItem.activity_category[0]._id) {
+                    return (
+                        <li><a href={`/aktivite/detay/?activity=${activityItem._id}`}>{activityItem.activity_name}</a></li>
+                    )
+                }
+            })
             return (
-                <li><span><a href={"/seferler?category_id=" + item._id + "&adult_count=1&child_count=0"}>{item.category_name} <span className="fa d-lg-none fa-chevron-right"></span></a></span></li>
+                <li>
+                    <span>
+                        <a href={"/seferler?category_id=" + item._id + "&adult_count=1&child_count=0"}>{item.category_name}
+                            <span className="fa d-lg-none fa-chevron-right"></span>
+                        </a>
+                    </span>
+                    <ul>
+                        {activitiesDropdownJsx}
+                    </ul>
+                </li>
             )
         })
     }
