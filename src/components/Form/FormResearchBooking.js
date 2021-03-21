@@ -81,6 +81,14 @@ class FormResearchBooking extends Component {
 			)
 		}
 
+		var dtToday = new Date();
+
+		var month = ("0" + (dtToday.getMonth() + 1)).slice(-2)
+		var day = ("0" + dtToday.getDate()).slice(-2)
+		var year = dtToday.getFullYear();
+
+		var maxDate = year + '-' + month + '-' + day;
+
 
 		return (
 			<form className="form-research-booking" method="GET" action="/seferler">
@@ -96,7 +104,7 @@ class FormResearchBooking extends Component {
 					</div>
 					<div className="col-lg-2">
 						<div className="form-group">
-							<input className="form-control" name="activity_checkout_date" type="date" onChange={this.handleOnChange} value={this.state.activity_checkout_date} />
+							<input className="form-control" min={maxDate} name="activity_checkout_date" type="date" onChange={this.handleOnChange} value={this.state.activity_checkout_date} />
 
 						</div>
 					</div>

@@ -10,7 +10,22 @@ class FormCheckAvailability extends Component {
 
 
 	render() {
-		console.log(this.context);
+
+		let categoryId = ''
+
+		if (this.context.activity != '') {
+			categoryId = this.context.activity.activity_category[0]._id
+		}
+
+
+		var dtToday = new Date();
+
+		var month = ("0" + (dtToday.getMonth() + 1)).slice(-2)
+		var day = ("0" + dtToday.getDate()).slice(-2)
+		var year = dtToday.getFullYear();
+
+		var maxDate = year + '-' + month + '-' + day;
+	
 
 
 		return (
@@ -20,8 +35,8 @@ class FormCheckAvailability extends Component {
 						<span>{this.context.activity.activity_price} {this.context.activity.activity_currency} <small>{getTranslatedString('per_person')}</small></span>
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="hidden" name="category_id" value={this.context.activity.activity_category[0]._id} />
-						<input class="form-control" type="date" name="activity_checkout_date" placeholder="Tarih.." />
+						<input class="form-control" type="hidden" name="category_id" value={categoryId} />
+						<input class="form-control" min={maxDate} type="date" name="activity_checkout_date" placeholder="Tarih.." />
 					</div>
 
 
@@ -30,6 +45,10 @@ class FormCheckAvailability extends Component {
 				</div>
 			</form>
 		)
+
+
+
+
 	}
 
 }
