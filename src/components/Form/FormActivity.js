@@ -92,7 +92,7 @@ class FormActivity extends Component {
 	}
 
 	handleOnClickAddMoreQuota = async () => {
-		let quotas = []
+		let quotas = this.state.activity_quota_informations
 
 		let todayDate = new Date(this.context.multipleQuotaInformations.multiple_quota_beginning_date)
 
