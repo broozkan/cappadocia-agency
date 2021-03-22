@@ -16,6 +16,7 @@ class ModalMultipleQuota extends Component {
             multiple_quota_beginning_hour: '',
             multiple_quota_ending_hour: '',
             multiple_quota_quota_count: '',
+            multiple_quota_quota_additional_price: 0,
             multiple_quota_iteration_count: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this)
@@ -122,6 +123,10 @@ class ModalMultipleQuota extends Component {
                             <div class="form-group">
                                 <label>Kontenjan </label>
                                 <input type="number" name="multiple_quota_quota_count" onChange={this.handleOnChange} value={this.state.multiple_quota_quota_count} class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Kontenjan Ek Fiyatı </label>
+                                <input type="number" step=".01" name="multiple_quota_quota_additional_price" onChange={this.handleOnChange} value={this.state.multiple_quota_quota_additional_price} class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label>Gün Sayısı </label>
