@@ -4,9 +4,9 @@ const Iyzipay = require('iyzipay');
 class Payment {
 
     constructor() {
-        this.api_key = 'sandbox-wYjn012xH64ac5xtjIm1RodSFULWrUPy'
-        this.secret_key = 'sandbox-aiGYYYCnhDcCoP1wG2WmePSuyHgx9Ns8'
-        this.uri = 'https://sandbox-api.iyzipay.com'
+        this.api_key = process.env.IYZICO_API_KEY
+        this.secret_key = process.env.IYZICO_SECURITY_KEY
+        this.uri = 'https://api.iyzipay.com'
         this.request = {}
         this.conversation_id = Math.floor((Math.random() * 1000000))
         this.basket_id = Math.floor((Math.random() * 1000000))
@@ -20,97 +20,86 @@ class Payment {
         this.response = {}
     }
 
+    initializePayment(data, cb) {
 
-    setRequest(data) {
+        const passengerInformations = JSON.parse(data.reservation_passengers)
 
-        this.request = {
+        var request = {
             locale: Iyzipay.LOCALE.TR,
-            conversationId: this.conversation_id,
-            price: data.reservation.pre_reservation_total,
-            paidPrice: data.reservation.pre_reservation_total,
+            conversationId: Math.floor(Math.random() * 1000000),
+            price: data.reservation_price,
+            paidPrice: data.reservation_price,
             currency: Iyzipay.CURRENCY.TRY,
-            installment: '1',
-            basketId: this.basket_id,
-            paymentChannel: Iyzipay.PAYMENT_CHANNEL.WEB,
+            basketId: Math.floor(Math.random() * 1000000),
             paymentGroup: Iyzipay.PAYMENT_GROUP.PRODUCT,
-            paymentCard: {
-                cardHolderName: data.payment_cart_name,
-                cardNumber: data.payment_cart_number,
-                expireMonth: data.payment_cart_expiration_month,
-                expireYear: data.payment_cart_expiration_year,
-                cvc: data.payment_cart_ccv,
-                registerCard: '0'
-            },
+            callbackUrl: `${process.env.BACKEND_BASE_URL}/backend/reservation/callback`,
+            enabledInstallments: [2, 3, 6, 9],
             buyer: {
-                id: data.reservation.pre_reservation_passenger.contact_informations_id_number,
-                name: data.reservation.pre_reservation_passenger.passenger_name,
-                surname: data.reservation.pre_reservation_passenger.passenger_surname,
-                gsmNumber: data.reservation.pre_reservation_passenger.passenger_phone_number,
-                email: data.reservation.pre_reservation_passenger.contact_informations_email_address,
-                identityNumber: '74300864791',
+                id: passengerInformations.contact_informations_id_number,
+                name: `${passengerInformations.contact_informations_name} ${passengerInformations.contact_informations_surname}`,
+                surname: passengerInformations.contact_informations_surname,
+                gsmNumber: passengerInformations.contact_informations_phone_number,
+                email: passengerInformations.contact_informations_email_address,
+                identityNumber: passengerInformations.contact_informations_id_number,
                 lastLoginDate: '2015-10-05 12:43:35',
                 registrationDate: '2013-04-21 15:12:09',
-                registrationAddress: data.reservation.pre_reservation_passenger.contact_informations_address,
-                ip: '85.34.78.112',
-                city: 'Nevsehir',
-                country: data.reservation.pre_reservation_passenger.passenger_country,
-                zipCode: '58040'
+                registrationAddress: 'Esentepe Mah. Senyurt Sit. Kat:2',
+                ip: '88.236.188.122',
+                city: 'Istanbul',
+                country: 'Turkey',
+                zipCode: '34394'
             },
             shippingAddress: {
-                contactName: data.reservation.pre_reservation_passenger.passenger_name,
-                city: 'Nevsehir',
-                country: data.reservation.pre_reservation_passenger.passenger_country,
-                address: data.reservation.pre_reservation_passenger.contact_informations_address,
-                zipCode: '58040'
+                contactName: `${passengerInformations.contact_informations_name} ${passengerInformations.contact_informations_surname}`,
+                city: 'Istanbul',
+                country: passengerInformations.adult_passengers[0].passenger_country,
+                address: 'Esentepe Mah. Senyurt Sit. Kat:2',
+                zipCode: '34394'
             },
             billingAddress: {
-                contactName: data.reservation.pre_reservation_passenger.passenger_name,
-                city: 'Nevsehir',
-                country: data.reservation.pre_reservation_passenger.passenger_country,
-                address: data.reservation.pre_reservation_passenger.contact_informations_address,
-                zipCode: '58040'
+                contactName: `${passengerInformations.contact_informations_name} ${passengerInformations.contact_informations_surname}`,
+                city: 'Istanbul',
+                country: passengerInformations.adult_passengers[0].passenger_country,
+                address: 'Esentepe Mah. Senyurt Sit. Kat:2',
+                zipCode: '34394'
             },
             basketItems: [
                 {
-                    id: data.reservation.pre_reservation_activity._id,
-                    name: data.reservation.pre_reservation_activity.activity_name,
-                    category1: data.reservation.pre_reservation_activity.activity_category[0].category_name,
-                    category2: '',
+                    id: "1224335",
+                    name: data.reservation_activity_name,
+                    category1: 'Turlar',
+                    category2: 'Balon Turları',
                     itemType: Iyzipay.BASKET_ITEM_TYPE.PHYSICAL,
-                    price: data.reservation.pre_reservation_total
+                    price: data.reservation_price
                 }
             ]
         };
-    }
 
+        console.log(request);
 
-    executePayment(cb) {
-
-        this.iyzipay.payment.create(this.request, (err, result) => {
-            if (result.status == 'success') {
-                this.response = {
-                    response: true,
-                    responseData: result
-                }
-                // newReservation(data, (result) => {
-                //     if (result) {
-                //         res.send(result)
-                //     }
-                // })
-
-
+        this.iyzipay.checkoutFormInitialize.create(request, function (err, result) {
+            if (err) {
+                cb(err)
             } else {
-                this.response = {
-                    response: false,
-                    responseData: result.errorMessage
-                }
+                cb(result)
             }
-
-            cb(this.response)
-
         });
-
     }
+
+
+    retrieve(data, cb) {
+        this.iyzipay.checkoutForm.retrieve({
+            token: data.token
+        }, function (err, result) {
+            console.log(err, result);
+            if (err) {
+                cb(err)
+            } else {
+                cb(result)
+            }
+        });
+    }
+
 
 
 
@@ -119,3 +108,9 @@ class Payment {
 }
 
 module.exports = Payment
+
+
+
+
+
+

@@ -4515,3 +4515,331 @@ SyntaxError: Unexpected token =
     at Module.require (internal/modules/cjs/loader.js:692:17)
     at require (internal/modules/cjs/helpers.js:25:18)
     at Object.<anonymous> (/home/turkeyba/backend/index.js:10:27)
+(node:2305299) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+(node:2305299) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:2305299) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:2305299) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:2305299) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:2305299) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:2305299) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:2305299) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
+(node:2305299) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:2305299) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 4)
+(node:2305299) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:2305299) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 5)
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:3193605) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:3193605) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 4)
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 5)
+(node:3193605) UnhandledPromiseRejectionWarning: TypeError: Cannot read property 'aggregate' of undefined
+    at router.get (/home/turkeyba/backend/Routes/Reservation.js:31:52)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:281:22
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:354:14)
+    at param (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:410:3)
+    at next (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:317:13)
+    at /home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/turkeyba/nodevenv/backend/10/lib/node_modules/express/lib/router/index.js:335:12)
+(node:3193605) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 6)
+(node:2231906) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/60194456_1720727508029863_4478619066784808960_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/att.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+(node:2274508) DeprecationWarning: Mongoose: `findOneAndUpdate()` and `findOneAndDelete()` without the `useFindAndModify` option set to false are deprecated. See: https://mongoosejs.com/docs/deprecations.html#findandmodify
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/balon-2 (1).jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/balon-2 (1).jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/balon-2 (1).jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/balon-2 (1).jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/balon-2 (1).jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/33839322_2079182978996680_3092367111566131200_n.jpg'
+Error: ENOENT: no such file or directory, stat '/home/turkeyba/backend/public/images/b7df17505771492490363c4fc1cfcaeb.jpg'

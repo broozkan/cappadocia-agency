@@ -22,7 +22,7 @@ router.get('/list/:page', async (req, res) => {
             req.query._id = mongoose.Types.ObjectId(req.query._id)
         }
 
-        
+
         if (req.query["reservation.pre_reservation_passenger.contact_informations_name"]) {
             req.query["reservation.pre_reservation_passenger.contact_informations_name"] = { $regex: new RegExp(req.query["reservation.pre_reservation_passenger.contact_informations_name"], "i") }
         }
@@ -61,40 +61,53 @@ router.get('/get/:reservationId', async (req, res) => {
 
 router.post('/new', async (req, res) => {
 
-    if (req.body.payment_method == "online") {
 
-        // first take payment
-        const payment = new Payment()
-        payment.setRequest(req.body)
-        payment.executePayment((result) => {
-            if (result.response == true) {
+    if (req.body.reservation_payment_method == "online") {
 
-                // then save reservation
-                const reservation = new Reservation(req.body.reservation, req.body.payment_method)
-                reservation.save((result) => {
-                    console.log(result);
-                    res.send(result)
-                })
-            } else {
-                res.send(result)
-            }
+        // then save reservation
+        const reservation = new Reservation(req.body.reservation, req.body.reservation_payment_method)
+        reservation.save((result) => {
+            console.log(result);
+            res.send(result)
         })
     } else {
 
-        const reservation = new Reservation(req.body.reservation, req.body.payment_method)
+        const reservation = new Reservation(req.body.reservation, req.body.reservation_payment_method)
         reservation.save((result) => {
             res.send(result)
         })
 
     }
+})
 
 
+router.get('/initialize', async (req, res) => {
 
+    const payment = new Payment()
 
-
-
+    payment.initializePayment(req.query, (result) => {
+        res.send(result)
+    })
 
 })
+
+
+router.post('/callback', async (req, res) => {
+
+    const payment = new Payment()
+    payment.retrieve(req.body, (result) => {
+        if (result.paymentStatus == 'SUCCESS') {
+
+
+
+            res.redirect(`${process.env.FRONTEND_BASE_URL}/odeme/basarili`)
+        } else {
+            res.redirect(`${process.env.FRONTEND_BASE_URL}/odeme/basarisiz/${result.errorMessage}`)
+        }
+    })
+
+})
+
 
 
 const newReservation = (reservationData) => {
