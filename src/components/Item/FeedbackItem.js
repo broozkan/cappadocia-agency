@@ -7,7 +7,7 @@ const FeedbackItem = (props) => {
         <div class="item">
             <a href="#0">
                 <h4>{props.comment.comment_author}</h4>
-                <blockquote>"{props.comment.comment}"</blockquote>
+                <blockquote>"{props.comment.comment[localStorage.getItem('language')]}"</blockquote>
             </a>
         </div>
     )

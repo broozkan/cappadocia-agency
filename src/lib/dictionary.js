@@ -377,8 +377,8 @@ const translations = {
     },
     "parallax_p":
     {
-        "tr": "Uzman rehberlerimiz ile deneyiminizi en üst noktaya taşıyın",
-        "en": "Take your experiment to top with our expert guides"
+        "tr": "Kapadokya turları ile rehber eşliğinde eşsiz güzellikleri keşfedin.Kapadokya’nın büyülü manzaralarını, Gün doğumunda Kapadokya Balon turu ile deneyimleyin. Kapadokya vadilerini atv turları ile doğal güzelliklerin keyfini çıkarın.En güvenilir ve hesaplı fiyat garantisi ile kaliteli hizmet için iletişime geçin, yerinizi ayırtın.",
+        "en": "Discover the unique beauty of Cappadocia with a guide with Cappadocia tours. Experience the magical landscapes of Cappadocia with the Cappadocia Balloon tour at sunrise. Enjoy the natural beauty of Cappadocia valleys with cappadocia ATV tours. Contact us and book your place for quality service with the most reliable and affordable price guarantee."
     },
     "parallax_call":
     {

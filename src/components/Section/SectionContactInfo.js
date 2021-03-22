@@ -9,7 +9,7 @@ const SectionContactInfo = () => {
 					<li>
 						<i class="pe-7s-map-marker"></i>
 						<h4>{getTranslatedString('address')}</h4>
-						<span>Yahya Bey Cad. 58-48. Sk.<br></br>Ürgüp - Nevşehir</span>
+						<span>Aydınlı Orta Mahalle Kasabası Uzun Dere Cd. No: 15/1 50180<br></br>Göreme - Nevşehir</span>
 					</li>
 					<li>
 						<i class="pe-7s-mail-open-file"></i>

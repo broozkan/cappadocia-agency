@@ -40,7 +40,8 @@ class FormPayment extends Component {
             reservation_passengers: parsedPreReservation.pre_reservation_passenger,
             reservation_activity_currency: parsedPreReservation.pre_reservation_activity.activity_currency,
             reservation_activity_name: parsedPreReservation.pre_reservation_activity.activity_name,
-            reservation_activity_id: parsedPreReservation.pre_reservation_activity.activity_id
+            reservation_activity_id: parsedPreReservation.pre_reservation_activity.activity_id,
+            reservation_currency: parsedPreReservation.pre_reservation_activity.activity_currency
         }
 
         const response = await api.get('/reservation/initialize', { params: reservation })
