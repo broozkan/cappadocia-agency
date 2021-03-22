@@ -42,7 +42,7 @@ const RouterSite = (props) => {
                     <Route path="/seferler/" exact component={BookingView}></Route>
                     <Route path="/yolcu-formu/:activityId/:activityDate/:activityBeginningHour/:activityEndingHour/:adultCount/:childCount/" exact component={PassengerFormView}></Route>
                     <Route path="/odeme/" exact component={PaymentView}></Route>
-                    <Route path="/odeme/basarili/:conversationId" exact component={PaymentSuccessView}></Route>
+                    <Route path="/odeme/basarili/:paymentMethod?" exact component={PaymentSuccessView}></Route>
 
                     <Route path="/kayit/" exact component={RegisterView}></Route>
                     <Route path="/parola-sifirla/" exact component={ResetPasswordView}></Route>

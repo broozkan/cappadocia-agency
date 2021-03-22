@@ -19,10 +19,32 @@ class BookingItem extends Component {
 
         this.state = {
             reservated_activity_beginning_hour: '',
-            reservated_activity_ending_hour: ''
+            reservated_activity_ending_hour: '',
+            adult_count: 1,
+            child_count: 0
+
         }
 
         this.handleOnClickAddToBasket = this.handleOnClickAddToBasket.bind(this)
+    }
+
+
+    componentDidMount() {
+        let adultCount = 1
+        let childCount = 0
+        if (this.props.params.adult_count) {
+            adultCount = this.props.params.adult_count
+        }
+
+        if (this.props.params.child_count) {
+            childCount = this.props.params.child_count
+        }
+
+
+        this.setState({
+            adult_count: adultCount,
+            child_count: childCount
+        })
     }
 
 
@@ -31,13 +53,13 @@ class BookingItem extends Component {
         if (!this.props.params.child_count) {
             this.props.params.child_count = 0
         }
-        const preReservationTotal = (parseInt(this.props.params.adult_count) + parseInt(this.props.params.child_count)) * e.target.dataset.activity_price
+        const preReservationTotal = (parseInt(this.state.adult_count) + parseInt(this.state.child_count)) * e.target.dataset.activity_price
 
         const preReservationData = {
             pre_reservation_activity: this.props.activity,
             pre_reservation_activity_date: this.props.params.activity_checkout_date,
-            pre_reservation_adult_count: this.props.params.adult_count,
-            pre_reservation_child_count: this.props.params.child_count,
+            pre_reservation_adult_count: this.state.adult_count,
+            pre_reservation_child_count: this.state.child_count,
             pre_reservation_activity_beginning_hour: e.target.dataset.beginning_hour,
             pre_reservation_activity_ending_hour: e.target.dataset.ending_hour,
             pre_reservation_total: preReservationTotal
@@ -52,11 +74,13 @@ class BookingItem extends Component {
     render() {
 
 
+
         // render quota informations
         let quotaInformationHtml = ''
         quotaInformationHtml = this.props.activity.activity_quota_informations.map((item) => {
 
             if (item.quota_info_date == this.props.params.activity_checkout_date) {
+                console.log(item.quota_additional_price);
                 return (
                     <>
                         <div class="box_list isotope-item popular">
@@ -73,15 +97,15 @@ class BookingItem extends Component {
                                             data-activity_id={this.props.activity._id}
                                             data-beginning_hour={item.quota_info_beginning_hour}
                                             data-ending_hour={item.quota_info_ending_hour}
-                                            data-activity_price={this.props.activity.activity_price}
+                                            data-activity_price={parseFloat(this.props.activity.activity_price) + parseFloat(item.quota_additional_price)}
                                             onClick={this.handleOnClickAddToBasket}
                                             href={
                                                 "/yolcu-formu/" + this.props.activity._id +
                                                 "/" + item.quota_info_date +
                                                 "/" + item.quota_info_beginning_hour + "/" +
                                                 item.quota_info_ending_hour + "/" +
-                                                this.props.params.adult_count + "/" +
-                                                this.props.params.child_count + "/"
+                                                this.state.adult_count + "/" +
+                                                this.state.child_count + "/"
                                             }
                                             class="btn_2 rounded float-right">
                                             {getTranslatedString('booking_item_make_reservation')}
@@ -97,7 +121,7 @@ class BookingItem extends Component {
                                                     <li className="float-left" > <a href={"/aktivite/detay/?activity=" + this.props.activity._id}>{getTranslatedString('tour_item_show_details')} <span className="fa fa-chevron-right"></span> </a></li>
                                                 </div>
                                                 <div className="col-lg-4">
-                                                    <span class="price-lg"><strong>{this.props.activity.activity_price} {this.props.activity.activity_currency}</strong> / {getTranslatedString('per_person')}</span>
+                                                    <span class="price-lg"><strong>{parseFloat(this.props.activity.activity_price) + parseFloat(item.quota_additional_price)} {this.props.activity.activity_currency}</strong> / {getTranslatedString('per_person')}</span>
                                                 </div>
                                             </div>
 

@@ -7,6 +7,7 @@ import AsideTotalPayment from '../Aside/AsideTotalPayment'
 import ElementScore from '../Element/ElementScore'
 import MessageExistingCustomer from '../Message/MessageExistingCustomer'
 import payWithIyzico from '../../images/iyzico_ile_ode.png'
+import InnerHTML from 'dangerously-set-html-content'
 
 
 class FormPayment extends Component {
@@ -21,24 +22,41 @@ class FormPayment extends Component {
             payment_cart_number: '',
             payment_cart_expiration_month: '',
             payment_cart_expiration_year: '',
-            payment_cart_ccv: ''
+            payment_cart_ccv: '',
+            payment_form_html: '',
+            is_payment_form_loaded: false,
+            conversation_id: ''
         }
 
         this.handleOnChange = this.handleOnChange.bind(this)
         this.handleOnSubmit = this.handleOnSubmit.bind(this)
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+        const parsedPreReservation = JSON.parse(localStorage.getItem('pre_reservation_data'))
 
+        const reservation = {
+            reservation_price: parsedPreReservation.pre_reservation_total,
+            reservation_passengers: parsedPreReservation.pre_reservation_passenger,
+            reservation_activity_currency: parsedPreReservation.pre_reservation_activity.activity_currency,
+            reservation_activity_name: parsedPreReservation.pre_reservation_activity.activity_name,
+            reservation_activity_id: parsedPreReservation.pre_reservation_activity.activity_id
+        }
+
+        const response = await api.get('/reservation/initialize', { params: reservation })
+
+        this.setState({
+            payment_form_html: response.data.checkoutFormContent,
+            is_payment_form_loaded: true,
+            conversation_id: response.data.conversationId
+        })
     }
 
     handleOnChange(e) {
 
         if (e.target.type === "checkbox") {
             if (e.target.value == "cash") {
-                this.setState({
-                    payment_method: 'online'
-                })
+                window.location.reload()
             } else {
                 this.setState({
                     payment_method: 'cash'
@@ -58,7 +76,7 @@ class FormPayment extends Component {
 
         const data = {
             reservation: this.context.preReservation,
-            payment_method: this.state.payment_method,
+            reservation_payment_method: this.state.payment_method,
             payment_cart_name: this.state.payment_cart_name,
             payment_cart_number: this.state.payment_cart_number,
             payment_cart_expiration_month: this.state.payment_cart_expiration_month,
@@ -66,10 +84,10 @@ class FormPayment extends Component {
             payment_cart_ccv: this.state.payment_cart_ccv
         }
 
-        const submitResponse = await api.post('/reservation/new', data, { headers: { 'site-token': localStorage.getItem('site-auth') } })
+        const submitResponse = await api.post('/reservation/new', data)
 
         if (submitResponse.data.response) {
-            window.location.href = '/odeme/basarili/' + submitResponse.data.conversationId + ''
+            window.location.href = '/odeme/basarili/cash'
         } else {
             Swal.fire({
                 title: 'Hata',
@@ -81,75 +99,38 @@ class FormPayment extends Component {
     }
 
     render() {
-        console.log(this.context);
 
-        console.log(this.state);
-
+        let paymentFormJsx = ''
+        let asideJsx = ''
         // render card form html according to payment method
-        let paymentFieldHtml = ''
         if (this.state.payment_method == "cash") {
-            paymentFieldHtml = (
+            asideJsx = (
+                <AsideTotalPayment />
+            )
+            paymentFormJsx = (
                 <div className="form-group">
                     <h5> <span className="fa fa-warning"></span> {getTranslatedString('form_payment_cash_description')}</h5>
 
                 </div>
             )
         } else {
-            paymentFieldHtml = (
-                <>
-                    <div class="form-group">
-                        <label>{getTranslatedString('form_payment_name_on_card')} *</label>
-                        <input type="text" class="form-control" required onChange={this.handleOnChange} id="payment_cart_name" name="payment_cart_name" />
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="form-group">
-                                <label>{getTranslatedString('card_number')} *</label>
-                                <input type="text" id="payment_cart_number" name="payment_cart_number" class="form-control" required onChange={this.handleOnChange} />
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <img src="img/cards_all.svg" alt="Cards" class="cards-payment" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label>{getTranslatedString('expirement_date')} *</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" id="payment_cart_expiration_month" name="payment_cart_expiration_month" class="form-control" required onChange={this.handleOnChange} placeholder="MM" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" id="payment_cart_expiration_year" name="payment_cart_expiration_year" class="form-control" required onChange={this.handleOnChange} placeholder="Yıl" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>CCV *</label>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <input type="text" id="ccv" name="payment_cart_ccv" class="form-control" required onChange={this.handleOnChange} placeholder="CCV" />
-                                        </div>
-                                    </div>
-                                    <div class="col-8">
-                                        <img src="img/icon_ccv.gif" width="50" height="29" alt="ccv" /><small>3 haneli kod</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </>
-            )
+
+            if (this.state.is_payment_form_loaded) {
+                paymentFormJsx = (
+                    <>
+                        <div id="iyzipay-checkout-form" class="responsive"></div>
+
+                        <InnerHTML html={this.state.payment_form_html} />
+                    </>
+                )
+            } else {
+                paymentFormJsx = <span className="fa fa-3x fa-spinner fa-spin"> </span>
+            }
         }
 
+
         return (
-            <form method="POST" onSubmit={this.handleOnSubmit}>
+            <form method="POST" onSubmit={this.handleOnSubmit} >
                 <div class="row" style={{ transform: 'none' }}>
 
 
@@ -168,10 +149,7 @@ class FormPayment extends Component {
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                {paymentFieldHtml}
-
-
-
+                                {paymentFormJsx}
                             </div>
 
 
@@ -180,7 +158,7 @@ class FormPayment extends Component {
                         </div>
                     </div>
 
-                    <AsideTotalPayment />
+                    {asideJsx}
                 </div>
                 <div className="row">
                     <div className="col-lg-12">

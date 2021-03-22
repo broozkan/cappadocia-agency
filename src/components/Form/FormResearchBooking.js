@@ -14,8 +14,8 @@ class FormResearchBooking extends Component {
 			categories: [],
 			category_id: '',
 			activity_checkout_date: '',
-			adult_count: '',
-			child_count: '',
+			adult_count: 1,
+			child_count: 0,
 			is_categories_loaded: false
 		}
 

@@ -11,17 +11,17 @@ import RouterMain from './routers/RouterMain';
 
 function App() {
 
-  useEffect(()=>{
+  useEffect(() => {
 
     const currentLanguage = localStorage.getItem('language')
 
-    if(!currentLanguage){
-      localStorage.setItem('language','tr')
+    if (!currentLanguage) {
+      localStorage.setItem('language', 'tr')
       window.location.reload()
     }
-    
-    
-  },[])
+
+
+  }, [])
 
   return (
     <div className="body-inner">

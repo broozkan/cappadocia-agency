@@ -110,7 +110,8 @@ class FormActivity extends Component {
 				quota_info_date: quotaInfoDate,
 				quota_info_beginning_hour: this.context.multipleQuotaInformations.multiple_quota_beginning_hour,
 				quota_info_ending_hour: this.context.multipleQuotaInformations.multiple_quota_ending_hour,
-				quota: this.context.multipleQuotaInformations.multiple_quota_quota_count
+				quota: this.context.multipleQuotaInformations.multiple_quota_quota_count,
+				quota_additional_price: this.context.multipleQuotaInformations.multiple_quota_quota_additional_price
 			})
 
 			this.setState({
@@ -399,7 +400,8 @@ class FormActivity extends Component {
 			quota_info_date: '',
 			quota_info_beginning_hour: '',
 			quota_info_ending_hour: '',
-			quota: ''
+			quota: '',
+			quota_additional_price: 0
 		})
 
 		this.setState({
@@ -537,7 +539,7 @@ class FormActivity extends Component {
 		let quotaInfoHtml = this.state.activity_quota_informations.map((item, index) => {
 			return (
 				<div className="row">
-					<div className="col-md-4">
+					<div className="col-md-3">
 						<div class="form-group">
 							<label>Tarih *</label>
 							<input type="date" class="form-control" required name="quota_info_date" data-index={index} value={item.quota_info_date} onChange={this.handleOnChangeQuotaInfo} placeholder="Aktivite kısa açıklaması giriniz" />
@@ -607,6 +609,12 @@ class FormActivity extends Component {
 						<div class="form-group">
 							<label>Kontenjan *</label>
 							<input type="number" class="form-control" required name="quota" data-index={index} value={item.quota} onChange={this.handleOnChangeQuotaInfo} placeholder="Kontenjan giriniz" />
+						</div>
+					</div>
+					<div className="col-md-1">
+						<div class="form-group">
+							<label>Ek Fiyat *</label>
+							<input type="number" step=".01" class="form-control" required name="quota_additional_price" data-index={index} value={item.quota_additional_price} onChange={this.handleOnChangeQuotaInfo} placeholder="Kontenjan ek fiyatını giriniz" />
 						</div>
 					</div>
 					<div className="col-md-1">
