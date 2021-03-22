@@ -23,13 +23,19 @@ class Payment {
     initializePayment(data, cb) {
 
         const passengerInformations = JSON.parse(data.reservation_passengers)
+        let currency = Iyzipay.CURRENCY.TRY
+        if (data.reservation_currency == "$") {
+            currency = Iyzipay.CURRENCY.USD
+        } else if (data.reservation_currency == "€") {
+            currency = Iyzipay.CURRENCY.EUR
+        }
 
         var request = {
             locale: Iyzipay.LOCALE.TR,
             conversationId: Math.floor(Math.random() * 1000000),
             price: data.reservation_price,
             paidPrice: data.reservation_price,
-            currency: Iyzipay.CURRENCY.TRY,
+            currency: currency,
             basketId: Math.floor(Math.random() * 1000000),
             paymentGroup: Iyzipay.PAYMENT_GROUP.PRODUCT,
             callbackUrl: `${process.env.BACKEND_BASE_URL}/backend/reservation/callback`,
