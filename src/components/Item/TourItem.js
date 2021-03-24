@@ -24,8 +24,8 @@ class TourItem extends Component {
             <span className="price"><strong>{this.props.activity.activity_price} {this.props.activity.activity_currency}</strong> / {getTranslatedString('per_person')}</span>
           </div>
           <ul>
-            <li><i className="icon_clock_alt"></i> 1s 30dk</li>
-            <li><div className="score"><span>Çok İyi<em>350 Değerlendirme</em></span><strong>9.0</strong></div></li>
+            <li><i className="icon_clock_alt"></i> {this.props.activity.activity_duration}</li>
+            <li><div className="score"><span>{this.props.activity.activity_rating_text}<em>{this.props.activity.activity_view_count} {getTranslatedString('review')}</em></span><strong>{this.props.activity.activity_rating}</strong></div></li>
           </ul>
         </div>
       </div>

@@ -28,6 +28,10 @@ class FormActivity extends Component {
 			activity_action_plan: [],
 			activity_additional_informations: [],
 			activity_quota_informations: [],
+			activity_duration: '',
+			activity_view_count: 0,
+			activity_rating: 10,
+			activity_rating_text: 'Çok İyi',
 			categories: [],
 			is_form_submitting: false,
 			multiple_quota_modal_visibility: false,
@@ -61,7 +65,11 @@ class FormActivity extends Component {
 			activity_cancellation_terms: activity.data.activity_cancellation_terms,
 			activity_action_plan: activity.data.activity_action_plan,
 			activity_additional_informations: activity.data.activity_additional_informations,
-			activity_quota_informations: activity.data.activity_quota_informations
+			activity_quota_informations: activity.data.activity_quota_informations,
+			activity_duration: activity.data.activity_duration,
+			activity_view_count: activity.data.activity_view_count,
+			activity_rating: activity.data.activity_rating,
+			activity_rating_text: activity.data.activity_rating_text
 		})
 	}
 
@@ -691,6 +699,22 @@ class FormActivity extends Component {
 					<div class="form-group">
 						<label>Aktivite Fiyatı <sup>Kişi başı fiyat giriniz</sup> </label>
 						<input type="number" step=".01" class="form-control" name="activity_price" value={this.state.activity_price} onChange={this.handleOnChange} placeholder="Aktivite fiyatı giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Ortalama Süresi * <sup>Örn: 1sa 30dk</sup> </label>
+						<input type="text" required class="form-control" name="activity_duration" value={this.state.activity_duration} onChange={this.handleOnChange} placeholder="Aktivite süresi giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Değerlendirme Sayısı * </label>
+						<input type="number" required class="form-control" name="activity_view_count" value={this.state.activity_view_count} onChange={this.handleOnChange} placeholder="Aktivite değerlendirme sayısı giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Değerlendirme Derecesi <sup>1-10 arası bir değer</sup> </label>
+						<input type="number" step=".01" class="form-control" name="activity_rating" value={this.state.activity_rating} onChange={this.handleOnChange} placeholder="Aktivite değerlendirme derecesi giriniz" />
+					</div>
+					<div class="form-group">
+						<label>Aktivite Değerlendirme Derecesi Yazısı <sup>Örn: Çok İyi</sup> </label>
+						<input type="text" class="form-control" name="activity_rating_text" value={this.state.activity_rating_text} onChange={this.handleOnChange} placeholder="Aktivite değerlendirme derecesi yazısı giriniz" />
 					</div>
 					<div class="form-group">
 						<label>Aktivite Detaylı Açıklaması</label>
