@@ -85,6 +85,11 @@ const translations = {
         "tr": 'kişi başı',
         "en": 'per person'
     },
+    "review":
+    {
+        "tr": 'Değerlendirme',
+        "en": 'Review'
+    },
     "plan":
     {
         "tr": 'Planı',
@@ -579,6 +584,11 @@ const translations = {
     {
         "tr": "Mesafeli satış sözleşmesini",
         "en": "Sale contract"
+    },
+    "sale_contract":
+    {
+        "tr": "Mesafeli satış sözleşmesi",
+        "en": "DISTANCE SALES AGREEMENT"
     },
     "form_payment_accept_contract":
     {

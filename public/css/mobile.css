@@ -65,6 +65,9 @@
     .main-menu ul li:hover>ul a {
         color: black;
     }
+    .isotope-wrapper{
+        height: auto!important;
+    }
     .d-xs-none {
         display: none!important;
     }
