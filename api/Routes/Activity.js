@@ -111,7 +111,12 @@ router.post('/new', MultipartyMiddleware, async (req, res) => {
         activity_cancellation_terms: req.body.activity_cancellation_terms,
         activity_action_plan: req.body.activity_action_plan,
         activity_additional_informations: req.body.activity_additional_informations,
-        activity_quota_informations: req.body.activity_quota_informations
+        activity_quota_informations: req.body.activity_quota_informations,
+        activity_duration: req.body.activity_duration,
+        activity_view_count: req.body.activity_view_count,
+        activity_rating: req.body.activity_rating,
+        activity_rating_text: req.body.activity_rating_text
+
     })
 
     const savedActivity = activity.save((err) => {
@@ -186,7 +191,11 @@ router.put('/update/:activityId', MultipartyMiddleware, async (req, res) => {
             activity_cancellation_terms: req.body.activity_cancellation_terms,
             activity_action_plan: req.body.activity_action_plan,
             activity_additional_informations: req.body.activity_additional_informations,
-            activity_quota_informations: req.body.activity_quota_informations
+            activity_quota_informations: req.body.activity_quota_informations,
+            activity_duration: req.body.activity_duration,
+            activity_view_count: req.body.activity_view_count,
+            activity_rating: req.body.activity_rating,
+            activity_rating_text: req.body.activity_rating_text
         }
         , (err, updatedActivity) => {
             if (err) {

@@ -48,6 +48,10 @@ const activitySchema = mongoose.Schema({
         type: Array,
         required: false
     },
+    activity_duration: {
+        type: String,
+        required: [true, "Aktivite süresi zorunludur"]
+    },
     activity_view_count: {
         type: Number,
         min: 0,
