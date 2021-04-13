@@ -3,7 +3,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useLocation
+    useLocation,
+    useRouteMatch
 
 } from 'react-router-dom'
 import RouterSite from './RouterSite'
@@ -15,18 +16,29 @@ const RouterMain = (props) => {
     console.log(location);
     location = location.pathname.split("/")
 
-    
-    if(location[1] === "admin"){
-        return(
+    const routeMatch = useRouteMatch()
+    console.log(routeMatch);
+    if (routeMatch.params.language) {
+        if (localStorage.getItem('language') != routeMatch.params.language) {
+            localStorage.setItem('language', routeMatch.params.language)
+            window.location.reload()
+
+        }
+    }
+
+    console.log(location);
+
+    if (location[1] === "admin") {
+        return (
             <RouterAdmin />
         )
-    }else{
+    } else {
         return (
             <RouterSite />
         )
     }
-    
-    
+
+
 
 }
 

@@ -3,20 +3,24 @@ import { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
-
+  Route
 } from 'react-router-dom'
 import RouterMain from './routers/RouterMain';
 
 function App() {
 
-  useEffect(() => {
 
+  useEffect(() => {
     const currentLanguage = localStorage.getItem('language')
 
+    var userLang = navigator.language || navigator.userLanguage;
+
+
     if (!currentLanguage) {
-      localStorage.setItem('language', 'tr')
+      let userLang = navigator.language || navigator.userLanguage;
+      userLang = userLang.split("-")
+
+      localStorage.setItem('language', userLang[0])
       window.location.reload()
     }
 

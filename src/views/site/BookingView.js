@@ -111,7 +111,7 @@ class BookingView extends Component {
                             <hr></hr>
                             
                         </div>
-                        <div className="isotope-wrapper mt-1" style={{ position: 'relative', height: '1700px' }}>
+                        <div className="isotope-wrapper mt-1" style={{ position: 'relative', height: 'auto' }}>
                             {resultsHtml}
                         </div>
                     </div>

@@ -25,12 +25,14 @@ class Reservation {
             if (err) {
                 cb({
                     response: false,
-                    responseData: err.message
+                    responseData: err.message,
+                    status: 400
                 })
             } else {
                 cb({
                     response: true,
-                    responseData: savedReservation
+                    responseData: savedReservation,
+                    status: 201
                 })
             }
         })

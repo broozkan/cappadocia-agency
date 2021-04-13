@@ -7,6 +7,7 @@ const { sendEmail } = require('../Controllers/Controller')
 const Payment = require('../Classes/Payment')
 const Reservation = require('../Classes/Reservation')
 const ReservationModel = require('../Models/Reservation')
+const Email = require('../Classes/Email')
 
 
 // get reservation list
@@ -67,13 +68,23 @@ router.post('/new', async (req, res) => {
         // then save reservation
         const reservation = new Reservation(req.body.reservation, req.body.reservation_payment_method)
         reservation.save((result) => {
-            console.log(result);
+
             res.send(result)
         })
     } else {
 
         const reservation = new Reservation(req.body.reservation, req.body.reservation_payment_method)
         reservation.save((result) => {
+
+            if (result.status != 400) {
+                const email = new Email(
+                    req.body.reservation.pre_reservation_passenger.contact_informations_email_address,
+                    "Rezervasyon Bilgileri | turkeyballoonscappadocia.com"
+                )
+                email.setReservation(req.body.reservation)
+                email.setReservationText()
+                
+            }
             res.send(result)
         })
 
